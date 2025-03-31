@@ -3090,7 +3090,7 @@ vertical-align: -.125em;
   <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import data</a></li>
   <li><a href="#explore-data" id="toc-explore-data" class="nav-link" data-scroll-target="#explore-data">Explore data</a></li>
   <li><a href="#subset-data" id="toc-subset-data" class="nav-link" data-scroll-target="#subset-data">Subset data</a></li>
-  <li><a href="#hpr-adj" id="toc-hpr-adj" class="nav-link" data-scroll-target="#hpr-adj">HPR adj</a></li>
+  <li><a href="#hpr-adj" id="toc-hpr-adj" class="nav-link" data-scroll-target="#hpr-adj">HPR (adj)</a></li>
   <li><a href="#monthly-ret" id="toc-monthly-ret" class="nav-link" data-scroll-target="#monthly-ret">Monthly ret</a></li>
   <li><a href="#forecasting" id="toc-forecasting" class="nav-link" data-scroll-target="#forecasting">Forecasting</a></li>
   <li><a href="#hpr-adj-diy" id="toc-hpr-adj-diy" class="nav-link" data-scroll-target="#hpr-adj-diy">HPR adj (DIY)</a></li>
@@ -3106,8 +3106,8 @@ vertical-align: -.125em;
   <li><a href="#sharpe" id="toc-sharpe" class="nav-link" data-scroll-target="#sharpe">Sharpe</a></li>
   <li><a href="#sortino" id="toc-sortino" class="nav-link" data-scroll-target="#sortino">Sortino</a></li>
   <li><a href="#var-direct" id="toc-var-direct" class="nav-link" data-scroll-target="#var-direct">VaR direct</a></li>
-  <li><a href="#var-normal" id="toc-var-normal" class="nav-link" data-scroll-target="#var-normal">VaR normal</a></li>
-  <li><a href="#es" id="toc-es" class="nav-link" data-scroll-target="#es">ES</a></li>
+  <li><a href="#var-normal-diy" id="toc-var-normal-diy" class="nav-link" data-scroll-target="#var-normal-diy">VaR normal (DIY)</a></li>
+  <li><a href="#es-diy" id="toc-es-diy" class="nav-link" data-scroll-target="#es-diy">ES (DIY)</a></li>
   <li><a href="#neg-3-sigma" id="toc-neg-3-sigma" class="nav-link" data-scroll-target="#neg-3-sigma">Neg 3-Sigma</a></li>
   </ul></li>
   <li><a href="#capital-allocation" id="toc-capital-allocation" class="nav-link" data-scroll-target="#capital-allocation">Capital Allocation</a>
@@ -3251,8 +3251,8 @@ Note
 </div>
 </section>
 <section id="hpr-adj" class="level2">
-<h2 class="anchored" data-anchor-id="hpr-adj">HPR adj</h2>
-<p>In <code>dfa</code>, <code>ret</code> refers to daily returns that are <strong><em>adjusted</em></strong> for <em>stock splits</em> and for <em>dividends</em>. For the <em>adjusted HPR</em>, <code>hpr_adj</code>, we compound the daily returns as follows</p>
+<h2 class="anchored" data-anchor-id="hpr-adj">HPR (adj)</h2>
+<p>In <code>dfa</code>, <code>ret</code> refers to daily returns (that are adjusted for stock splits and for dividends). For the <strong>holding period return</strong> (HPR) over the 3-month sampling period<em>,</em> <code>hpr_adj</code>, we compound the daily returns</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dfa1 <span class="ot">=</span> dfa <span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hpr_adj =</span> <span class="fu">prod</span>(<span class="dv">1</span><span class="sc">+</span>ret) <span class="sc">-</span> <span class="dv">1</span>)       <span class="co"># mutates a (new) var</span></span>
@@ -3506,18 +3506,13 @@ Important
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>dfVaRd <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">VaR95dir_pct =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span><span class="dv">100</span>,</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">VaR95dir_inv =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span>Invest,</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>            <span class="co">#</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Let&#39;s add the VaR-normal for comparison</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">re_av =</span> <span class="fu">mean</span>(re, <span class="at">na.rm=</span>T),</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">re_sd =</span> <span class="fu">sd</span>(re, <span class="at">na.rm=</span>T)) <span class="sc">|&gt;</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">VaR95nrm_pct =</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, re_av, re_sd)<span class="sc">*-</span><span class="dv">100</span>)</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfVaRd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">VaR95dir_inv =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span>Invest)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfVaRd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="var-normal" class="level2">
-<h2 class="anchored" data-anchor-id="var-normal">VaR normal</h2>
+<section id="var-normal-diy" class="level2">
+<h2 class="anchored" data-anchor-id="var-normal-diy">VaR normal (DIY)</h2>
 <p>If returns are <strong>normally distributed</strong>, we can also use the <em>mean</em> and <em>sd</em> of <code>re</code> to compute the quantile value of the corresponding standard normal distribution. Assume an investment of 22000 US$.</p>
 <p>For monthly returns, the VaR95 is</p>
 <div class="cell">
@@ -3535,8 +3530,8 @@ Important
 </div>
 <p>DIY: Check by applying the quantile value of <code>qnorm(0.05)</code> to the values in <code>dfVaRn</code>: compute <code>re_av-1.6448*re_sd</code> and then multiply by <code>-100</code> (for VaR95 in percent) or <code>-Invest</code> (for VaR95 as a dollar loss).</p>
 </section>
-<section id="es" class="level2">
-<h2 class="anchored" data-anchor-id="es">ES</h2>
+<section id="es-diy" class="level2">
+<h2 class="anchored" data-anchor-id="es-diy">ES (DIY)</h2>
 <p>For the monthly 5% expected shortfall (ES), we compute the 5% quantile value (similar to VaR95, but negative and not % or $) and take the average of all values below this cut-off.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dfes <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
@@ -4375,9 +4370,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb40-126"><a href="#cb40-126" aria-hidden="true" tabindex="-1"></a>The pipe operator (\|<span class="sc">\&gt;</span> or %<span class="sc">\&gt;</span>%) is typical for the tidyverse. Also, many commands only work with the tidyverse package (e.g., &#39;filter, select, arrange&#39; in the code above).</span>
 <span id="cb40-127"><a href="#cb40-127" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb40-128"><a href="#cb40-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-129"><a href="#cb40-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## HPR adj</span></span>
+<span id="cb40-129"><a href="#cb40-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## HPR (adj)</span></span>
 <span id="cb40-130"><a href="#cb40-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-131"><a href="#cb40-131" aria-hidden="true" tabindex="-1"></a>In <span class="in">`dfa`</span>, <span class="in">`ret`</span> refers to daily returns that are ***adjusted*** for *stock splits* and for *dividends*. For the *adjusted HPR*, <span class="in">`hpr_adj`</span>, we compound the daily returns as follows</span>
+<span id="cb40-131"><a href="#cb40-131" aria-hidden="true" tabindex="-1"></a>In <span class="in">`dfa`</span>, <span class="in">`ret`</span> refers to daily returns (that are adjusted for stock splits and for dividends). For the **holding period return** (HPR) over the 3-month sampling period*,* <span class="in">`hpr_adj`</span>, we compound the daily returns</span>
 <span id="cb40-132"><a href="#cb40-132" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-135"><a href="#cb40-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb40-136"><a href="#cb40-136" aria-hidden="true" tabindex="-1"></a>dfa1 <span class="ot">=</span> dfa <span class="sc">|&gt;</span></span>
@@ -4628,215 +4623,210 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb40-417"><a href="#cb40-417" aria-hidden="true" tabindex="-1"></a>dfVaRd <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
 <span id="cb40-418"><a href="#cb40-418" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
 <span id="cb40-419"><a href="#cb40-419" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">VaR95dir_pct =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span><span class="dv">100</span>,</span>
-<span id="cb40-420"><a href="#cb40-420" aria-hidden="true" tabindex="-1"></a>            <span class="at">VaR95dir_inv =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span>Invest,</span>
-<span id="cb40-421"><a href="#cb40-421" aria-hidden="true" tabindex="-1"></a>            <span class="co">#</span></span>
-<span id="cb40-422"><a href="#cb40-422" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Let&#39;s add the VaR-normal for comparison</span></span>
-<span id="cb40-423"><a href="#cb40-423" aria-hidden="true" tabindex="-1"></a>            <span class="at">re_av =</span> <span class="fu">mean</span>(re, <span class="at">na.rm=</span>T),</span>
-<span id="cb40-424"><a href="#cb40-424" aria-hidden="true" tabindex="-1"></a>            <span class="at">re_sd =</span> <span class="fu">sd</span>(re, <span class="at">na.rm=</span>T)) <span class="sc">|&gt;</span></span>
-<span id="cb40-425"><a href="#cb40-425" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">VaR95nrm_pct =</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, re_av, re_sd)<span class="sc">*-</span><span class="dv">100</span>)</span>
+<span id="cb40-420"><a href="#cb40-420" aria-hidden="true" tabindex="-1"></a>            <span class="at">VaR95dir_inv =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span>Invest)</span>
+<span id="cb40-421"><a href="#cb40-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-422"><a href="#cb40-422" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfVaRd)</span>
+<span id="cb40-423"><a href="#cb40-423" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-424"><a href="#cb40-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-425"><a href="#cb40-425" aria-hidden="true" tabindex="-1"></a><span class="fu">## VaR normal (DIY)</span></span>
 <span id="cb40-426"><a href="#cb40-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-427"><a href="#cb40-427" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfVaRd)</span>
-<span id="cb40-428"><a href="#cb40-428" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-429"><a href="#cb40-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-430"><a href="#cb40-430" aria-hidden="true" tabindex="-1"></a><span class="fu">## VaR normal</span></span>
-<span id="cb40-431"><a href="#cb40-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-432"><a href="#cb40-432" aria-hidden="true" tabindex="-1"></a>If returns are **normally distributed**, we can also use the *mean* and *sd* of <span class="in">`re`</span> to compute the quantile value of the corresponding standard normal distribution. Assume an investment of 22000 US\$.</span>
-<span id="cb40-433"><a href="#cb40-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-434"><a href="#cb40-434" aria-hidden="true" tabindex="-1"></a>For monthly returns, the VaR95 is</span>
+<span id="cb40-427"><a href="#cb40-427" aria-hidden="true" tabindex="-1"></a>If returns are **normally distributed**, we can also use the *mean* and *sd* of <span class="in">`re`</span> to compute the quantile value of the corresponding standard normal distribution. Assume an investment of 22000 US\$.</span>
+<span id="cb40-428"><a href="#cb40-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-429"><a href="#cb40-429" aria-hidden="true" tabindex="-1"></a>For monthly returns, the VaR95 is</span>
+<span id="cb40-430"><a href="#cb40-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-433"><a href="#cb40-433" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-434"><a href="#cb40-434" aria-hidden="true" tabindex="-1"></a>Invest <span class="ot">=</span> <span class="dv">22000</span></span>
 <span id="cb40-435"><a href="#cb40-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-438"><a href="#cb40-438" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-439"><a href="#cb40-439" aria-hidden="true" tabindex="-1"></a>Invest <span class="ot">=</span> <span class="dv">22000</span></span>
-<span id="cb40-440"><a href="#cb40-440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-441"><a href="#cb40-441" aria-hidden="true" tabindex="-1"></a>dfVaRn <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
-<span id="cb40-442"><a href="#cb40-442" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
-<span id="cb40-443"><a href="#cb40-443" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">re_av =</span> <span class="fu">mean</span>(re, <span class="at">na.rm=</span>T),</span>
-<span id="cb40-444"><a href="#cb40-444" aria-hidden="true" tabindex="-1"></a>            <span class="at">re_sd =</span> <span class="fu">sd</span>(re, <span class="at">na.rm=</span>T)) <span class="sc">|&gt;</span></span>
-<span id="cb40-445"><a href="#cb40-445" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">VaR95nrm_pct =</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, re_av, re_sd)<span class="sc">*-</span><span class="dv">100</span>) <span class="sc">|&gt;</span></span>
-<span id="cb40-446"><a href="#cb40-446" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">VaR95nrm_inv =</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, re_av, re_sd)<span class="sc">*-</span>Invest)</span>
-<span id="cb40-447"><a href="#cb40-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-448"><a href="#cb40-448" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfVaRn)</span>
-<span id="cb40-449"><a href="#cb40-449" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">qnorm</span>(<span class="fl">0.05</span>)) <span class="co"># quantile value of standard normal distribution</span></span>
-<span id="cb40-450"><a href="#cb40-450" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-451"><a href="#cb40-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-452"><a href="#cb40-452" aria-hidden="true" tabindex="-1"></a>DIY: Check by applying the quantile value of <span class="in">`qnorm(0.05)`</span> to the values in <span class="in">`dfVaRn`</span>: compute <span class="in">`re_av-1.6448*re_sd`</span> and then multiply by <span class="in">`-100`</span> (for VaR95 in percent) or <span class="in">`-Invest`</span> (for VaR95 as a dollar loss).</span>
-<span id="cb40-453"><a href="#cb40-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-454"><a href="#cb40-454" aria-hidden="true" tabindex="-1"></a><span class="fu">## ES</span></span>
-<span id="cb40-455"><a href="#cb40-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-456"><a href="#cb40-456" aria-hidden="true" tabindex="-1"></a>For the monthly 5% expected shortfall (ES), we compute the 5% quantile value (similar to VaR95, but negative and not % or \$) and take the average of all values below this cut-off.</span>
-<span id="cb40-457"><a href="#cb40-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-460"><a href="#cb40-460" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-461"><a href="#cb40-461" aria-hidden="true" tabindex="-1"></a>dfes <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
-<span id="cb40-462"><a href="#cb40-462" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
-<span id="cb40-463"><a href="#cb40-463" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb40-464"><a href="#cb40-464" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sub_cut =</span> <span class="fu">ifelse</span>(re <span class="sc">&lt;</span> cutoff, re, <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb40-465"><a href="#cb40-465" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">ES5  =</span> <span class="fu">mean</span>(sub_cut, <span class="at">na.rm=</span>T),</span>
-<span id="cb40-466"><a href="#cb40-466" aria-hidden="true" tabindex="-1"></a>            <span class="co">#</span></span>
-<span id="cb40-467"><a href="#cb40-467" aria-hidden="true" tabindex="-1"></a>            <span class="co"># let&#39;s count the obs that enter ES5</span></span>
-<span id="cb40-468"><a href="#cb40-468" aria-hidden="true" tabindex="-1"></a>            <span class="at">n_ES5 =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(sub_cut)))</span>
-<span id="cb40-469"><a href="#cb40-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-470"><a href="#cb40-470" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfes)</span>
-<span id="cb40-471"><a href="#cb40-471" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-472"><a href="#cb40-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-473"><a href="#cb40-473" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse=&quot;true&quot;}</span>
-<span id="cb40-474"><a href="#cb40-474" aria-hidden="true" tabindex="-1"></a>Some terms are tossed around more than a Frisbee on a hot summer day. ES is also called conditional tail expectation (CTE), conditional VaR (CVaR), average VaR (AVaR), expected tail loss (ETL), and superquantile.</span>
-<span id="cb40-475"><a href="#cb40-475" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb40-476"><a href="#cb40-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-477"><a href="#cb40-477" aria-hidden="true" tabindex="-1"></a><span class="fu">## Neg 3-Sigma</span></span>
-<span id="cb40-478"><a href="#cb40-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-479"><a href="#cb40-479" aria-hidden="true" tabindex="-1"></a>Count the cases below the negative 3 sigma return and divide them by the number of cases that would be expected in a normal distribution.</span>
-<span id="cb40-480"><a href="#cb40-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-483"><a href="#cb40-483" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-484"><a href="#cb40-484" aria-hidden="true" tabindex="-1"></a>dfn3s <span class="ot">=</span> df102 <span class="sc">|&gt;</span> <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
-<span id="cb40-485"><a href="#cb40-485" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">re_av =</span> <span class="fu">mean</span>(re, <span class="at">na.rm=</span>T)) <span class="sc">|&gt;</span></span>
-<span id="cb40-486"><a href="#cb40-486" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">re_sd =</span> <span class="fu">sd</span>(re, <span class="at">na.rm=</span>T)) <span class="sc">|&gt;</span></span>
-<span id="cb40-487"><a href="#cb40-487" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">re_n3 =</span> re_av<span class="dv">-3</span><span class="sc">*</span>re_sd) <span class="sc">|&gt;</span></span>
-<span id="cb40-488"><a href="#cb40-488" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sub   =</span> <span class="fu">ifelse</span>(re<span class="sc">&lt;</span>re_n3, re, <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb40-489"><a href="#cb40-489" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(sub) <span class="co"># just curious</span></span>
-<span id="cb40-490"><a href="#cb40-490" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfn3s)    <span class="co"># ... Burgers &amp; Coke in 03/2020, rings a bell?</span></span>
-<span id="cb40-491"><a href="#cb40-491" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-492"><a href="#cb40-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-495"><a href="#cb40-495" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-496"><a href="#cb40-496" aria-hidden="true" tabindex="-1"></a>dfn4s <span class="ot">=</span> dfn3s <span class="sc">|&gt;</span> <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span> <span class="co"># continue with dfn3s</span></span>
-<span id="cb40-497"><a href="#cb40-497" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">N =</span> <span class="fu">n</span>(), </span>
-<span id="cb40-498"><a href="#cb40-498" aria-hidden="true" tabindex="-1"></a>            <span class="at">n_sub =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(sub))) <span class="sc">|&gt;</span></span>
-<span id="cb40-499"><a href="#cb40-499" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_sub =</span> n_sub<span class="sc">/</span>N) <span class="sc">|&gt;</span></span>
-<span id="cb40-500"><a href="#cb40-500" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_exp =</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>, <span class="at">lower.tail=</span>T)) <span class="sc">|&gt;</span> <span class="co"># or: pnorm(-3)</span></span>
-<span id="cb40-501"><a href="#cb40-501" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n3s   =</span> p_sub<span class="sc">/</span>p_exp)</span>
-<span id="cb40-502"><a href="#cb40-502" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfn4s)</span>
-<span id="cb40-503"><a href="#cb40-503" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-504"><a href="#cb40-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-505"><a href="#cb40-505" aria-hidden="true" tabindex="-1"></a><span class="fu"># Capital Allocation</span></span>
-<span id="cb40-506"><a href="#cb40-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-507"><a href="#cb40-507" aria-hidden="true" tabindex="-1"></a>Let&#39;s take a look at the simplest of all portfolios: a mix of one risky asset and one risk-free asset. We set out to find the **complete portfolio** as a solution to the trade-off between a risky <span class="in">`stock`</span> and a risk-free <span class="in">`tbill`</span>.</span>
+<span id="cb40-436"><a href="#cb40-436" aria-hidden="true" tabindex="-1"></a>dfVaRn <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
+<span id="cb40-437"><a href="#cb40-437" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
+<span id="cb40-438"><a href="#cb40-438" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">re_av =</span> <span class="fu">mean</span>(re, <span class="at">na.rm=</span>T),</span>
+<span id="cb40-439"><a href="#cb40-439" aria-hidden="true" tabindex="-1"></a>            <span class="at">re_sd =</span> <span class="fu">sd</span>(re, <span class="at">na.rm=</span>T)) <span class="sc">|&gt;</span></span>
+<span id="cb40-440"><a href="#cb40-440" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">VaR95nrm_pct =</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, re_av, re_sd)<span class="sc">*-</span><span class="dv">100</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-441"><a href="#cb40-441" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">VaR95nrm_inv =</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, re_av, re_sd)<span class="sc">*-</span>Invest)</span>
+<span id="cb40-442"><a href="#cb40-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-443"><a href="#cb40-443" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfVaRn)</span>
+<span id="cb40-444"><a href="#cb40-444" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">qnorm</span>(<span class="fl">0.05</span>)) <span class="co"># quantile value of standard normal distribution</span></span>
+<span id="cb40-445"><a href="#cb40-445" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-446"><a href="#cb40-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-447"><a href="#cb40-447" aria-hidden="true" tabindex="-1"></a>DIY: Check by applying the quantile value of <span class="in">`qnorm(0.05)`</span> to the values in <span class="in">`dfVaRn`</span>: compute <span class="in">`re_av-1.6448*re_sd`</span> and then multiply by <span class="in">`-100`</span> (for VaR95 in percent) or <span class="in">`-Invest`</span> (for VaR95 as a dollar loss).</span>
+<span id="cb40-448"><a href="#cb40-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-449"><a href="#cb40-449" aria-hidden="true" tabindex="-1"></a><span class="fu">## ES (DIY)</span></span>
+<span id="cb40-450"><a href="#cb40-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-451"><a href="#cb40-451" aria-hidden="true" tabindex="-1"></a>For the monthly 5% expected shortfall (ES), we compute the 5% quantile value (similar to VaR95, but negative and not % or \$) and take the average of all values below this cut-off.</span>
+<span id="cb40-452"><a href="#cb40-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-455"><a href="#cb40-455" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-456"><a href="#cb40-456" aria-hidden="true" tabindex="-1"></a>dfes <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
+<span id="cb40-457"><a href="#cb40-457" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
+<span id="cb40-458"><a href="#cb40-458" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb40-459"><a href="#cb40-459" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sub_cut =</span> <span class="fu">ifelse</span>(re <span class="sc">&lt;</span> cutoff, re, <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb40-460"><a href="#cb40-460" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">ES5  =</span> <span class="fu">mean</span>(sub_cut, <span class="at">na.rm=</span>T),</span>
+<span id="cb40-461"><a href="#cb40-461" aria-hidden="true" tabindex="-1"></a>            <span class="co">#</span></span>
+<span id="cb40-462"><a href="#cb40-462" aria-hidden="true" tabindex="-1"></a>            <span class="co"># let&#39;s count the obs that enter ES5</span></span>
+<span id="cb40-463"><a href="#cb40-463" aria-hidden="true" tabindex="-1"></a>            <span class="at">n_ES5 =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(sub_cut)))</span>
+<span id="cb40-464"><a href="#cb40-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-465"><a href="#cb40-465" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfes)</span>
+<span id="cb40-466"><a href="#cb40-466" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-467"><a href="#cb40-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-468"><a href="#cb40-468" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse=&quot;true&quot;}</span>
+<span id="cb40-469"><a href="#cb40-469" aria-hidden="true" tabindex="-1"></a>Some terms are tossed around more than a Frisbee on a hot summer day. ES is also called conditional tail expectation (CTE), conditional VaR (CVaR), average VaR (AVaR), expected tail loss (ETL), and superquantile.</span>
+<span id="cb40-470"><a href="#cb40-470" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-471"><a href="#cb40-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-472"><a href="#cb40-472" aria-hidden="true" tabindex="-1"></a><span class="fu">## Neg 3-Sigma</span></span>
+<span id="cb40-473"><a href="#cb40-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-474"><a href="#cb40-474" aria-hidden="true" tabindex="-1"></a>Count the cases below the negative 3 sigma return and divide them by the number of cases that would be expected in a normal distribution.</span>
+<span id="cb40-475"><a href="#cb40-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-478"><a href="#cb40-478" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-479"><a href="#cb40-479" aria-hidden="true" tabindex="-1"></a>dfn3s <span class="ot">=</span> df102 <span class="sc">|&gt;</span> <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
+<span id="cb40-480"><a href="#cb40-480" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">re_av =</span> <span class="fu">mean</span>(re, <span class="at">na.rm=</span>T)) <span class="sc">|&gt;</span></span>
+<span id="cb40-481"><a href="#cb40-481" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">re_sd =</span> <span class="fu">sd</span>(re, <span class="at">na.rm=</span>T)) <span class="sc">|&gt;</span></span>
+<span id="cb40-482"><a href="#cb40-482" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">re_n3 =</span> re_av<span class="dv">-3</span><span class="sc">*</span>re_sd) <span class="sc">|&gt;</span></span>
+<span id="cb40-483"><a href="#cb40-483" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sub   =</span> <span class="fu">ifelse</span>(re<span class="sc">&lt;</span>re_n3, re, <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb40-484"><a href="#cb40-484" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(sub) <span class="co"># just curious</span></span>
+<span id="cb40-485"><a href="#cb40-485" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfn3s)    <span class="co"># ... Burgers &amp; Coke in 03/2020, rings a bell?</span></span>
+<span id="cb40-486"><a href="#cb40-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-487"><a href="#cb40-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-490"><a href="#cb40-490" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-491"><a href="#cb40-491" aria-hidden="true" tabindex="-1"></a>dfn4s <span class="ot">=</span> dfn3s <span class="sc">|&gt;</span> <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span> <span class="co"># continue with dfn3s</span></span>
+<span id="cb40-492"><a href="#cb40-492" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">N =</span> <span class="fu">n</span>(), </span>
+<span id="cb40-493"><a href="#cb40-493" aria-hidden="true" tabindex="-1"></a>            <span class="at">n_sub =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(sub))) <span class="sc">|&gt;</span></span>
+<span id="cb40-494"><a href="#cb40-494" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_sub =</span> n_sub<span class="sc">/</span>N) <span class="sc">|&gt;</span></span>
+<span id="cb40-495"><a href="#cb40-495" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_exp =</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>, <span class="at">lower.tail=</span>T)) <span class="sc">|&gt;</span> <span class="co"># or: pnorm(-3)</span></span>
+<span id="cb40-496"><a href="#cb40-496" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n3s   =</span> p_sub<span class="sc">/</span>p_exp)</span>
+<span id="cb40-497"><a href="#cb40-497" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfn4s)</span>
+<span id="cb40-498"><a href="#cb40-498" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-499"><a href="#cb40-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-500"><a href="#cb40-500" aria-hidden="true" tabindex="-1"></a><span class="fu"># Capital Allocation</span></span>
+<span id="cb40-501"><a href="#cb40-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-502"><a href="#cb40-502" aria-hidden="true" tabindex="-1"></a>Let&#39;s take a look at the simplest of all portfolios: a mix of one risky asset and one risk-free asset. We set out to find the **complete portfolio** as a solution to the trade-off between a risky <span class="in">`stock`</span> and a risk-free <span class="in">`tbill`</span>.</span>
+<span id="cb40-503"><a href="#cb40-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-506"><a href="#cb40-506" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-507"><a href="#cb40-507" aria-hidden="true" tabindex="-1"></a>df102 <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;df102.csv&quot;</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
 <span id="cb40-508"><a href="#cb40-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-511"><a href="#cb40-511" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-512"><a href="#cb40-512" aria-hidden="true" tabindex="-1"></a>df102 <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;df102.csv&quot;</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb40-513"><a href="#cb40-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-514"><a href="#cb40-514" aria-hidden="true" tabindex="-1"></a>dfcp <span class="ot">=</span> df102 <span class="sc">|&gt;</span></span>
-<span id="cb40-515"><a href="#cb40-515" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ticker<span class="sc">==</span><span class="st">&quot;AAPL&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb40-516"><a href="#cb40-516" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, re, tbill)</span>
+<span id="cb40-509"><a href="#cb40-509" aria-hidden="true" tabindex="-1"></a>dfcp <span class="ot">=</span> df102 <span class="sc">|&gt;</span></span>
+<span id="cb40-510"><a href="#cb40-510" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ticker<span class="sc">==</span><span class="st">&quot;AAPL&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-511"><a href="#cb40-511" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, re, tbill)</span>
+<span id="cb40-512"><a href="#cb40-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-513"><a href="#cb40-513" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dfcp) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;date&quot;</span> ,<span class="st">&quot;re&quot;</span>, <span class="st">&quot;rf&quot;</span>)</span>
+<span id="cb40-514"><a href="#cb40-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-515"><a href="#cb40-515" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfcp)</span>
+<span id="cb40-516"><a href="#cb40-516" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb40-517"><a href="#cb40-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-518"><a href="#cb40-518" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dfcp) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;date&quot;</span> ,<span class="st">&quot;re&quot;</span>, <span class="st">&quot;rf&quot;</span>)</span>
+<span id="cb40-518"><a href="#cb40-518" aria-hidden="true" tabindex="-1"></a><span class="fu">## Risky &amp; Risk-free</span></span>
 <span id="cb40-519"><a href="#cb40-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-520"><a href="#cb40-520" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfcp)</span>
-<span id="cb40-521"><a href="#cb40-521" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-522"><a href="#cb40-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-523"><a href="#cb40-523" aria-hidden="true" tabindex="-1"></a><span class="fu">## Risky &amp; Risk-free</span></span>
-<span id="cb40-524"><a href="#cb40-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-525"><a href="#cb40-525" aria-hidden="true" tabindex="-1"></a>To compute the *annualized* expected returns and volatility for the two assets <span class="in">`stock`</span> and <span class="in">`tbill`</span>, we use monthly excess returns <span class="in">`re-rf`</span> to compute annualized <span class="in">`rx_exp`</span> and <span class="in">`rx_sd`</span>.</span>
-<span id="cb40-526"><a href="#cb40-526" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-529"><a href="#cb40-529" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-530"><a href="#cb40-530" aria-hidden="true" tabindex="-1"></a>rx_exp <span class="ot">=</span> (<span class="dv">1</span><span class="sc">+</span><span class="fu">mean</span>(dfcp<span class="sc">$</span>re<span class="sc">-</span>dfcp<span class="sc">$</span>rf, <span class="at">na.rm=</span>T))<span class="sc">^</span><span class="dv">12</span> <span class="sc">-</span><span class="dv">1</span> <span class="co"># stock: exp ret</span></span>
-<span id="cb40-531"><a href="#cb40-531" aria-hidden="true" tabindex="-1"></a>rf_exp <span class="ot">=</span> (<span class="dv">1</span><span class="sc">+</span><span class="fu">mean</span>(dfcp<span class="sc">$</span>rf, <span class="at">na.rm=</span>T))<span class="sc">^</span><span class="dv">12</span> <span class="sc">-</span><span class="dv">1</span>         <span class="co"># tbill: exp ret</span></span>
-<span id="cb40-532"><a href="#cb40-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-533"><a href="#cb40-533" aria-hidden="true" tabindex="-1"></a>rx_sd  <span class="ot">=</span> <span class="fu">sd</span>(dfcp<span class="sc">$</span>re<span class="sc">-</span>dfcp<span class="sc">$</span>rf, <span class="at">na.rm=</span>T) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">12</span>)  <span class="co"># stock: exp sd</span></span>
-<span id="cb40-534"><a href="#cb40-534" aria-hidden="true" tabindex="-1"></a>rf_sd  <span class="ot">=</span> <span class="dv">0</span>                                        <span class="co"># tbill: exp sd</span></span>
-<span id="cb40-535"><a href="#cb40-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-536"><a href="#cb40-536" aria-hidden="true" tabindex="-1"></a>sharpe <span class="ot">=</span> rx_exp<span class="sc">/</span>rx_sd                             <span class="co"># reward to risk</span></span>
-<span id="cb40-537"><a href="#cb40-537" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-538"><a href="#cb40-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-539"><a href="#cb40-539" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse=&quot;true&quot;}</span>
-<span id="cb40-540"><a href="#cb40-540" aria-hidden="true" tabindex="-1"></a>Note that we assume a volatility of zero for <span class="in">`rf`</span> (although the historic returns of the <span class="in">`tbill`</span> are not constant). This is because we argue (a) in terms of excess returns where <span class="in">`rf`</span> is already part of <span class="in">`rx`</span>, and (b) in expected terms, which conveniently assume <span class="in">`rf_sd=0`</span> to simplify life.</span>
-<span id="cb40-541"><a href="#cb40-541" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb40-542"><a href="#cb40-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-545"><a href="#cb40-545" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-546"><a href="#cb40-546" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb40-547"><a href="#cb40-547" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
-<span id="cb40-548"><a href="#cb40-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-549"><a href="#cb40-549" aria-hidden="true" tabindex="-1"></a>plot_dfcp <span class="ot">=</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb40-550"><a href="#cb40-550" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rx_sd, <span class="at">y=</span>rf_exp<span class="sc">+</span>rx_exp), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb40-551"><a href="#cb40-551" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rf_sd, <span class="at">y=</span>rf_exp), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb40-552"><a href="#cb40-552" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept=</span>rf_exp, <span class="at">slope=</span>sharpe)<span class="sc">+</span></span>
-<span id="cb40-553"><a href="#cb40-553" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;rx_sd&quot;</span>, <span class="at">y=</span><span class="st">&quot;rf_exp + rx_exp&quot;</span>)</span>
+<span id="cb40-520"><a href="#cb40-520" aria-hidden="true" tabindex="-1"></a>To compute the *annualized* expected returns and volatility for the two assets <span class="in">`stock`</span> and <span class="in">`tbill`</span>, we use monthly excess returns <span class="in">`re-rf`</span> to compute annualized <span class="in">`rx_exp`</span> and <span class="in">`rx_sd`</span>.</span>
+<span id="cb40-521"><a href="#cb40-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-524"><a href="#cb40-524" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-525"><a href="#cb40-525" aria-hidden="true" tabindex="-1"></a>rx_exp <span class="ot">=</span> (<span class="dv">1</span><span class="sc">+</span><span class="fu">mean</span>(dfcp<span class="sc">$</span>re<span class="sc">-</span>dfcp<span class="sc">$</span>rf, <span class="at">na.rm=</span>T))<span class="sc">^</span><span class="dv">12</span> <span class="sc">-</span><span class="dv">1</span> <span class="co"># stock: exp ret</span></span>
+<span id="cb40-526"><a href="#cb40-526" aria-hidden="true" tabindex="-1"></a>rf_exp <span class="ot">=</span> (<span class="dv">1</span><span class="sc">+</span><span class="fu">mean</span>(dfcp<span class="sc">$</span>rf, <span class="at">na.rm=</span>T))<span class="sc">^</span><span class="dv">12</span> <span class="sc">-</span><span class="dv">1</span>         <span class="co"># tbill: exp ret</span></span>
+<span id="cb40-527"><a href="#cb40-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-528"><a href="#cb40-528" aria-hidden="true" tabindex="-1"></a>rx_sd  <span class="ot">=</span> <span class="fu">sd</span>(dfcp<span class="sc">$</span>re<span class="sc">-</span>dfcp<span class="sc">$</span>rf, <span class="at">na.rm=</span>T) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">12</span>)  <span class="co"># stock: exp sd</span></span>
+<span id="cb40-529"><a href="#cb40-529" aria-hidden="true" tabindex="-1"></a>rf_sd  <span class="ot">=</span> <span class="dv">0</span>                                        <span class="co"># tbill: exp sd</span></span>
+<span id="cb40-530"><a href="#cb40-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-531"><a href="#cb40-531" aria-hidden="true" tabindex="-1"></a>sharpe <span class="ot">=</span> rx_exp<span class="sc">/</span>rx_sd                             <span class="co"># reward to risk</span></span>
+<span id="cb40-532"><a href="#cb40-532" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-533"><a href="#cb40-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-534"><a href="#cb40-534" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse=&quot;true&quot;}</span>
+<span id="cb40-535"><a href="#cb40-535" aria-hidden="true" tabindex="-1"></a>Note that we assume a volatility of zero for <span class="in">`rf`</span> (although the historic returns of the <span class="in">`tbill`</span> are not constant). This is because we argue (a) in terms of excess returns where <span class="in">`rf`</span> is already part of <span class="in">`rx`</span>, and (b) in expected terms, which conveniently assume <span class="in">`rf_sd=0`</span> to simplify life.</span>
+<span id="cb40-536"><a href="#cb40-536" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-537"><a href="#cb40-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-540"><a href="#cb40-540" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-541"><a href="#cb40-541" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb40-542"><a href="#cb40-542" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
+<span id="cb40-543"><a href="#cb40-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-544"><a href="#cb40-544" aria-hidden="true" tabindex="-1"></a>plot_dfcp <span class="ot">=</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb40-545"><a href="#cb40-545" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rx_sd, <span class="at">y=</span>rf_exp<span class="sc">+</span>rx_exp), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb40-546"><a href="#cb40-546" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rf_sd, <span class="at">y=</span>rf_exp), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb40-547"><a href="#cb40-547" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept=</span>rf_exp, <span class="at">slope=</span>sharpe)<span class="sc">+</span></span>
+<span id="cb40-548"><a href="#cb40-548" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;rx_sd&quot;</span>, <span class="at">y=</span><span class="st">&quot;rf_exp + rx_exp&quot;</span>)</span>
+<span id="cb40-549"><a href="#cb40-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-550"><a href="#cb40-550" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot_dfcp)</span>
+<span id="cb40-551"><a href="#cb40-551" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-552"><a href="#cb40-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-553"><a href="#cb40-553" aria-hidden="true" tabindex="-1"></a><span class="fu">## Utility score</span></span>
 <span id="cb40-554"><a href="#cb40-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-555"><a href="#cb40-555" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot_dfcp)</span>
-<span id="cb40-556"><a href="#cb40-556" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-557"><a href="#cb40-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-558"><a href="#cb40-558" aria-hidden="true" tabindex="-1"></a><span class="fu">## Utility score</span></span>
-<span id="cb40-559"><a href="#cb40-559" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-560"><a href="#cb40-560" aria-hidden="true" tabindex="-1"></a>Compute the utility score for the two extreme portfolios <span class="in">`stock`</span> and <span class="in">`tbill`</span> and some mixed portfolios in between (with a share of <span class="in">`y`</span> in <span class="in">`stock`</span> and <span class="in">`1-y`</span> in <span class="in">`tbill`</span>). Assume a risk aversion parameter of <span class="in">`A=6`</span>.</span>
-<span id="cb40-561"><a href="#cb40-561" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-564"><a href="#cb40-564" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-565"><a href="#cb40-565" aria-hidden="true" tabindex="-1"></a>dfutil <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
-<span id="cb40-566"><a href="#cb40-566" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">A        =</span> <span class="dv">6</span>) <span class="sc">|&gt;</span></span>
-<span id="cb40-567"><a href="#cb40-567" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ret_port =</span> rf_exp <span class="sc">+</span> y<span class="sc">*</span>rx_exp) <span class="sc">|&gt;</span>       <span class="co"># note: rx=re-rf</span></span>
-<span id="cb40-568"><a href="#cb40-568" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rsk_port =</span> y<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> rx_sd<span class="sc">^</span><span class="dv">2</span>) <span class="sc">|&gt;</span>           <span class="co"># note: variance</span></span>
-<span id="cb40-569"><a href="#cb40-569" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">uscore   =</span> ret_port <span class="sc">-</span> <span class="fl">0.5</span><span class="sc">*</span>A<span class="sc">*</span>rsk_port)</span>
-<span id="cb40-570"><a href="#cb40-570" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-571"><a href="#cb40-571" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfutil)</span>
-<span id="cb40-572"><a href="#cb40-572" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-573"><a href="#cb40-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-574"><a href="#cb40-574" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution collapse=&quot;true&quot;}</span>
-<span id="cb40-575"><a href="#cb40-575" aria-hidden="true" tabindex="-1"></a>The expected utility equation is tricky because it contains absolute values. For example, the value of 0.5 in the utility equation is based on the assumption that expected return and variance are expressed as decimals. If those quantities were expressed as percentage, the 0.5 would change to 0.005. Also, all risk and return values must be annualized!</span>
-<span id="cb40-576"><a href="#cb40-576" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb40-577"><a href="#cb40-577" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-580"><a href="#cb40-580" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-581"><a href="#cb40-581" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb40-582"><a href="#cb40-582" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
+<span id="cb40-555"><a href="#cb40-555" aria-hidden="true" tabindex="-1"></a>Compute the utility score for the two extreme portfolios <span class="in">`stock`</span> and <span class="in">`tbill`</span> and some mixed portfolios in between (with a share of <span class="in">`y`</span> in <span class="in">`stock`</span> and <span class="in">`1-y`</span> in <span class="in">`tbill`</span>). Assume a risk aversion parameter of <span class="in">`A=6`</span>.</span>
+<span id="cb40-556"><a href="#cb40-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-559"><a href="#cb40-559" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-560"><a href="#cb40-560" aria-hidden="true" tabindex="-1"></a>dfutil <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-561"><a href="#cb40-561" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">A        =</span> <span class="dv">6</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-562"><a href="#cb40-562" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ret_port =</span> rf_exp <span class="sc">+</span> y<span class="sc">*</span>rx_exp) <span class="sc">|&gt;</span>       <span class="co"># note: rx=re-rf</span></span>
+<span id="cb40-563"><a href="#cb40-563" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rsk_port =</span> y<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> rx_sd<span class="sc">^</span><span class="dv">2</span>) <span class="sc">|&gt;</span>           <span class="co"># note: variance</span></span>
+<span id="cb40-564"><a href="#cb40-564" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">uscore   =</span> ret_port <span class="sc">-</span> <span class="fl">0.5</span><span class="sc">*</span>A<span class="sc">*</span>rsk_port)</span>
+<span id="cb40-565"><a href="#cb40-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-566"><a href="#cb40-566" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfutil)</span>
+<span id="cb40-567"><a href="#cb40-567" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-568"><a href="#cb40-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-569"><a href="#cb40-569" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution collapse=&quot;true&quot;}</span>
+<span id="cb40-570"><a href="#cb40-570" aria-hidden="true" tabindex="-1"></a>The expected utility equation is tricky because it contains absolute values. For example, the value of 0.5 in the utility equation is based on the assumption that expected return and variance are expressed as decimals. If those quantities were expressed as percentage, the 0.5 would change to 0.005. Also, all risk and return values must be annualized!</span>
+<span id="cb40-571"><a href="#cb40-571" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-572"><a href="#cb40-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-575"><a href="#cb40-575" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-576"><a href="#cb40-576" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb40-577"><a href="#cb40-577" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
+<span id="cb40-578"><a href="#cb40-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-579"><a href="#cb40-579" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dfutil<span class="sc">$</span>y, dfutil<span class="sc">$</span>uscore, </span>
+<span id="cb40-580"><a href="#cb40-580" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;share of risky asset (y)&quot;</span>, </span>
+<span id="cb40-581"><a href="#cb40-581" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;portfolio utility (uscore)&quot;</span>)</span>
+<span id="cb40-582"><a href="#cb40-582" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb40-583"><a href="#cb40-583" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-584"><a href="#cb40-584" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dfutil<span class="sc">$</span>y, dfutil<span class="sc">$</span>uscore, </span>
-<span id="cb40-585"><a href="#cb40-585" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;share of risky asset (y)&quot;</span>, </span>
-<span id="cb40-586"><a href="#cb40-586" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;portfolio utility (uscore)&quot;</span>)</span>
-<span id="cb40-587"><a href="#cb40-587" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-588"><a href="#cb40-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-589"><a href="#cb40-589" aria-hidden="true" tabindex="-1"></a><span class="fu">## EU max</span></span>
-<span id="cb40-590"><a href="#cb40-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-591"><a href="#cb40-591" aria-hidden="true" tabindex="-1"></a>Find the share <span class="in">`y_star`</span> with the maximum expected utility. Calculus provides us with a clear solution for <span class="in">`y_star`</span>.</span>
-<span id="cb40-592"><a href="#cb40-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-595"><a href="#cb40-595" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-596"><a href="#cb40-596" aria-hidden="true" tabindex="-1"></a>dfutil <span class="ot">=</span> dfutil <span class="sc">|&gt;</span></span>
-<span id="cb40-597"><a href="#cb40-597" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y_star =</span> rx_exp <span class="sc">/</span> (A<span class="sc">*</span>rx_sd<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb40-584"><a href="#cb40-584" aria-hidden="true" tabindex="-1"></a><span class="fu">## EU max</span></span>
+<span id="cb40-585"><a href="#cb40-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-586"><a href="#cb40-586" aria-hidden="true" tabindex="-1"></a>Find the share <span class="in">`y_star`</span> with the maximum expected utility. Calculus provides us with a clear solution for <span class="in">`y_star`</span>.</span>
+<span id="cb40-587"><a href="#cb40-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-590"><a href="#cb40-590" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-591"><a href="#cb40-591" aria-hidden="true" tabindex="-1"></a>dfutil <span class="ot">=</span> dfutil <span class="sc">|&gt;</span></span>
+<span id="cb40-592"><a href="#cb40-592" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y_star =</span> rx_exp <span class="sc">/</span> (A<span class="sc">*</span>rx_sd<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb40-593"><a href="#cb40-593" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-594"><a href="#cb40-594" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfutil)</span>
+<span id="cb40-595"><a href="#cb40-595" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-596"><a href="#cb40-596" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-597"><a href="#cb40-597" aria-hidden="true" tabindex="-1"></a>... which looks like this on the utility curve</span>
 <span id="cb40-598"><a href="#cb40-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-599"><a href="#cb40-599" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfutil)</span>
-<span id="cb40-600"><a href="#cb40-600" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-601"><a href="#cb40-601" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-602"><a href="#cb40-602" aria-hidden="true" tabindex="-1"></a>... which looks like this on the utility curve</span>
-<span id="cb40-603"><a href="#cb40-603" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-606"><a href="#cb40-606" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-607"><a href="#cb40-607" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb40-608"><a href="#cb40-608" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
-<span id="cb40-609"><a href="#cb40-609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-610"><a href="#cb40-610" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dfutil<span class="sc">$</span>y, dfutil<span class="sc">$</span>uscore, </span>
-<span id="cb40-611"><a href="#cb40-611" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;share of risky asset (y)&quot;</span>, </span>
-<span id="cb40-612"><a href="#cb40-612" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;portfolio utility (uscore)&quot;</span>)</span>
-<span id="cb40-613"><a href="#cb40-613" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> dfutil<span class="sc">$</span>y_star, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb40-614"><a href="#cb40-614" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> dfutil<span class="sc">$</span>y_star, <span class="at">y =</span> <span class="fu">mean</span>(<span class="fu">range</span>(dfutil<span class="sc">$</span>uscore)), </span>
-<span id="cb40-615"><a href="#cb40-615" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="st">&quot;y_star&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">pos =</span> <span class="dv">4</span>)</span>
-<span id="cb40-616"><a href="#cb40-616" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-617"><a href="#cb40-617" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-618"><a href="#cb40-618" aria-hidden="true" tabindex="-1"></a><span class="fu">## CAL</span></span>
-<span id="cb40-619"><a href="#cb40-619" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-620"><a href="#cb40-620" aria-hidden="true" tabindex="-1"></a>The optimal <span class="in">`y_star`</span> share of risky assets directly determines the risk and return of our complete portfolio on the CAL.</span>
-<span id="cb40-621"><a href="#cb40-621" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-622"><a href="#cb40-622" aria-hidden="true" tabindex="-1"></a>Recall that we computed the portfolio risk <span class="in">`rsk_port`</span> and return <span class="in">`ret_port`</span> for the utility score. Now, we re-compute these measures with y_star and plot them on the CAL</span>
-<span id="cb40-623"><a href="#cb40-623" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-626"><a href="#cb40-626" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-627"><a href="#cb40-627" aria-hidden="true" tabindex="-1"></a>dfutil <span class="ot">=</span> dfutil <span class="sc">|&gt;</span></span>
-<span id="cb40-628"><a href="#cb40-628" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ret_pstar    =</span> rf_exp <span class="sc">+</span> y_star<span class="sc">*</span>rx_exp) <span class="sc">|&gt;</span></span>
-<span id="cb40-629"><a href="#cb40-629" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rsk_pstar    =</span> y_star<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> rx_exp<span class="sc">^</span><span class="dv">2</span>) <span class="sc">|&gt;</span>    <span class="co"># variance</span></span>
-<span id="cb40-630"><a href="#cb40-630" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rsk_pstar_sd =</span> y_star <span class="sc">*</span> rx_sd)            <span class="co"># sd for CAL</span></span>
-<span id="cb40-631"><a href="#cb40-631" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-632"><a href="#cb40-632" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfutil)</span>
-<span id="cb40-633"><a href="#cb40-633" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-634"><a href="#cb40-634" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-635"><a href="#cb40-635" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning collapse=&quot;true&quot;}</span>
-<span id="cb40-636"><a href="#cb40-636" aria-hidden="true" tabindex="-1"></a>Following most textbooks and general convention, our base measure of risk is <span class="in">`sd(rx)`</span>, which is also used for the x-axis of the CAL. However, the equations for the utility score and optimal share <span class="in">`y_star`</span> typically use variance. Accordingly, we used <span class="in">`sd^2`</span> for these calculations. But to determine the complete portfolio on the CAL, we need to take sd as portfolio risk (<span class="in">`rsk_pstar_sd`</span>) and not portfolio variance!</span>
-<span id="cb40-637"><a href="#cb40-637" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb40-638"><a href="#cb40-638" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-641"><a href="#cb40-641" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb40-642"><a href="#cb40-642" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb40-643"><a href="#cb40-643" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
-<span id="cb40-644"><a href="#cb40-644" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-645"><a href="#cb40-645" aria-hidden="true" tabindex="-1"></a>plot_dfcp <span class="ot">=</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb40-646"><a href="#cb40-646" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rx_sd, <span class="at">y=</span>rf_exp<span class="sc">+</span>rx_exp), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb40-647"><a href="#cb40-647" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rf_sd, <span class="at">y=</span>rf_exp), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb40-648"><a href="#cb40-648" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept=</span>rf_exp, <span class="at">slope=</span>sharpe)<span class="sc">+</span></span>
-<span id="cb40-649"><a href="#cb40-649" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>dfutil<span class="sc">$</span>rsk_pstar_sd, <span class="at">y=</span>dfutil<span class="sc">$</span>ret_pstar), </span>
-<span id="cb40-650"><a href="#cb40-650" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb40-651"><a href="#cb40-651" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;rx_sd&quot;</span>, <span class="at">y=</span><span class="st">&quot;rf_exp + rx_exp&quot;</span>)</span>
-<span id="cb40-652"><a href="#cb40-652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-653"><a href="#cb40-653" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot_dfcp)</span>
-<span id="cb40-654"><a href="#cb40-654" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-601"><a href="#cb40-601" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-602"><a href="#cb40-602" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb40-603"><a href="#cb40-603" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
+<span id="cb40-604"><a href="#cb40-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-605"><a href="#cb40-605" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dfutil<span class="sc">$</span>y, dfutil<span class="sc">$</span>uscore, </span>
+<span id="cb40-606"><a href="#cb40-606" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;share of risky asset (y)&quot;</span>, </span>
+<span id="cb40-607"><a href="#cb40-607" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;portfolio utility (uscore)&quot;</span>)</span>
+<span id="cb40-608"><a href="#cb40-608" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> dfutil<span class="sc">$</span>y_star, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb40-609"><a href="#cb40-609" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> dfutil<span class="sc">$</span>y_star, <span class="at">y =</span> <span class="fu">mean</span>(<span class="fu">range</span>(dfutil<span class="sc">$</span>uscore)), </span>
+<span id="cb40-610"><a href="#cb40-610" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="st">&quot;y_star&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">pos =</span> <span class="dv">4</span>)</span>
+<span id="cb40-611"><a href="#cb40-611" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-612"><a href="#cb40-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-613"><a href="#cb40-613" aria-hidden="true" tabindex="-1"></a><span class="fu">## CAL</span></span>
+<span id="cb40-614"><a href="#cb40-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-615"><a href="#cb40-615" aria-hidden="true" tabindex="-1"></a>The optimal <span class="in">`y_star`</span> share of risky assets directly determines the risk and return of our complete portfolio on the CAL.</span>
+<span id="cb40-616"><a href="#cb40-616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-617"><a href="#cb40-617" aria-hidden="true" tabindex="-1"></a>Recall that we computed the portfolio risk <span class="in">`rsk_port`</span> and return <span class="in">`ret_port`</span> for the utility score. Now, we re-compute these measures with y_star and plot them on the CAL</span>
+<span id="cb40-618"><a href="#cb40-618" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-621"><a href="#cb40-621" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-622"><a href="#cb40-622" aria-hidden="true" tabindex="-1"></a>dfutil <span class="ot">=</span> dfutil <span class="sc">|&gt;</span></span>
+<span id="cb40-623"><a href="#cb40-623" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ret_pstar    =</span> rf_exp <span class="sc">+</span> y_star<span class="sc">*</span>rx_exp) <span class="sc">|&gt;</span></span>
+<span id="cb40-624"><a href="#cb40-624" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rsk_pstar    =</span> y_star<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> rx_exp<span class="sc">^</span><span class="dv">2</span>) <span class="sc">|&gt;</span>    <span class="co"># variance</span></span>
+<span id="cb40-625"><a href="#cb40-625" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rsk_pstar_sd =</span> y_star <span class="sc">*</span> rx_sd)            <span class="co"># sd for CAL</span></span>
+<span id="cb40-626"><a href="#cb40-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-627"><a href="#cb40-627" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfutil)</span>
+<span id="cb40-628"><a href="#cb40-628" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-629"><a href="#cb40-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-630"><a href="#cb40-630" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning collapse=&quot;true&quot;}</span>
+<span id="cb40-631"><a href="#cb40-631" aria-hidden="true" tabindex="-1"></a>Following most textbooks and general convention, our base measure of risk is <span class="in">`sd(rx)`</span>, which is also used for the x-axis of the CAL. However, the equations for the utility score and optimal share <span class="in">`y_star`</span> typically use variance. Accordingly, we used <span class="in">`sd^2`</span> for these calculations. But to determine the complete portfolio on the CAL, we need to take sd as portfolio risk (<span class="in">`rsk_pstar_sd`</span>) and not portfolio variance!</span>
+<span id="cb40-632"><a href="#cb40-632" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-633"><a href="#cb40-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-636"><a href="#cb40-636" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-637"><a href="#cb40-637" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb40-638"><a href="#cb40-638" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
+<span id="cb40-639"><a href="#cb40-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-640"><a href="#cb40-640" aria-hidden="true" tabindex="-1"></a>plot_dfcp <span class="ot">=</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb40-641"><a href="#cb40-641" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rx_sd, <span class="at">y=</span>rf_exp<span class="sc">+</span>rx_exp), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb40-642"><a href="#cb40-642" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rf_sd, <span class="at">y=</span>rf_exp), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb40-643"><a href="#cb40-643" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept=</span>rf_exp, <span class="at">slope=</span>sharpe)<span class="sc">+</span></span>
+<span id="cb40-644"><a href="#cb40-644" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>dfutil<span class="sc">$</span>rsk_pstar_sd, <span class="at">y=</span>dfutil<span class="sc">$</span>ret_pstar), </span>
+<span id="cb40-645"><a href="#cb40-645" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb40-646"><a href="#cb40-646" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;rx_sd&quot;</span>, <span class="at">y=</span><span class="st">&quot;rf_exp + rx_exp&quot;</span>)</span>
+<span id="cb40-647"><a href="#cb40-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-648"><a href="#cb40-648" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot_dfcp)</span>
+<span id="cb40-649"><a href="#cb40-649" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
