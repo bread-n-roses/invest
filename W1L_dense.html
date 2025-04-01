@@ -3505,8 +3505,8 @@ Important
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>dfVaRd <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">VaR95dir_pct =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span><span class="dv">100</span>,</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">VaR95dir_inv =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span>Invest)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">VaR95dir_pct =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>, <span class="at">type=</span><span class="dv">1</span>)<span class="sc">*-</span><span class="dv">100</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">VaR95dir_inv =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>, <span class="at">type=</span><span class="dv">1</span>)<span class="sc">*-</span>Invest)</span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfVaRd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -3536,8 +3536,8 @@ Important
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dfes <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sub_cut =</span> <span class="fu">ifelse</span>(re <span class="sc">&lt;</span> cutoff, re, <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>, <span class="at">type=</span><span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sub_cut =</span> <span class="fu">ifelse</span>(re <span class="sc">&lt;=</span> cutoff, re, <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">ES5  =</span> <span class="fu">mean</span>(sub_cut, <span class="at">na.rm=</span>T),</span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>            <span class="co">#</span></span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>            <span class="co"># let&#39;s count the obs that enter ES5</span></span>
@@ -4622,8 +4622,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb40-416"><a href="#cb40-416" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-417"><a href="#cb40-417" aria-hidden="true" tabindex="-1"></a>dfVaRd <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
 <span id="cb40-418"><a href="#cb40-418" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
-<span id="cb40-419"><a href="#cb40-419" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">VaR95dir_pct =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span><span class="dv">100</span>,</span>
-<span id="cb40-420"><a href="#cb40-420" aria-hidden="true" tabindex="-1"></a>            <span class="at">VaR95dir_inv =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)<span class="sc">*-</span>Invest)</span>
+<span id="cb40-419"><a href="#cb40-419" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">VaR95dir_pct =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>, <span class="at">type=</span><span class="dv">1</span>)<span class="sc">*-</span><span class="dv">100</span>,</span>
+<span id="cb40-420"><a href="#cb40-420" aria-hidden="true" tabindex="-1"></a>            <span class="at">VaR95dir_inv =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>, <span class="at">type=</span><span class="dv">1</span>)<span class="sc">*-</span>Invest)</span>
 <span id="cb40-421"><a href="#cb40-421" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-422"><a href="#cb40-422" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dfVaRd)</span>
 <span id="cb40-423"><a href="#cb40-423" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -4657,8 +4657,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb40-455"><a href="#cb40-455" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb40-456"><a href="#cb40-456" aria-hidden="true" tabindex="-1"></a>dfes <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
 <span id="cb40-457"><a href="#cb40-457" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
-<span id="cb40-458"><a href="#cb40-458" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb40-459"><a href="#cb40-459" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sub_cut =</span> <span class="fu">ifelse</span>(re <span class="sc">&lt;</span> cutoff, re, <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb40-458"><a href="#cb40-458" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> <span class="fu">quantile</span>(re, <span class="at">probs=</span><span class="fl">0.05</span>, <span class="at">type=</span><span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb40-459"><a href="#cb40-459" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sub_cut =</span> <span class="fu">ifelse</span>(re <span class="sc">&lt;=</span> cutoff, re, <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb40-460"><a href="#cb40-460" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">ES5  =</span> <span class="fu">mean</span>(sub_cut, <span class="at">na.rm=</span>T),</span>
 <span id="cb40-461"><a href="#cb40-461" aria-hidden="true" tabindex="-1"></a>            <span class="co">#</span></span>
 <span id="cb40-462"><a href="#cb40-462" aria-hidden="true" tabindex="-1"></a>            <span class="co"># let&#39;s count the obs that enter ES5</span></span>
