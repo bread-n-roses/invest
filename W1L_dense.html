@@ -3547,7 +3547,7 @@ Important
 </section>
 <section id="es-diy" class="level2">
 <h2 class="anchored" data-anchor-id="es-diy">ES (DIY)</h2>
-<p>For the monthly 5% expected shortfall (ES), we compute the 5% quantile value (similar to VaR95, but negative and not % or $) and take the average of all values below this cut-off.</p>
+<p>For the monthly 5% expected shortfall (ES), we compute the 5% quantile value (similar to VaR95, but negative and not % or $) and take the average of all values below and equal to this cut-off.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dfes <span class="ot">=</span> df102 <span class="sc">|&gt;</span> </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ticker) <span class="sc">|&gt;</span></span>
