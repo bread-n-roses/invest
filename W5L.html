@@ -3248,7 +3248,7 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df501 <span class="ot">=</span> df501 <span class="sc">|&gt;</span>      </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span> <span class="co"># for each calendar year...</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sigma =</span> <span class="fu">sd</span>(re, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">250</span>)) <span class="sc">|&gt;</span> <span class="co">#  annualize vola</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sigma =</span> <span class="fu">sd</span>(re, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">252</span>)) <span class="sc">|&gt;</span> <span class="co">#  annualize vola</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(df501)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3343,8 +3343,8 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">1.272458</td>
-<td style="text-align: right;">0.7858809</td>
+<td style="text-align: right;">1.273682</td>
+<td style="text-align: right;">0.7851253</td>
 </tr>
 </tbody>
 </table>
@@ -3383,13 +3383,13 @@ Note
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Factor</td>
-<td style="text-align: right;">1.2724575</td>
-<td style="text-align: right;">0.7858809</td>
+<td style="text-align: right;">1.2736820</td>
+<td style="text-align: right;">0.7851253</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Probability</td>
-<td style="text-align: right;">0.4694006</td>
-<td style="text-align: right;">0.5305994</td>
+<td style="text-align: right;">0.4690446</td>
+<td style="text-align: right;">0.5309554</td>
 </tr>
 </tbody>
 </table>
@@ -3430,18 +3430,18 @@ Note
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Factor</td>
-<td style="text-align: right;">1.2724575</td>
-<td style="text-align: right;">0.7858809</td>
+<td style="text-align: right;">1.2736820</td>
+<td style="text-align: right;">0.7851253</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Probability</td>
-<td style="text-align: right;">0.4694006</td>
-<td style="text-align: right;">0.5305994</td>
+<td style="text-align: right;">0.4690446</td>
+<td style="text-align: right;">0.5309554</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">SP500</td>
-<td style="text-align: right;">4962.4440980</td>
-<td style="text-align: right;">3064.8490364</td>
+<td style="text-align: right;">4967.2196711</td>
+<td style="text-align: right;">3061.9024362</td>
 </tr>
 </tbody>
 </table>
@@ -3483,28 +3483,28 @@ Note
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Factor</td>
-<td style="text-align: right;">1.2724575</td>
-<td style="text-align: right;">0.7858809</td>
+<td style="text-align: right;">1.2736820</td>
+<td style="text-align: right;">0.7851253</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Probability</td>
-<td style="text-align: right;">0.4694006</td>
-<td style="text-align: right;">0.5305994</td>
+<td style="text-align: right;">0.4690446</td>
+<td style="text-align: right;">0.5309554</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">SP500</td>
-<td style="text-align: right;">4962.4440980</td>
-<td style="text-align: right;">3064.8490364</td>
+<td style="text-align: right;">4967.2196711</td>
+<td style="text-align: right;">3061.9024362</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Payoff C</td>
-<td style="text-align: right;">962.4440980</td>
+<td style="text-align: right;">967.2196711</td>
 <td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Payoff P</td>
 <td style="text-align: right;">0.0000000</td>
-<td style="text-align: right;">935.1509636</td>
+<td style="text-align: right;">938.0975638</td>
 </tr>
 </tbody>
 </table>
@@ -3544,38 +3544,38 @@ Note
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Factor</td>
-<td style="text-align: right;">1.2724575</td>
-<td style="text-align: right;">0.7858809</td>
+<td style="text-align: right;">1.2736820</td>
+<td style="text-align: right;">0.7851253</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Probability</td>
-<td style="text-align: right;">0.4694006</td>
-<td style="text-align: right;">0.5305994</td>
+<td style="text-align: right;">0.4690446</td>
+<td style="text-align: right;">0.5309554</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">SP500</td>
-<td style="text-align: right;">4962.4440980</td>
-<td style="text-align: right;">3064.8490364</td>
+<td style="text-align: right;">4967.2196711</td>
+<td style="text-align: right;">3061.9024362</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Payoff C</td>
-<td style="text-align: right;">962.4440980</td>
+<td style="text-align: right;">967.2196711</td>
 <td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Payoff P</td>
 <td style="text-align: right;">0.0000000</td>
-<td style="text-align: right;">935.1509636</td>
+<td style="text-align: right;">938.0975638</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Price C</td>
-<td style="text-align: right;">445.4112524</td>
-<td style="text-align: right;">445.4112524</td>
+<td style="text-align: right;">447.2819166</td>
+<td style="text-align: right;">447.2819166</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Price P</td>
-<td style="text-align: right;">489.2046097</td>
-<td style="text-align: right;">489.2046097</td>
+<td style="text-align: right;">491.0752739</td>
+<td style="text-align: right;">491.0752739</td>
 </tr>
 </tbody>
 </table>
@@ -3614,8 +3614,8 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">0.5071915</td>
-<td style="text-align: right;">-0.4928085</td>
+<td style="text-align: right;">0.5076423</td>
+<td style="text-align: right;">-0.4923577</td>
 </tr>
 </tbody>
 </table>
@@ -3664,8 +3664,8 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">0.0745493</td>
-<td style="text-align: right;">-0.1664007</td>
+<td style="text-align: right;">0.0752129</td>
+<td style="text-align: right;">-0.1666991</td>
 </tr>
 </tbody>
 </table>
@@ -3702,8 +3702,8 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">0.5297133</td>
-<td style="text-align: right;">0.4339208</td>
+<td style="text-align: right;">0.5299773</td>
+<td style="text-align: right;">0.4338034</td>
 </tr>
 </tbody>
 </table>
@@ -3743,13 +3743,13 @@ Note
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">BSM model</td>
-<td style="text-align: right;">354.7504</td>
-<td style="text-align: right;">398.1454</td>
+<td style="text-align: right;">356.2427</td>
+<td style="text-align: right;">399.6378</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Binomial (1 period)</td>
-<td style="text-align: right;">445.4113</td>
-<td style="text-align: right;">489.2046</td>
+<td style="text-align: right;">447.2819</td>
+<td style="text-align: right;">491.0753</td>
 </tr>
 </tbody>
 </table>
@@ -3806,13 +3806,13 @@ Important
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Nd1</td>
-<td style="text-align: right;">0.5297133</td>
-<td style="text-align: right;">0.5297133</td>
+<td style="text-align: right;">0.5299773</td>
+<td style="text-align: right;">0.5299773</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Delta</td>
-<td style="text-align: right;">0.5297133</td>
-<td style="text-align: right;">-0.4702867</td>
+<td style="text-align: right;">0.5299773</td>
+<td style="text-align: right;">-0.4700227</td>
 </tr>
 </tbody>
 </table>
@@ -3849,8 +3849,8 @@ Important
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">5.823317</td>
-<td style="text-align: right;">-4.606523</td>
+<td style="text-align: right;">5.801812</td>
+<td style="text-align: right;">-4.586746</td>
 </tr>
 </tbody>
 </table>
@@ -3898,8 +3898,8 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">5.823317</td>
-<td style="text-align: right;">5.823317</td>
+<td style="text-align: right;">5.801812</td>
+<td style="text-align: right;">5.801812</td>
 </tr>
 </tbody>
 </table>
@@ -3970,7 +3970,7 @@ Note
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">350.0906</td>
-<td style="text-align: right;">398.1454</td>
+<td style="text-align: right;">399.6378</td>
 </tr>
 </tbody>
 </table>
@@ -3987,7 +3987,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The put is priced at $350 in the market, whereas you believe it should be worth $398 (as computed previously in <code>put_price</code>)!</p>
+<p>The put is priced at $350.09 in the market, whereas you believe it should be worth $399.64 (as computed previously in <code>put_price</code>)!</p>
 </div>
 </div>
 <p>.</p>
@@ -3996,8 +3996,8 @@ Note
 <h2 class="anchored" data-anchor-id="cost-of-position">Cost of position</h2>
 <p>You keep track of the initial cost of establishing this position today, which is</p>
 <ol type="1">
-<li>the price of buying one underpriced put (long)</li>
-<li>the price of buying delta of the S&amp;P500 (long)</li>
+<li>the price of buying one <em>underpriced</em> put (long)</li>
+<li>the price of buying the S&amp;P500 (long), multiplied by the <em>real</em> delta<em>.</em></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>market_bs <span class="ot">=</span> market_bs <span class="sc">|&gt;</span></span>
@@ -4025,8 +4025,8 @@ Note
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">350.0906</td>
-<td style="text-align: right;">1834.066</td>
-<td style="text-align: right;">2184.157</td>
+<td style="text-align: right;">1833.037</td>
+<td style="text-align: right;">2183.127</td>
 </tr>
 </tbody>
 </table>
@@ -4043,7 +4043,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note that the delta of the put is negative. Therefore, the price of the SP500 is multiplied by the absolute value of this delta.</p>
+<p>We buy the put at the undervalued price, because that is the price for which the option is available in the market .However, for determining the investment in the S&amp;P500, we use the delta based on the real volatility, because we believe that the market will ultimately correct the mispricing. Also note that the delta of the put is negative. Therefore, <code>SP500</code> is multiplied by the absolute value of <code>Delta</code>.</p>
 </div>
 </div>
 <p>.</p>
@@ -4122,10 +4122,10 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">447.2565</td>
-<td style="text-align: right;">1787.089</td>
-<td style="text-align: right;">2184.157</td>
-<td style="text-align: right;">50.18892</td>
+<td style="text-align: right;">448.7139</td>
+<td style="text-align: right;">1786.086</td>
+<td style="text-align: right;">2183.127</td>
+<td style="text-align: right;">51.67271</td>
 </tr>
 </tbody>
 </table>
@@ -4167,11 +4167,11 @@ Note
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Metric      =</span> <span class="fu">c</span>(<span class="st">&quot;SP500 initial&quot;</span>, <span class="st">&quot;SP500 Low&quot;</span>, <span class="st">&quot;SP500 High&quot;</span>),</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Put price</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(market_bs<span class="sc">$</span>put_price_market, sp500_low<span class="sc">$</span>put_price_new, sp500_high<span class="sc">$</span>put_price_new),</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Delta x SP500</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">abs</span>(bs<span class="sc">$</span>Nd1<span class="dv">-1</span>)<span class="sc">*</span>bs<span class="sc">$</span>SP500, sp500_low<span class="sc">$</span>long, sp500_high<span class="sc">$</span>long),</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Cost position</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(market_bs<span class="sc">$</span>cost, market_bs<span class="sc">$</span>cost, market_bs<span class="sc">$</span>cost),</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Profit          =</span> <span class="fu">c</span>(<span class="dv">0</span>, sp500_low<span class="sc">$</span>profit, sp500_high<span class="sc">$</span>profit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Metric      =</span> <span class="fu">c</span>(<span class="st">&quot;Implied: buy put&quot;</span>, <span class="st">&quot;Real sd: buy SP500&quot;</span>, <span class="st">&quot;Case: SP500 Low&quot;</span>, <span class="st">&quot;Case: SP500 High&quot;</span>),</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Put price</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(market_bs<span class="sc">$</span>put_price_market, bs<span class="sc">$</span>put_price, sp500_low<span class="sc">$</span>put_price_new, sp500_high<span class="sc">$</span>put_price_new),</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Delta x SP500</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">NA_real_</span>,<span class="fu">abs</span>(bs<span class="sc">$</span>Nd1<span class="dv">-1</span>)<span class="sc">*</span>bs<span class="sc">$</span>SP500, sp500_low<span class="sc">$</span>long, sp500_high<span class="sc">$</span>long),</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Cost position</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(market_bs<span class="sc">$</span>put_price_market, <span class="fu">abs</span>(bs<span class="sc">$</span>Nd1<span class="dv">-1</span>)<span class="sc">*</span>bs<span class="sc">$</span>SP500, market_bs<span class="sc">$</span>cost, market_bs<span class="sc">$</span>cost),</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Profit          =</span> <span class="fu">c</span>(<span class="cn">NA_real_</span>,<span class="cn">NA_real_</span>, sp500_low<span class="sc">$</span>profit, sp500_high<span class="sc">$</span>profit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -4187,32 +4187,39 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">SP500 initial</td>
+<td style="text-align: left;">Implied: buy put</td>
 <td style="text-align: right;">350.0906</td>
-<td style="text-align: right;">1834.066</td>
-<td style="text-align: right;">2184.157</td>
-<td style="text-align: right;">0.00000</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">350.0906</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">SP500 Low</td>
-<td style="text-align: right;">447.2565</td>
-<td style="text-align: right;">1787.089</td>
-<td style="text-align: right;">2184.157</td>
-<td style="text-align: right;">50.18892</td>
+<td style="text-align: left;">Real sd: buy SP500</td>
+<td style="text-align: right;">399.6378</td>
+<td style="text-align: right;">1833.037</td>
+<td style="text-align: right;">1833.0367</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">SP500 High</td>
-<td style="text-align: right;">375.1078</td>
-<td style="text-align: right;">1857.632</td>
-<td style="text-align: right;">2184.157</td>
-<td style="text-align: right;">48.58326</td>
+<td style="text-align: left;">Case: SP500 Low</td>
+<td style="text-align: right;">448.7139</td>
+<td style="text-align: right;">1786.086</td>
+<td style="text-align: right;">2183.1274</td>
+<td style="text-align: right;">51.67271</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Case: SP500 High</td>
+<td style="text-align: right;">376.6113</td>
+<td style="text-align: right;">1856.590</td>
+<td style="text-align: right;">2183.1274</td>
+<td style="text-align: right;">50.07347</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<p>We find that the <code>profit</code> in both scenarios (<code>sp500_low</code> and <code>sp500_high</code>) are very similar and thus largely independent of fluctuations in the price of the underlying asset.</p>
+<p>We find that the profit is very similar for both cases and thus largely independent of fluctuations in the price of the underlying asset.</p>
 </section>
 </section>
 
