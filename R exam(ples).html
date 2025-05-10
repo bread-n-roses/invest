@@ -3086,6 +3086,8 @@ vertical-align: -.125em;
   <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
   <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
   </ul>
 </nav>
 </div>
@@ -3168,7 +3170,7 @@ Solution
 </section>
 <section id="question-2" class="level2">
 <h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
-<p>You have a dataframe in R, referred to as <code>df1</code>, with a column <code>RE</code> that contains monthly total stock returns, and a column <code>TBILL</code>, containing monthly returns of the 4-week T-bill. Assume that the minimally acceptable return, <code>MAR</code> is 0.0 (0%). Which of the following code chunks computes the <code>LPSD</code> correctly as denominator of the Sortino Ratio (over the whole sampling period)?</p>
+<p>You have a dataframe in R, referred to as <code>df1</code>, with a column <code>RE</code> that contains monthly total stock returns, and a column <code>TBILL</code>, containing monthly returns of the 4-week T-bill. Assume that the minimally acceptable return, <code>MAR</code> is 0.0 (0%). Which of the following code chunks comes closest to computing the <code>LPSD</code> as denominator of the Sortino Ratio (over the whole sampling period)?</p>
 <p><strong>Code A:</strong></p>
 <pre><code>df2 = df1 |&gt; 
   mutate(X       = RE-TBILL) |&gt;   
@@ -3209,7 +3211,7 @@ Solution
 <ul>
 <li>Code A summarizes X instead of L.</li>
 <li>Code C summarizes L and mutates LPSD.</li>
-<li>Code D computes L with RE&lt;0.</li>
+<li>Code D computes L with RE&lt;0, but <code>MAR</code> is <code>X = RE-TBILL = 0.0</code></li>
 </ul>
 </div>
 </div>
@@ -3218,8 +3220,7 @@ Solution
 <section id="question-3" class="level2">
 <h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
 <p>In R you have a dataframe <code>df1</code> with monthly total returns of a single stock, referred to as <code>r</code>. The code below computes the geometric mean of this stock return series, <code>r_geo</code>, over the whole sample period. One command is missing (marked with <code>___</code>).</p>
-<pre><code>df2 = df1 |&gt; summarize(x = n(), r_geo  = ___(1+r, na.rm=T)^(1/x) - 1)
-</code></pre>
+<pre><code>df2 = df1 |&gt; summarize(x = n(), r_geo  = ___(1+r, na.rm=T)^(1/x) - 1)</code></pre>
 <p>Fill in the correct command (answer only with the command, in small caps).</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Solution">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -3237,120 +3238,141 @@ Solution
 </div>
 </div>
 </div>
-<!--
-
-# Questions for exam, maybe:
-
-## Question
-
-You have the following dataframe in R, referred to as `df1`:
-
-::: {.cell}
-::: {.cell-output-display}
-
-
-|DATE    | TBILL|     RE|
-|:-------|-----:|------:|
-|2004-05 | 0.007| -0.017|
-|2004-06 | 0.008|  0.064|
-|2004-07 | 0.009| -0.084|
-|2004-08 | 0.001|  0.004|
-
-
-:::
-:::
-
-What is the value of `SOL` in the code below?
-
-::: {.cell}
-
-```{.r .cell-code}
-df2 = df1 |>
-  mutate(X = ifelse(RE < TBILL, RE, NA_real_)) |>
-  summarize(Y = n(), Z = sum(!is.na(X)), S = sum(X, na.rm=T)) |>
-  mutate(SOL = round(Z/S*Y, digits=2))
-```
-:::
-
-Note: Use periods for decimal points, not commas. For negative numbers enter a leading minus sign.
-
-::: {.callout-note title="Solution" collapse="true"}
-The solution is -79.21
-
-Step 1
-
-::: {.cell}
-
-```{.r .cell-code}
-df2 = df1 |>
-  mutate(X = ifelse(RE < TBILL, RE, NA_real_))
-```
-:::
-
-::: {.cell}
-::: {.cell-output-display}
-
-
-|DATE    | TBILL|     RE|      X|
-|:-------|-----:|------:|------:|
-|2004-05 | 0.007| -0.017| -0.017|
-|2004-06 | 0.008|  0.064|     NA|
-|2004-07 | 0.009| -0.084| -0.084|
-|2004-08 | 0.001|  0.004|     NA|
-
-
-:::
-:::
-
-Step 2
-
-::: {.cell}
-
-```{.r .cell-code}
-df2 = df1 |>
-  mutate(X = ifelse(RE < TBILL, RE, NA_real_)) |>
-  summarize(Y = n(), Z = sum(!is.na(X)), S = sum(X, na.rm=T))
-```
-:::
-
-::: {.cell}
-::: {.cell-output-display}
-
-
-|  Y|  Z|      S|
-|--:|--:|------:|
-|  4|  2| -0.101|
-
-
-:::
-:::
-
-Step 3
-
-::: {.cell}
-
-```{.r .cell-code}
-df2 = df1 |>
-  mutate(X = ifelse(RE < TBILL, RE, NA_real_)) |>
-  summarize(Y = n(), Z = sum(!is.na(X)), S = sum(X, na.rm=T)) |>
-  mutate(SOL = round(Z/S*Y, digits=2))
-```
-:::
-
-::: {.cell}
-::: {.cell-output-display}
-
-
-|  Y|  Z|      S|    SOL|
-|--:|--:|------:|------:|
-|  4|  2| -0.101| -79.21|
-
-
-:::
-:::
-:::
-
--->
+</section>
+<section id="question-4" class="level2">
+<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<p>You have the following dataframe in R, referred to as <strong>df</strong>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">DATE</th>
+<th style="text-align: right;">TBILL</th>
+<th style="text-align: right;">RE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2015-01</td>
+<td style="text-align: right;">0.007</td>
+<td style="text-align: right;">-0.017</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2015-02</td>
+<td style="text-align: right;">0.008</td>
+<td style="text-align: right;">0.064</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2015-03</td>
+<td style="text-align: right;">0.009</td>
+<td style="text-align: right;">-0.084</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2015-04</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.004</td>
+</tr>
+</tbody>
+</table>
+<p>The first column contains calendar months. The 2nd and 3rd column contain monthly returns of the T-bill (TBILL) and a stock (RE).</p>
+<p>What is the value of <strong>sol</strong> in the code below?</p>
+<pre><code>df = df |&gt;
+  mutate(X = ifelse(RE &lt; TBILL, RE, NA_real_)) |&gt;
+  summarize(sol = sum(X, na.rm=T))</code></pre>
+<p><em>Note: Enter your answer as decimals (no percentages), rounded to two (2) digits to the right of the decimal point. Use periods for decimal points, not commas. Example: If your solution is 53.367, enter your answer as 53.37. (Enter negative numbers with a leading minus sign.)</em></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The answer is -0.1.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<p>Assume you have a data file <strong>df</strong> with the following structure (6 variables, 1259 observations):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">date</th>
+<th style="text-align: left;">year</th>
+<th style="text-align: right;">rx</th>
+<th style="text-align: right;">MKB</th>
+<th style="text-align: right;">SMB</th>
+<th style="text-align: right;">HML</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2018-01-02</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: right;">-0.005</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">-0.22</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2018-01-03</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: right;">-0.006</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">-0.39</td>
+<td style="text-align: right;">-0.18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: right;">…</td>
+<td style="text-align: right;">…</td>
+<td style="text-align: right;">…</td>
+<td style="text-align: right;">…</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-12-29</td>
+<td style="text-align: left;">2022</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">1.87</td>
+<td style="text-align: right;">1.27</td>
+<td style="text-align: right;">-1.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022-12-30</td>
+<td style="text-align: left;">2022</td>
+<td style="text-align: right;">-0.021</td>
+<td style="text-align: right;">-0.22</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">-0.03</td>
+</tr>
+</tbody>
+</table>
+<p>The file contains calendar <strong>date</strong> and <strong>year</strong>, daily excess returns <strong>rx</strong> for a specific stock, and the daily excess returns of the three Fama-French (FF) Factors “Market” <strong>MKT</strong>, “Small minus Big” <strong>SMB</strong>, and “High minus Low” <strong>HML</strong>.</p>
+<p>The code below uses all observations in the sample to estimate a FF3-factor model. One command is missing (marked with _____):</p>
+<pre><code>FF3 = _____(rx ~ MKT + SMB + HML, data = df)</code></pre>
+<p>Fill in the correct command (answer only with the command, in small caps).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The answer is <code>lm</code>.</p>
+</div>
+</div>
+</div>
 </section>
 
 </main>
