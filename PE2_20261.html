@@ -1,0 +1,544 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>PE 2</title>
+<style type="text/css">
+body{font-family: Arial, Helvetica, Sans;}
+</style>
+<meta charset="utf-8" />
+</head>
+
+<body>
+<h2>PE 2</h2>
+
+<ol>
+<li>
+<h4>Question</h4>
+<p>Suppose that there are two independent economic factors, F1 and F2. The risk-free rate is 4%, and all stocks have independent firm-specific components with a standard deviation of 23%.</p>
+<p>Portfolios A and B are both well-diversified with the following properties:</p>
+<table style="border-collapse: collapse; width: 40%;" border="1">
+<tbody>
+<tr>
+<td style="width: 19.9333%; text-align: center;">
+<strong>Portfolio</strong>
+</td>
+<td style="width: 25.5784%; text-align: center;">
+<strong>Beta on F1</strong>
+</td>
+<td style="width: 26.5865%; text-align: center;">
+<strong>Beta on F2</strong>
+</td>
+<td style="width: 27.7962%; text-align: center;">
+<strong>Expected Return</strong>
+</td>
+</tr>
+<tr>
+<td style="width: 19.9333%; text-align: center;">
+<strong>A</strong>
+</td>
+<td style="width: 25.5784%; text-align: center;">
+1.3
+</td>
+<td style="width: 26.5865%; text-align: center;">
+1.8
+</td>
+<td style="width: 27.7962%; text-align: center;">
+0.28
+</td>
+</tr>
+<tr>
+<td style="width: 19.9333%; text-align: center;">
+<strong>B</strong>
+</td>
+<td style="width: 25.5784%; text-align: center;">
+2.1
+</td>
+<td style="width: 26.5865%; text-align: center;">
+-0.5
+</td>
+<td style="width: 27.7962%; text-align: center;">
+0.24
+</td>
+</tr>
+</tbody>
+</table>
+<p>What is the risk premium on Factor 1, i.e. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mtext mathvariant="normal">RP</mtext><mn>1</mn></msub><annotation encoding="application/x-tex">\text{RP}_{1}</annotation></semantics></math>?</p>
+<p>Round your answer to two decimals. For example, 0.24.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.11</mn><annotation encoding="application/x-tex">0.11</annotation></semantics></math>.</p>
+<p>The following equation applies here: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>P</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>r</mi><mi>f</mi></msub><mo>+</mo><msub><mi>β</mi><mrow><mi>P</mi><mo>,</mo><mn>1</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>r</mi><mi>f</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>β</mi><mrow><mi>P</mi><mo>,</mo><mn>2</mn></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>r</mi><mi>f</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}(r_P) = r_f + \beta_{P,1}(\mathbb{E}(r_1) - rf) + \beta_{P,2}(\mathbb{E}(r_2) - rf)</annotation></semantics></math> for a general portfolio P (can be either A or B here).</p>
+<p>We need to find the risk premium (RP) for each of the two factors: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext mathvariant="normal">RP</mtext><mn>1</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\text{RP}_{1} = (\mathbb{E}(r_1) - r_f)</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext mathvariant="normal">RP</mtext><mn>2</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\text{RP}_{2} = (\mathbb{E}(r_2) - r_f)</annotation></semantics></math>.</p>
+<p>To do so, solve the following system of two equations with two unknowns:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.28</mn><mo>=</mo><mn>0.04</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1.3</mn><mo>⋅</mo><msub><mtext mathvariant="normal">RP</mtext><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1.8</mn><mo>⋅</mo><msub><mtext mathvariant="normal">RP</mtext><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">0.28 = 0.04 + (1.3 \cdot \text{RP}_1) + (1.8 \cdot \text{RP}_2)</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.24</mn><mo>=</mo><mn>0.04</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>2.1</mn><mo>⋅</mo><msub><mtext mathvariant="normal">RP</mtext><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>0.5</mn><mo>⋅</mo><msub><mtext mathvariant="normal">RP</mtext><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">0.24 = 0.04 + (2.1 \cdot \text{RP}_1) + (-0.5 \cdot \text{RP}_2)</annotation></semantics></math></p>
+<p>Simplifying gives:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext mathvariant="normal">RP</mtext><mn>2</mn></msub><mo>=</mo><mfrac><mrow><mn>0.24</mn><mo>−</mo><mn>1.3</mn><msub><mtext mathvariant="normal">RP</mtext><mn>1</mn></msub></mrow><mn>1.8</mn></mfrac></mrow><annotation encoding="application/x-tex">\text{RP}_2 = \frac{0.24 - 1.3 \text{RP}_1}{1.8}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext mathvariant="normal">RP</mtext><mn>2</mn></msub><mo>=</mo><mfrac><mrow><mn>0.2</mn><mo>−</mo><mn>2.1</mn><msub><mtext mathvariant="normal">RP</mtext><mn>1</mn></msub></mrow><mrow><mi>−</mi><mn>0.5</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{RP}_2 = \frac{0.2 - 2.1 \text{RP}_1}{-0.5}</annotation></semantics></math>.</p>
+<p>Equating the two expressions yields <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext mathvariant="normal">RP</mtext><mn>1</mn></msub><mo>=</mo><mn>0.108352</mn><mo>≈</mo><mn>0.11</mn></mrow><annotation encoding="application/x-tex">\text{RP}_1 = 0.108352 \approx 0.11</annotation></semantics></math> or 11%.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+The following are estimates for two stocks
+<table style="border-collapse: collapse; width: 40%;" border="1">
+<tbody>
+<tr>
+<td style="width: 15.0778%; text-align: center;">
+<strong>Stock</strong>
+</td>
+<td style="width: 30.5291%; text-align: center;">
+<strong>Expected Return</strong>
+</td>
+<td style="width: 20.2861%; text-align: center;">
+<strong>Beta</strong>
+</td>
+<td style="width: 34.0014%; text-align: center;">
+<strong>Firm-Specific Standard Deviation</strong>
+</td>
+</tr>
+<tr>
+<td style="width: 15.0778%; text-align: center;">
+<strong>A</strong>
+</td>
+<td style="width: 30.5291%; text-align: center;">
+0.12
+</td>
+<td style="width: 20.2861%; text-align: center;">
+0.9
+</td>
+<td style="width: 34.0014%; text-align: center;">
+0.31
+</td>
+</tr>
+<tr>
+<td style="width: 15.0778%; text-align: center;">
+<strong>B</strong>
+</td>
+<td style="width: 30.5291%; text-align: center;">
+0.19
+</td>
+<td style="width: 20.2861%; text-align: center;">
+1.4
+</td>
+<td style="width: 34.0014%; text-align: center;">
+0.39
+</td>
+</tr>
+</tbody>
+</table>
+<p>The market index has a standard deviation of 0.22.</p>
+<p>Suppose that we were to construct a portfolio with proportions 30% in Stock A, 45% in Stock B, and 25% in T-bills.</p>
+<p>What is the total (i.e. systematic + non-systematic) standard deviation of this portfolio?
+Round your answer to three decimals. For example, 0.482.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.281</mn><annotation encoding="application/x-tex">0.281</annotation></semantics></math>.</p>
+<p>First, calculate the beta of the portfolio. This is simply a weighted average of each beta.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mi>P</mi></msub><mo>=</mo><msub><mi>w</mi><mi>A</mi></msub><msub><mi>β</mi><mi>A</mi></msub><mo>+</mo><msub><mi>w</mi><mi>B</mi></msub><msub><mi>β</mi><mi>B</mi></msub><mo>+</mo><msub><mi>w</mi><msub><mi>r</mi><mi>f</mi></msub></msub><msub><mi>β</mi><msub><mi>r</mi><mi>f</mi></msub></msub><mo>→</mo><mrow></mrow><msub><mi>β</mi><mi>P</mi></msub><mo>=</mo><mn>0.30</mn><mo>⋅</mo><mn>0.9</mn><mo>+</mo><mspace width="0.167em"></mspace><mn>0.45</mn><mo>⋅</mo><mn>1.4</mn><mo>+</mo><mspace width="0.167em"></mspace><mn>0.25</mn><mo>⋅</mo><mn>0</mn><mo>=</mo><mn>0.9</mn></mrow><annotation encoding="application/x-tex">\beta_P = w_A \beta_A + w_B \beta_B + w_{r_f} \beta_{r_f} \longrightarrow{} \beta_P = 0.30 \cdot 0.9 + \, 0.45 \cdot 1.4 + \, 0.25 \cdot 0 = 0.9</annotation></semantics></math>.</p>
+<p>The total variance of the portfolio is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>σ</mi><mi>P</mi><mn>2</mn></msubsup><mo>=</mo><msubsup><mi>β</mi><mi>P</mi><mn>2</mn></msubsup><msubsup><mi>σ</mi><mi>M</mi><mn>2</mn></msubsup><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>P</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\sigma^2_P = \beta^2_P \sigma^2_M + \sigma^2(e_P)</annotation></semantics></math> where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>β</mi><mi>P</mi><mn>2</mn></msubsup><msubsup><mi>σ</mi><mi>M</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\beta^2_P \sigma^2_M</annotation></semantics></math> is the systematic risk and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>P</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\sigma^2(e_P)</annotation></semantics></math> is the non-systematic risk (firm-specific variance).</p>
+<p>Obtain the firm-specific variance as: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>P</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>w</mi><msub><mi></mi><mi>A</mi></msub></msup><mo>⋅</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msup><mi>w</mi><msub><mi></mi><mi>B</mi></msub></msup><mo>⋅</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>B</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msubsup><mi>w</mi><msub><mi>r</mi><mi>f</mi></msub><mn>2</mn></msubsup><mo>⋅</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><msub><mi>r</mi><mi>f</mi></msub></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\sigma^2(e_P)=w^_A\cdot \sigma^2(e_A) + w^_B\cdot \sigma^2(e_B) + w^2_{r_f}\cdot \sigma^2(e_{r_f})</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mn>0.3</mn><mn>2</mn></msup><mo>⋅</mo><msup><mn>0.31</mn><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><msup><mn>0.45</mn><mn>2</mn></msup><mo>⋅</mo><msup><mn>0.39</mn><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><msup><mn>0.25</mn><mn>2</mn></msup><mo>⋅</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.03944925</mn></mrow><annotation encoding="application/x-tex">(0.3^2\cdot 0.31^2)+(0.45^2 \cdot 0.39^2)+(0.25^2 \cdot 0) = 0.03944925</annotation></semantics></math>.</p>
+<p>The total risk (standard deviation) of the portfolio is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>P</mi></msub><mo>=</mo><msqrt><msubsup><mi>σ</mi><mi>P</mi><mn>2</mn></msubsup></msqrt><mo>=</mo><msqrt><mrow><msubsup><mi>β</mi><mi>P</mi><mn>2</mn></msubsup><msubsup><mi>σ</mi><mi>M</mi><mn>2</mn></msubsup><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>P</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sigma_P = \sqrt{\sigma^2_P} = \sqrt{ \beta^2_P \sigma^2_M + \sigma^2(e_P)}</annotation></semantics></math>, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>P</mi></msub><mo>=</mo><msqrt><mrow><mo stretchy="false" form="prefix">(</mo><msup><mn>0.9</mn><mn>2</mn></msup><mo>⋅</mo><msup><mn>0.22</mn><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>0.03944925</mn></mrow></msqrt><mo>=</mo><msqrt><mn>0.078653</mn></msqrt><mo>≈</mo><mn>0.281</mn></mrow><annotation encoding="application/x-tex">\sigma_P = \sqrt{(0.9^2 \cdot 0.22^2) + 0.03944925} = \sqrt{0.078653} \approx 0.281</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Boeing has a beta of 1.2. The annualized market return yesterday was 10%, and the risk-free rate is currently 5%.</p>
+<p>Yesterday, Boeing announced that it will take over another airplane manufacturer and when trade was closing, Boeing’s annualized return was 16%.</p>
+<p>Using the market model, what is yesterday’s abnormal return of Boeing?</p>
+<p>Report your answer as a fraction and round your answer to three decimals. If your answer is 4.21%, it is reported as 0.042.</p>
+<br/>
+<h4>Solution</h4>
+<p>Market model = CAPM: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>R</mi><mo>=</mo><msub><mi>r</mi><mi>b</mi></msub><mo>−</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>f</mi></msub><mo>+</mo><mi>β</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>m</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">AR = r_b - (r_f + \beta(r_m - r_f))</annotation></semantics></math>.</p>
+<p>Filling in what we know, we obtain <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>R</mi><mo>=</mo><mn>0.16</mn><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mn>0.05</mn><mo>+</mo><mn>1.2</mn><mo stretchy="false" form="prefix">(</mo><mn>0.1</mn><mo>−</mo><mn>0.05</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">AR = 0.16 - (0.05 + 1.2(0.1 - 0.05)) = 0.05</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose that we live in a one-factor economy.</p>
+<p>We have the following information about two well-diversified and well-priced portfolios in this economy.</p>
+<table border="1" style="border-collapse: collapse; width: 30%; margin: 0; text_align="center";>
+  <thead>
+    <tr>
+      <th style="text-align: center;"></th>
+      <th style="text-align: center;">Expected return</th>
+      <th style="text-align: center;">Beta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center;">Portfolio A</td>
+      <td style="text-align: center;">0.16</td>
+      <td style="text-align: center;">1.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">Portfolio B</td>
+      <td style="text-align: center;">0.08</td>
+      <td style="text-align: center;">0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>A third well-diversified portfolio emerges, portfolio C, which has a beta of 0.6 and an expected return of 0.06.</p>
+<p>Portfolio C turns out to be mispriced. To take advantage of this arbitrage opportunity, we construct an equally-weighted portfolio of A and B. What would be our arbitrage return?</p>
+<p>Round your answer to three decimal places. For example, 0.036.</p>
+<br/>
+<h4>Solution</h4>
+<p>If we construct an equally-weighted portfolio using Portfolio A and B, our exposure to the single risk factor is 0.6, which is exactly the same exposure that Portfolio C has to the single risk factor.</p>
+<p>The expected return of the arbitrage portfolio is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn><mo>⋅</mo><msub><mi>r</mi><mi>a</mi></msub><mo>+</mo><mn>0.5</mn><mo>⋅</mo><msub><mi>r</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">0.5 \cdot r_a + 0.5 \cdot r_B</annotation></semantics></math>.</p>
+<p>The expected return from combining A and B is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn><mo>⋅</mo><mn>0.16</mn><mo>+</mo><mn>0.5</mn><mo>⋅</mo><mn>0.08</mn><mo>=</mo><mn>0.12</mn></mrow><annotation encoding="application/x-tex">0.5 \cdot 0.16 + 0.5 \cdot 0.08 = 0.12</annotation></semantics></math>. This is higher than the expected return on portfolio C, which is 0.06. Therefore, our arbitrage strategy is to buy C (underpriced) and sell A+B, to lock in an arbitrage profit of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.12</mn><mo>−</mo><mn>0.06</mn><mo>=</mo><mn>0.06</mn></mrow><annotation encoding="application/x-tex">0.12 - 0.06 = 0.06</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose we have an equally-weighted portfolio <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math> of 222 securities.<br />
+The average value (across securities) of the non-systematic standard deviation <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mrow><mi>ϵ</mi><mo>,</mo><mi>i</mi></mrow></msub><annotation encoding="application/x-tex">\sigma_{\epsilon,i}</annotation></semantics></math> is 0.12.</p>
+<p>What is the <strong>non-systematic risk</strong> of the portfolio <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mrow><mi>ϵ</mi><mo>,</mo><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">\sigma_{\epsilon,p}</annotation></semantics></math>?</p>
+<p>Round your answer to three decimal places. For example, 0.0257 becomes 0.026.</p>
+<br/>
+<h4>Solution</h4>
+<p>The non-systematic risk of an equally weighted portfolio is:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>ϵ</mi><mo>,</mo><mi>p</mi></mrow></msub><mo>=</mo><msqrt><mrow><mfrac><mn>1</mn><mi>N</mi></mfrac><mo>⋅</mo><msubsup><mi>σ</mi><mrow><mi>ϵ</mi><mo>,</mo><mi>i</mi></mrow><mn>2</mn></msubsup></mrow></msqrt><mo>=</mo><msqrt><mrow><mfrac><mn>1</mn><mn>222</mn></mfrac><mo>⋅</mo><msup><mn>0.12</mn><mn>2</mn></msup></mrow></msqrt><mo>=</mo><msqrt><mrow><mfrac><mn>1</mn><mn>222</mn></mfrac><mo>⋅</mo><mn>0.0144</mn></mrow></msqrt><mo>=</mo><mn>0.008</mn></mrow><annotation encoding="application/x-tex">\sigma_{\epsilon,p} = \sqrt{\frac{1}{N} \cdot \sigma_{\epsilon,i}^2} = \sqrt{\frac{1}{222} \cdot 0.12^2} = \sqrt{\frac{1}{222} \cdot 0.0144} = 0.008</annotation></semantics></math></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider the multifactor model APT with three factors.</p>
+<p>The following table gives information on the risk premiums on Factor 1, 2, and 3, respectively. Moreover, Portfolio A has an exposure of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\beta_1</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\beta_2</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mn>3</mn></msub><annotation encoding="application/x-tex">\beta_3</annotation></semantics></math> to each risk factor, respectively.</p>
+<table border="1" style="border-collapse: collapse; width: 40%; text-align: center;">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+Risk premium
+</th>
+<th>
+Portfolio A exposure
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Factor 1
+</td>
+<td>
+3%
+</td>
+<td>
+0.6
+</td>
+</tr>
+<tr>
+<td>
+Factor 2
+</td>
+<td>
+5%
+</td>
+<td>
+1.1
+</td>
+</tr>
+<tr>
+<td>
+Factor 3
+</td>
+<td>
+3%
+</td>
+<td>
+1.3
+</td>
+</tr>
+</tbody>
+</table>
+<p>The risk-free rate of return is 3%.</p>
+<p>What is the expected return of Portfolio A according to the APT?</p>
+<p>Round your answer to three decimal places.</p>
+<br/>
+<h4>Solution</h4>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>A</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>r</mi><mi>f</mi></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mo>⋅</mo><mi>R</mi><msub><mi>P</mi><mn>1</mn></msub><mo>+</mo><msub><mi>β</mi><mn>2</mn></msub><mo>⋅</mo><mi>R</mi><msub><mi>P</mi><mn>2</mn></msub><mo>+</mo><msub><mi>β</mi><mn>3</mn></msub><mi>R</mi><msub><mi>P</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">\mathbb{E}(r_A)=r_f + \beta_1 \cdot RP_1 + \beta_2 \cdot RP_2 + \beta_3 RP_3</annotation></semantics></math>.</p>
+<p>This gives: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.03</mn><mo>+</mo><mn>0.6</mn><mo>⋅</mo><mn>0.03</mn><mo>+</mo><mn>1.1</mn><mo>⋅</mo><mn>0.05</mn><mo>+</mo><mn>1.3</mn><mo>⋅</mo><mn>0.03</mn><mo>=</mo><mn>0.142</mn></mrow><annotation encoding="application/x-tex">0.03 + 0.6\cdot 0.03 + 1.1\cdot 0.05 + 1.3 \cdot 0.03 = 0.142</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose we want to conduct an event study. Consider two stocks, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">i = \{1, 2\}</annotation></semantics></math>.</p>
+<p>You calculate that stock 1 and stock 2 have abnormal returns on the event day of 4.0% and 6.1%, respectively.</p>
+<p>We would like to know whether the abnormal returns on the event day are significant for the <em>average firm</em>. The average firm is an equal-weighted combination of stock 1 and 2.</p>
+<p>We are given that the variance of the equal-weighted abnormal returns during the 200-day estimation window is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><mi>A</mi><msubsup><mi>R</mi><mi>t</mi><mtext mathvariant="normal">ew</mtext></msubsup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>9.9</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\sigma^2(AR^{\text{ew}}_t) = 9.9\%</annotation></semantics></math>.</p>
+<p>Report the t-value of the abnormal returns of the <em>average firm</em> on the day of the event.</p>
+<p>Round your answer to three decimals. Example answer: 0.592.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.16</mn><annotation encoding="application/x-tex">0.16</annotation></semantics></math>.</p>
+<p>The abnormal return of the average firm is a weighted combination of the abnormal returns of Stock 1 and Stock 2.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msup><mi>R</mi><mrow><mi>e</mi><mi>w</mi></mrow></msup><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>2</mn></msubsup><msub><mi>w</mi><mi>i</mi></msub><mi>A</mi><msub><mi>R</mi><mi>i</mi></msub><mo>=</mo><mn>0.5</mn><mo>⋅</mo><mn>4.0</mn><mi>%</mi><mo>+</mo><mn>0.5</mn><mo>⋅</mo><mn>6.1</mn><mi>%</mi><mo>=</mo><mn>5.05</mn><mi>%</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">AR^{ew} = \sum^2_{i=1} w_i AR_i = 0.5 \cdot 4.0\% + 0.5 \cdot 6.1\% = 5.05\%.</annotation></semantics></math></p>
+<p>To obtain the t-value, we must divide by the standard deviation of the equal-weighted abnormal returns during the 200-day estimation window. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>T</mi><mrow><mi>e</mi><mi>w</mi></mrow></msup><mo>=</mo><mfrac><mrow><mi>A</mi><msup><mi>R</mi><mrow><mi>e</mi><mi>w</mi></mrow></msup></mrow><mrow><msub><mi>σ</mi><mrow><mi>A</mi><mi>R</mi></mrow></msub><mo>⋅</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mi>T</mi></mfrac></mrow></msqrt></mrow></mfrac><mo>=</mo><mfrac><mn>0.0505</mn><mrow><mn>0.31464</mn><mo>⋅</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>200</mn></mfrac></mrow></msqrt></mrow></mfrac><mo>=</mo><mfrac><mn>0.0505</mn><mn>0.3154</mn></mfrac><mo>=</mo><mo>≈</mo><mn>0.16</mn></mrow><annotation encoding="application/x-tex">T^{ew} = \frac{AR^{ew}}{\sigma_{AR}\cdot\sqrt{1+\frac{1}{T}}} = \frac{0.0505}{0.31464\cdot\sqrt{1+\frac{1}{200}}} = \frac{0.0505}{0.3154} = \approx 0.16</annotation></semantics></math>.</p>
+<p>See Lecture Week 2 Slide ‘Univariate Analysis for statistical significance’.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider the CAPM. The market’s expected return is 0.11 and the risk-free rate is 0.04.</p>
+<p>Stock 1 has a return of 0.112 and systematic risk of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>0.9</mn></mrow><annotation encoding="application/x-tex">\beta_1 = 0.9</annotation></semantics></math>, and Stock 2 has a return of 0.136 and systematic risk of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>2</mn></msub><mo>=</mo><mn>1.4</mn></mrow><annotation encoding="application/x-tex">\beta_2 = 1.4</annotation></semantics></math>.</p>
+<p>Report the alpha of the stock that a rational investor would pursue.</p>
+<p>Round your answer to three decimal places. Example answer: 0.028.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.009</mn><annotation encoding="application/x-tex">0.009</annotation></semantics></math>.</p>
+<p>Remember the CAPM equation for alpha: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>i</mi></msub><mo>=</mo><msub><mi>r</mi><mi>i</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo>−</mo><msub><mi>β</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>m</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\alpha_i = r_i - r_f - \beta_i(r_m - r_f)</annotation></semantics></math>.</p>
+<p>The alpha of stock A is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.112</mn><mo>−</mo><mn>0.04</mn><mo>−</mo><mn>0.9</mn><mo>*</mo><mo stretchy="false" form="prefix">(</mo><mn>0.11</mn><mo>−</mo><mn>0.04</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.009</mn></mrow><annotation encoding="application/x-tex">0.112 - 0.04 - 0.9 * (0.11 - 0.04) = 0.009</annotation></semantics></math> and the alpha of stock B is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.136</mn><mo>−</mo><mn>0.04</mn><mo>−</mo><mn>1.4</mn><mo>*</mo><mo stretchy="false" form="prefix">(</mo><mn>0.11</mn><mo>−</mo><mn>0.04</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>0.002</mn></mrow><annotation encoding="application/x-tex">0.136 - 0.04 - 1.4 * (0.11 - 0.04) = -0.002</annotation></semantics></math>.</p>
+<p>A rational investor would choose the stock with the highest alpha, so the correct answer is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.009</mn><annotation encoding="application/x-tex">0.009</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider Portfolio XYZ. This portfolio has a standard deviation (risk) of 0.18.
+Moreover, it is given that the market risk is 0.15.</p>
+<p>In the Index Model, if Portfolio XYZ has exposure 0.6 to the market portfolio, what is the correlation between XYZ and the market portfolio?</p>
+<p>Round your answer to one decimal place. For example, 0.6.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.5</mn><annotation encoding="application/x-tex">0.5</annotation></semantics></math>.</p>
+<p>See Lecture Week 2 slide ‘SIM: Return’.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mrow><mi>X</mi><mi>Y</mi><mi>Z</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>ℂ</mi><mtext mathvariant="normal">orr</mtext><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mrow><mi>X</mi><mi>Y</mi><mi>Z</mi></mrow></msub><mo>,</mo><mspace width="0.167em"></mspace><msub><mi>r</mi><mi>M</mi></msub><mo stretchy="false" form="postfix">)</mo><mspace width="0.167em"></mspace><mo>⋅</mo><mspace width="0.167em"></mspace><msub><mi>σ</mi><mrow><mi>X</mi><mi>Y</mi><mi>Z</mi></mrow></msub></mrow><msub><mi>σ</mi><mi>M</mi></msub></mfrac></mrow><annotation encoding="application/x-tex">\beta_{XYZ} = \frac{\mathbb{C}\text{orr}(r_{XYZ}, \, r_M) \, \cdot \, \sigma_{XYZ}}{\sigma_M}</annotation></semantics></math></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Which of the following options is not an example of limits to arbitrage?</p>
+<br/>
+<ol type="a">
+<li>
+Implementation costs
+</li>
+<li>
+Model risk
+</li>
+<li>
+Limits to short-selling
+</li>
+<li>
+Fundamental risk
+</li>
+<li>
+Regret avoidance
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Which of the following statements are <strong>true</strong> regarding the Arbitrage Pricing Theory?</p>
+<ol style="list-style-type: lower-roman">
+<li><p>APT assumes that markets are never out of perfect equilibrium, meaning that there are never any opportunities for arbitrage.</p></li>
+<li><p>APT assumes that asset returns can be predicted by a linear combination of several macroeconomic factors.</p></li>
+</ol>
+<br/>
+<ol type="a">
+<li>
+Only Statement (i) is correct
+</li>
+<li>
+Only Statement (ii) is correct
+</li>
+<li>
+Both statements are correct
+</li>
+<li>
+None of the statements is correct
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Which of the following statements is (are) true?</p>
+<p>To take advantage of an arbitrage opportunity, an investor would…</p>
+<ol style="list-style-type: decimal">
+<li>construct a zero-investment portfolio that will yield a sure profit.</li>
+<li>construct a zero-beta-investment portfolio that will yield a sure profit.</li>
+<li>make simultaneous trades in two markets without any net investment.</li>
+<li>short sell the asset in the low-priced market and buy it in the high-priced market.</li>
+</ol>
+<br/>
+<ol type="a">
+<li>
+1 and 4
+</li>
+<li>
+1 and 3
+</li>
+<li>
+2 and 3
+</li>
+<li>
+1, 3, and 4
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>What is the definition of a well-diversified portfolio?</p>
+<br/>
+<ol type="a">
+<li>
+A portfolio whose factor beta equals 1.0.
+</li>
+<li>
+A portfolio that is diversified over a large enough number of securities such that the nonsystematic variance is essentially zero.
+</li>
+<li>
+A portfolio that contains securities from at least three different industry sectors.
+</li>
+<li>
+A portfolio that is equally weighted.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Select all correct answers.</p>
+<p>The weak form of the efficient-market hypothesis asserts that…</p>
+<br/>
+<ol type="a">
+<li>
+…future changes in stock prices cannot be predicted from past prices.
+</li>
+<li>
+…stock prices do not rapidly adjust to new information contained in past prices or past data.
+</li>
+<li>
+…technicians cannot expect to outperform the market.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Evaluate the following statements:</p>
+<ol style="list-style-type: lower-roman">
+<li><p>Cumulative abnormal returns (CAR) are measured by simply summing the actual returns of the stock over the event window.</p></li>
+<li><p>During the estimation window, the difference between the actual returns and the expected returns from a regression model is the regression residual.</p></li>
+</ol>
+<br/>
+<ol type="a">
+<li>
+Only Statement (i) is correct
+</li>
+<li>
+Only Statement (ii) is correct
+</li>
+<li>
+Both statements are correct
+</li>
+<li>
+None of the statements is correct
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+</ol>
+
+</body>
+</html>

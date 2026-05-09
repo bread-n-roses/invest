@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>PE 4</title>
+<style type="text/css">
+body{font-family: Arial, Helvetica, Sans;}
+</style>
+<meta charset="utf-8" />
+</head>
+
+<body>
+<h2>PE 4</h2>
+
+<ol>
+<li>
+<h4>Question</h4>
+<p>Consider stock XYZ. The share price of stock XYZ after 6 months is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>46.2</mn></mrow><annotation encoding="application/x-tex">\$46.2</annotation></semantics></math>.</p>
+<p>If you had bought <strong>one put option contract</strong> with a strike price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>50</mn></mrow><annotation encoding="application/x-tex">\$50</annotation></semantics></math> for a premium of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>5.9</mn></mrow><annotation encoding="application/x-tex">\$5.9</annotation></semantics></math>, what would be your holding period return over 6 months?</p>
+<p>State your answer as a fraction and round your answer to two decimal places. For example, 51% becomes 0.51.</p>
+<br/>
+<h4>Solution</h4>
+<p>The solution is -0.36 or -36%.</p>
+<p>The payoff to the put option is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>⋅</mo><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>$</mi><mn>50</mn><mo>−</mo><mi>$</mi><mn>46.2</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>$</mi><mn>380</mn></mrow><annotation encoding="application/x-tex">100 \cdot \max(\$50 - \$46.2,0) = \$380</annotation></semantics></math>.</p>
+<p>The profit is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>380</mn><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mn>100</mn><mo>⋅</mo><mi>$</mi><mn>5.9</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>$</mi><mo>−</mo><mn>210</mn></mrow><annotation encoding="application/x-tex">\$380 - (100 \cdot \$5.9) = \$-210</annotation></semantics></math>. Finally, the HPR is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>$</mi><mo>−</mo><mn>210</mn></mrow><mrow><mn>100</mn><mo>⋅</mo><mn>5.9</mn></mrow></mfrac><mo>=</mo><mi>−</mi><mn>0.36</mn></mrow><annotation encoding="application/x-tex">\frac{\$-210}{100 \cdot 5.9} = -0.36</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>The price of a stock is currently <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>36</mn></mrow><annotation encoding="application/x-tex">\$36</annotation></semantics></math>. Over the course of the next year, the price is anticipated to rise to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>40</mn></mrow><annotation encoding="application/x-tex">\$40</annotation></semantics></math> or decline to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>32</mn></mrow><annotation encoding="application/x-tex">\$32</annotation></semantics></math>.</p>
+<p>The upside has a 0.62 (i.e. 62%) probability of occurring and the annualized risk-free interest rate is 3%.</p>
+<p>What is the price of a one-year put option with an exercise price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>35</mn></mrow><annotation encoding="application/x-tex">\$35</annotation></semantics></math> using the binomial model?</p>
+<p>Round your answer to two decimal places. For example, 2.69.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.11</mn><annotation encoding="application/x-tex">1.11</annotation></semantics></math>.</p>
+<p>The payoff is either <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>$</mi><mn>35</mn><mo>−</mo><mi>$</mi><mn>40</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>$</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">\max(\$35 - \$40, 0) = \$0</annotation></semantics></math> in the up state, or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>$</mi><mn>35</mn><mo>−</mo><mi>$</mi><mn>32</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>$</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">\max(\$35 - \$32, 0) = \$3</annotation></semantics></math> in the down state.</p>
+<p>The upside probability is 0.62. The downside probability must then be 0.38.</p>
+<p>The value of the put option today is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>$</mi><mn>3</mn><mo>⋅</mo><mn>0.38</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>1.03</mn><mo>=</mo><mi>$</mi><mn>1.11</mn></mrow><annotation encoding="application/x-tex">P = (\$3 \cdot 0.38)/1.03 = \$1.11</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You buy one Loewe June 60 call contract and one June 60 put contract (= long straddle). The call premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>6.99</mn></mrow><annotation encoding="application/x-tex">\$6.99</annotation></semantics></math> and the put premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>2.35</mn></mrow><annotation encoding="application/x-tex">\$2.35</annotation></semantics></math>.</p>
+<p>Remember that each stock option <em>contract</em> provides the right to buy (or sell) 100 shares of stock.</p>
+<p>What is the maximum loss from this position?</p>
+<p>Report your answer as an integer without the dollar sign. For example, -$2,000 becomes -2000.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>934</mn></mrow><annotation encoding="application/x-tex">-934</annotation></semantics></math>.</p>
+<p>See Figure 20.9.</p>
+<p>The call premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>6.99</mn></mrow><annotation encoding="application/x-tex">\$6.99</annotation></semantics></math> and the put premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>2.35</mn></mrow><annotation encoding="application/x-tex">\$2.35</annotation></semantics></math>.</p>
+<p>The maximum loss is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo>+</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>100</mn><mo>=</mo><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>$</mi><mn>6.99</mn><mo>+</mo><mi>$</mi><mn>2.35</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>100</mn><mo>=</mo><mi>$</mi><mo>−</mo><mn>934</mn></mrow><annotation encoding="application/x-tex">-(c+p) \cdot 100 = -(\$6.99 + \$2.35) \cdot 100 = \$-934</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose the current price of a non-dividend paying stock is $91. In the next year, the stock either goes up by 5% or down by 5%.</p>
+<p>A one-year put option on the stock is available with an exercise price of $92.</p>
+<p>What is the hedge ratio of the put option? Round your answer to two decimals. Example answer: -0.37.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>0.61</mn></mrow><annotation encoding="application/x-tex">-0.61</annotation></semantics></math>.</p>
+<p>The hedge ratio for a put is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mfrac><mrow><msubsup><mi>P</mi><mn>1</mn><mi>u</mi></msubsup><mo>−</mo><msubsup><mi>P</mi><mn>1</mn><mi>d</mi></msubsup></mrow><mrow><msubsup><mi>S</mi><mn>1</mn><mi>u</mi></msubsup><mo>−</mo><msubsup><mi>S</mi><mn>1</mn><mi>d</mi></msubsup></mrow></mfrac></mrow><annotation encoding="application/x-tex">H = \frac{P_1^u - P_1^d}{S_1^u - S_1^d}</annotation></semantics></math>.</p>
+<p>The payoff of the put is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>−</mo><msub><mi>S</mi><mi>T</mi></msub><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\max(X - S_T, 0)</annotation></semantics></math>.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mi>$</mi><mn>91</mn></mrow><annotation encoding="application/x-tex">S_0 = \$91</annotation></semantics></math> such that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>1</mn><mi>u</mi></msubsup><mo>=</mo><mi>$</mi><mn>95.55</mn></mrow><annotation encoding="application/x-tex">S_1^u = \$95.55</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>1</mn><mi>d</mi></msubsup><mo>=</mo><mi>$</mi><mn>86.45</mn></mrow><annotation encoding="application/x-tex">S_1^d = \$86.45</annotation></semantics></math>. In this case <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>P</mi><mn>1</mn><mi>u</mi></msubsup><mo>=</mo><mi>$</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">P_1^u = \$0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>P</mi><mn>1</mn><mi>d</mi></msubsup><mo>=</mo><mi>$</mi><mn>5.55</mn></mrow><annotation encoding="application/x-tex">P_1^d= \$5.55</annotation></semantics></math>.</p>
+<p>The hedge ratio becomes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mfrac><mrow><mi>$</mi><mn>0</mn><mo>−</mo><mi>$</mi><mn>5.55</mn></mrow><mrow><mi>$</mi><mn>95.55</mn><mo>−</mo><mi>$</mi><mn>86.45</mn></mrow></mfrac><mo>=</mo><mi>−</mi><mn>0.61</mn></mrow><annotation encoding="application/x-tex">H = \frac{\$0 - \$5.55}{\$95.55 - \$86.45} = -0.61</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>A stock is currently trading at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>100</mn></mrow><annotation encoding="application/x-tex">\$100</annotation></semantics></math>. You are pricing a European call option on this stock with a strike price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>110</mn></mrow><annotation encoding="application/x-tex">\$110</annotation></semantics></math>.</p>
+<p>The hedge ratio of the riskless portfolio is 1 stock long and 3 calls short and the current portfolio value is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>79.35</mn></mrow><annotation encoding="application/x-tex">\$79.35</annotation></semantics></math>.</p>
+<p>What is the current price of one call option?</p>
+<p>Round your answer to two decimal places. For example, $7.127 is entered as 7.13.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6.88</mn><annotation encoding="application/x-tex">6.88</annotation></semantics></math>.</p>
+<p>We have that the Portfolio Value = <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>100</mn><mo>−</mo><mn>3</mn><mi>C</mi><mo>=</mo><mi>$</mi><mn>79.35</mn></mrow><annotation encoding="application/x-tex">\$100 - 3C = \$79.35</annotation></semantics></math>. Solving for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> gives <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mfrac><mrow><mi>$</mi><mn>20.65</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mi>$</mi><mn>6.88</mn></mrow><annotation encoding="application/x-tex">C = \frac{\$20.65}{3} = \$6.88</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>PAL Corporation has a current share price <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>0</mn></msub><annotation encoding="application/x-tex">S_0</annotation></semantics></math> of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>43</mn></mrow><annotation encoding="application/x-tex">\$43</annotation></semantics></math>.</p>
+<p>Consider a 3-month call option on PAL Corporation stock. The strike price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>43</mn></mrow><annotation encoding="application/x-tex">\$43</annotation></semantics></math> and the call option is correctly priced at a premium of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>5.70</mn></mrow><annotation encoding="application/x-tex">\$5.70</annotation></semantics></math>. The annual risk-free rate is 3%.</p>
+<p>A 3-month put option on PAL stock trades for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>3.75</mn></mrow><annotation encoding="application/x-tex">\$3.75</annotation></semantics></math>, which constitutes an arbitrage opportunity. You decide to invest in (i.e. buy or sell) one put option, and set up an arbitrage strategy accordingly.</p>
+<p>What is your arbitrage profit?
+Round your answer to two decimals. For example, 2.74.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.63</mn><annotation encoding="application/x-tex">1.63</annotation></semantics></math>.</p>
+<p>The stock price is currently <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>43</mn></mrow><annotation encoding="application/x-tex">\$43</annotation></semantics></math>, the strike price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>43</mn></mrow><annotation encoding="application/x-tex">\$43</annotation></semantics></math>, and the call is correctly priced at a premium of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>5.7</mn></mrow><annotation encoding="application/x-tex">\$5.7</annotation></semantics></math>.</p>
+<p>Using the put-call parity, figure out what the put premium <em>should</em> be: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>5.7</mn><mo>+</mo><mfrac><mrow><mi>$</mi><mn>43</mn></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1.03</mn><msup><mo stretchy="false" form="postfix">)</mo><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow></msup></mrow></mfrac><mo>=</mo><mi>$</mi><mn>43</mn><mo>+</mo><msub><mi>P</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\$5.7 + \frac{\$43}{(1.03)^{(1/4)}} = \$43 + P_0</annotation></semantics></math>.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>5.7</mn><mo>+</mo><mfrac><mrow><mi>$</mi><mn>43</mn></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1.03</mn><msup><mo stretchy="false" form="postfix">)</mo><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow></msup></mrow></mfrac><mo>−</mo><mi>$</mi><mn>43</mn><mo>=</mo><msub><mi>P</mi><mn>0</mn></msub><mspace width="0.278em"></mspace><mo>→</mo><mrow></mrow><mspace width="0.278em"></mspace><msub><mi>P</mi><mn>0</mn></msub><mo>≈</mo><mi>$</mi><mn>5.383</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">\$5.7 + \frac{\$43}{(1.03)^{(1/4)}} - \$43 = P_0 \; \longrightarrow{} \; P_0 \approx \$5.383.</annotation></semantics></math> The put however, is currently priced at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>3.75</mn></mrow><annotation encoding="application/x-tex">\$3.75</annotation></semantics></math>, which is far too low! So the put is underpriced, which means we would like to buy it. Our arbitrage profit will be equal to the difference between the put premiums: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>5.383</mn><mo>−</mo><mi>$</mi><mn>3.75</mn><mo>=</mo><mi>$</mi><mn>1.63</mn></mrow><annotation encoding="application/x-tex">\$5.383 - \$3.75 = \$1.63</annotation></semantics></math>.</p>
+<p>You can also show this more formally, but in this question you do not necessarily have to, as the question only asks for the profit itself, and not a derivation.</p>
+<p>If you are interested in the correct arbitrage strategy in this question, consider that we are buying the put because the put is underpriced. This is similar to the strategy we have seen in Tutorial 4 (and in Lecture Week 4). We buy a put, buy a stock, sell a call, and borrow money against the risk-free rate (use the put-call parity to verify this).</p>
+<p>At <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t=0</annotation></semantics></math>, we buy the put and the stock, so we obtain <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>$</mi><mn>43</mn><mo>−</mo><mi>$</mi><mn>3.75</mn><mo>=</mo><mi>$</mi><mo>−</mo><mn>46.75</mn></mrow><annotation encoding="application/x-tex">-\$43 - \$3.75 = \$-46.75</annotation></semantics></math>. We sell a call and borrow against the risk-free rate, so we obtain <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>5.7</mn><mo>+</mo><mfrac><mrow><mi>$</mi><mn>43</mn></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1.03</mn><msup><mo stretchy="false" form="postfix">)</mo><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow></msup></mrow></mfrac><mo>=</mo><mi>$</mi><mn>48.383</mn></mrow><annotation encoding="application/x-tex">\$5.7 + \frac{\$43}{(1.03)^{(1/4)}} = \$48.383</annotation></semantics></math>. Adding the two, we have <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mo>−</mo><mn>46.75</mn><mo>+</mo><mi>$</mi><mn>48.383</mn><mo>=</mo><mi>$</mi><mn>1.63</mn></mrow><annotation encoding="application/x-tex">\$-46.75 + \$48.383 = \$1.63</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose the current price of a non-dividend paying stock is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>49</mn></mrow><annotation encoding="application/x-tex">\$49</annotation></semantics></math>. In the next year, the stock either goes up by 10% or down by 10%. The risk-neutral probabilities are 0.6 and 0.4 for an upward and downward movement, respectively, and the annual risk-free rate is 2%.</p>
+<p>A one-year digital call option on the stock is available with a strike price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>45</mn></mrow><annotation encoding="application/x-tex">\$45</annotation></semantics></math>.</p>
+<p>A digital call option is an option that pays a fixed amount if the call option is in-the-money, suppose in this case it pays <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>17</mn></mrow><annotation encoding="application/x-tex">\$17</annotation></semantics></math>, and pays <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">\$0</annotation></semantics></math> if the call option is out-of-the money.</p>
+<p>What is the price of the digital call option? Round your answer to two decimal places. For example, 4.67.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>.</p>
+<p>The initial stock price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>49</mn></mrow><annotation encoding="application/x-tex">\$49</annotation></semantics></math>.
+Then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>1</mn><mi>u</mi></msubsup><mo>=</mo><mi>$</mi><mn>49</mn><mo>⋅</mo><mn>1.1</mn><mo>=</mo><mi>$</mi><mn>53.9</mn></mrow><annotation encoding="application/x-tex">S_1^u = \$49 \cdot 1.1 = \$53.9</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>1</mn><mi>d</mi></msubsup><mo>=</mo><mi>$</mi><mn>49</mn><mo>⋅</mo><mn>0.9</mn><mo>=</mo><mi>$</mi><mn>44.1</mn></mrow><annotation encoding="application/x-tex">S_1^d = \$49 \cdot 0.9 = \$44.1</annotation></semantics></math>.</p>
+<p>Suppose the digital call option pays <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>17</mn></mrow><annotation encoding="application/x-tex">\$17</annotation></semantics></math> if the call is in the money.</p>
+<p>In the up state: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>$</mi><mn>53.9</mn><mo>−</mo><mi>$</mi><mn>45</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\max(\$53.9 - \$45, 0) &gt; 0</annotation></semantics></math> so the digital call option pays <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>17</mn></mrow><annotation encoding="application/x-tex">\$17</annotation></semantics></math>. In the down state: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>$</mi><mn>44.1</mn><mo>−</mo><mi>$</mi><mn>45</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\max(\$44.1 - \$45, 0) = 0</annotation></semantics></math> so the digital call option pays nothing.</p>
+<p>The price of the digital call option today is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0.6</mn><mo>⋅</mo><mi>$</mi><mn>17</mn><mo>+</mo><mn>0.4</mn><mo>⋅</mo><mi>$</mi><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>1.02</mn><mo>=</mo><mi>$</mi><mn>10</mn></mrow><annotation encoding="application/x-tex">(0.6 \cdot \$17 + 0.4 \cdot \$0)/1.02 = \$10</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>An American-style call option with three months to maturity has a strike price of $26. The underlying stock now sells for $32.6. The call premium is $14.</p>
+<p>What is the time value of the call?
+Round your answer to one decimal. For example, 6.2.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7.4</mn><annotation encoding="application/x-tex">7.4</annotation></semantics></math>.</p>
+<p>The intrinsic value of the option is the payoff of the option if it were exercised today: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>X</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\max(S_T - X,0)</annotation></semantics></math>. The time value of the option is then the part of the option value (premium) which cannot be explained by the option’s intrinsic value. Hence, time value = <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>−</mo><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>X</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">C-\max(S_T-X,0)</annotation></semantics></math>.</p>
+<p>The strike price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>26</mn></mrow><annotation encoding="application/x-tex">\$26</annotation></semantics></math>, the current stock price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>32.6</mn></mrow><annotation encoding="application/x-tex">\$32.6</annotation></semantics></math>, and the call premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>14</mn></mrow><annotation encoding="application/x-tex">\$14</annotation></semantics></math>. The time value of the option is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>14</mn><mo>−</mo><mi>$</mi><mn>32.6</mn><mo>+</mo><mi>$</mi><mn>26</mn><mo>=</mo><mi>$</mi><mn>7.4</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">\$14 - \$32.6 + \$26 = \$7.4.</annotation></semantics></math></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You purchase one September 53 put contract for a put premium of $2. Remember that each stock option contract provides the right to buy/sell 100 shares of stock.</p>
+<p>What is the maximum profit that you could gain from this strategy?</p>
+<p>Report your answer as an integer without the dollar sign. For example, $6700 becomes 6700.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5100</mn><annotation encoding="application/x-tex">5100</annotation></semantics></math>.</p>
+<p>The maximum profit is reached when <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>T</mi></msub><annotation encoding="application/x-tex">S_T</annotation></semantics></math> drops to zero, in the most extreme case. The maximum profit is this payoff, but we have to subtract the premium that was paid for the put option.</p>
+<p>The strike price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>53</mn></mrow><annotation encoding="application/x-tex">\$53</annotation></semantics></math> and the premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\$2</annotation></semantics></math>. The maximum profit is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>$</mi><mn>53</mn><mo>−</mo><mi>$</mi><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>$</mi><mn>2</mn><mo>=</mo><mi>$</mi><mn>51</mn></mrow><annotation encoding="application/x-tex">\max(\$53 - \$0, 0) - \$2 = \$51</annotation></semantics></math>.</p>
+<p>One contract contains 100 options, so our total maximum profit is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>51</mn><mo>⋅</mo><mn>100</mn><mo>=</mo><mi>$</mi><mn>5100</mn></mrow><annotation encoding="application/x-tex">\$51 \cdot 100 = \$5100</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider a non-dividend paying stock which has a current stock price of $72.5. In the next year, the stock price either goes up by 8.4% or down by 8.4%.</p>
+<p>The discrete, annual risk-free rate is 4%.</p>
+<p>What is the risk-neutral probability of the upward movement?</p>
+<p>Round your answer to two decimal places. For example, 0.53.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.74</mn><annotation encoding="application/x-tex">0.74</annotation></semantics></math>.</p>
+<p>The formula for the risk-neutral probability of an upward price movement is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>d</mi></mrow><mrow><mi>u</mi><mo>−</mo><mi>d</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">q = \frac{(1+r) - d}{u - d}</annotation></semantics></math>.</p>
+<p>The stock price can go up or down by 8.4%, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><mn>1.084</mn></mrow><annotation encoding="application/x-tex">u = 1.084</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0.916</mn></mrow><annotation encoding="application/x-tex">d = 0.916</annotation></semantics></math>.</p>
+<p>The risk-neutral probability is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mfrac><mrow><mn>1.04</mn><mo>−</mo><mn>0.916</mn></mrow><mrow><mn>1.084</mn><mo>−</mo><mn>0.916</mn></mrow></mfrac><mo>≈</mo><mn>0.74</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">q = \frac{1.04 - 0.916}{1.084 - 0.916} \approx 0.74.</annotation></semantics></math></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Relative to European puts, otherwise identical American put options:</p>
+<br/>
+<ol type="a">
+<li>
+Are less valuable.
+</li>
+<li>
+Are more valuable.
+</li>
+<li>
+Are equal in value.
+</li>
+<li>
+Will always be exercised earlier.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You are a portfolio manager who uses options positions to customize the risk profile of your clients.</p>
+<p>Consider the case below:</p>
+<ul>
+<li>Performance up to date: 16%</li>
+<li>Client objective: earn at least 15%</li>
+<li>Your forecast: good chance of major market decline between now and end of year.</li>
+</ul>
+<p>What strategy is best given your client’s objective?</p>
+<br/>
+<ol type="a">
+<li>
+Long put options.
+</li>
+<li>
+Covered call.
+</li>
+<li>
+Short call options.
+</li>
+<li>
+None of the strategies is applicable.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>An American put option allows the holder to:</p>
+<br/>
+<ol type="a">
+<li>
+potentially benefit from a stock price increase.
+</li>
+<li>
+buy the underlying asset at the strike price on or before the expiration date.
+</li>
+<li>
+sell the underlying asset at the strike price on or before the expiration date.
+</li>
+<li>
+sell the underlying asset at the strike price on or before the expiration date AND potentially benefit from a stock price increase.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>The combination of options known as “Butterfly spread”…</p>
+<ol style="list-style-type: lower-roman">
+<li>speculates on very large stock price changes.</li>
+<li>consists of one call and one put.</li>
+</ol>
+<br/>
+<ol type="a">
+<li>
+Only Statement (i) is correct.
+</li>
+<li>
+Only Statement (ii) is correct.
+</li>
+<li>
+Both statements are correct.
+</li>
+<li>
+None of the statements are correct.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose the price of a share of Google stock is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>500</mn></mrow><annotation encoding="application/x-tex">\$500</annotation></semantics></math>. An April call option on Google stock costs <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">\$5</annotation></semantics></math> and has an exercise price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>500</mn></mrow><annotation encoding="application/x-tex">\$500</annotation></semantics></math>.</p>
+<p>Ignoring possible other costs, the holder of the call option will earn a profit if the price of the share</p>
+<br/>
+<ol type="a">
+<li>
+increases to $504.
+</li>
+<li>
+increases to $506.
+</li>
+<li>
+decreases to $496.
+</li>
+<li>
+decreases to $490.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+</ol>
+
+</body>
+</html>

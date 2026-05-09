@@ -1,0 +1,561 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>PE 3</title>
+<style type="text/css">
+body{font-family: Arial, Helvetica, Sans;}
+</style>
+<meta charset="utf-8" />
+</head>
+
+<body>
+<h2>PE 3</h2>
+
+<ol>
+<li>
+<h4>Question</h4>
+<p>Consider Stock A, which has an outstanding market value of equity of $200 million, and systematic risk (beta) of 0.8. The risk-free rate is 0.03 and the return on the market portfolio is 0.10.</p>
+<p>Suppose that Stock A wins a major lawsuit during the year. The settlement is $10 million.
+Stock A’s return during the year turns out to be 0.12, which is higher than its expected return.
+Assume no other events happened throughout the year.</p>
+<p>What must be the market’s <em>previous</em> expectation of the settlement amount from the lawsuit?</p>
+<p>Report your answer in millions and round to one decimal. For example, 5.4 million is reported as 5.4.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3.2</mn><annotation encoding="application/x-tex">3.2</annotation></semantics></math>.</p>
+<p>See Tutorial 3.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>We want to evaluate the performance of mutual fund A and mutual fund B using the information ratio measure for performance evaluation.</p>
+<p>The risk-free rate during the sample period is 0.03, and the average return on the market portfolio is 0.15.</p>
+<p>Mutual fund A has an average return of 0.12, a residual standard deviation of 0.025, and a beta of 1.5. Mutual fund B has an average return of 0.2, a residual standard deviation of 0.026, and a beta of 0.7.</p>
+<p>Report the information ratio of the best-performing mutual fund.
+Round your answer to two decimals. Example answer: 2.59.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3.31</mn><annotation encoding="application/x-tex">3.31</annotation></semantics></math>.</p>
+<p>The information ratio is the alpha of a portfolio divided by its non-systematic risk: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>R</mi><mo>=</mo><mfrac><mi>α</mi><msub><mi>σ</mi><mi>ε</mi></msub></mfrac></mrow><annotation encoding="application/x-tex">IR = \frac{\alpha}{\sigma_{\varepsilon}}</annotation></semantics></math>.</p>
+<p>Mutual fund A has an information ratio of: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><msub><mi>R</mi><mi>A</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0.12</mn><mo>−</mo><mn>0.03</mn><mo>−</mo><mn>1.5</mn><mo stretchy="false" form="prefix">(</mo><mn>0.15</mn><mo>−</mo><mn>0.03</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>0.025</mn><mo>≈</mo><mi>−</mi><mn>3.6</mn></mrow><annotation encoding="application/x-tex">IR_A = (0.12 - 0.03 - 1.5(0.15-0.03))/0.025 \approx -3.6</annotation></semantics></math>.</p>
+<p>Mutual fund B has an information ratio of: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><msub><mi>R</mi><mi>B</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0.2</mn><mo>−</mo><mn>0.03</mn><mo>−</mo><mn>0.7</mn><mo stretchy="false" form="prefix">(</mo><mn>0.15</mn><mo>−</mo><mn>0.03</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>0.026</mn><mo>≈</mo><mn>3.31</mn></mrow><annotation encoding="application/x-tex">IR_B = (0.2 - 0.03 - 0.7(0.15-0.03))/0.026 \approx 3.31</annotation></semantics></math>.</p>
+<p>The highest information ratio is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3.31</mn><annotation encoding="application/x-tex">3.31</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Using linear regression, you estimate the CAPM based on 500 daily observations on stock returns, market returns, and risk-free rates.</p>
+<p>Suppose you obtain the following relationship for Stock 1: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo>=</mo><mn>0.0012</mn><mo>+</mo><mn>1.3</mn><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>m</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">r_1 - r_f = 0.0012 + 1.3 (r_m - r_f)</annotation></semantics></math>.
+The standard deviation of your alpha estimate is 0.02.</p>
+<p>You would like to know whether alpha is significantly different from zero at a 5% significance level.</p>
+<p>Report the t-value of this test. Round your answer to two decimal places. For example, 3.08.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.34</mn><annotation encoding="application/x-tex">1.34</annotation></semantics></math>.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>α</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H_0: \alpha = 0</annotation></semantics></math> vs. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub><mo>:</mo><mi>α</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H_1: \alpha \neq 0</annotation></semantics></math>.</p>
+<p>The t-value is obtained as: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mi>α</mi><mo>−</mo><msub><mi>α</mi><msub><mi>H</mi><mn>0</mn></msub></msub></mrow><mrow><mi>σ</mi><mi>/</mi><msqrt><mi>N</mi></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">T = \frac{\alpha - \alpha_{H_0}}{\sigma/\sqrt{N}}</annotation></semantics></math> where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><msub><mi>H</mi><mn>0</mn></msub></msub><annotation encoding="application/x-tex">\alpha_{H_0}</annotation></semantics></math> is the alpha if the null hypothesis were true, which in this case is zero, and N is the number of observations.</p>
+<p>We calculate the t-value as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mn>0.0012</mn><mrow><mn>0.02</mn><mi>/</mi><msqrt><mn>500</mn></msqrt></mrow></mfrac><mo>≈</mo><mn>1.34</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">T = \frac{0.0012}{0.02 / \sqrt{500}} \approx 1.34.</annotation></semantics></math></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider a universe of stocks that all have a beta of 1.8 on the market index, which is the only risk factor in the economy.</p>
+<p>An analyst finds 5 stocks with alphas of 0.023, and 10 stocks with alphas of -0.019. Suppose the analyst decides to invest $10,000 in <em>each</em> of the 5 positive alpha stocks, and short an amount of $5,000 in <em>each</em> of the 10 negative alpha stocks.</p>
+<p>What is the profit (in dollars) of the analyst’s strategy?</p>
+<p>Report your answer without the dollar sign. For example, $22,500 becomes 22500.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2100</mn><annotation encoding="application/x-tex">2100</annotation></semantics></math>.</p>
+<p>The analyst’s exposure to the positive alpha stocks is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>⋅</mo><mi>$</mi><mn>10</mn><mo>,</mo><mn>000</mn><mo>=</mo><mi>$</mi><mn>50</mn><mo>,</mo><mn>000</mn></mrow><annotation encoding="application/x-tex">5 \cdot \$10,000 = \$50,000</annotation></semantics></math>. Similarly, the exposure to the negative stocks is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>⋅</mo><mi>$</mi><mn>5</mn><mo>,</mo><mn>000</mn><mo>=</mo><mi>$</mi><mn>50</mn><mo>,</mo><mn>000</mn></mrow><annotation encoding="application/x-tex">10 \cdot \$5,000 = \$50,000</annotation></semantics></math>.</p>
+<p>The profit on a portfolio in which you buy positive alpha stocks and go short in negative alpha stocks is:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>r</mi><mi>p</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>⋅</mo><mi>$</mi><mspace width="0.167em"></mspace><mtext mathvariant="normal">exposure</mtext><mo>=</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">[</mo><msub><mi>r</mi><mi>f</mi></msub><mo>+</mo><mn>0.023</mn><mo>+</mo><mn>1.8</mn><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>m</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">]</mo><mo>⋅</mo><mi>$</mi><mn>50</mn><mo>,</mo><mn>000</mn><mo>−</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">[</mo><msub><mi>r</mi><mi>f</mi></msub><mo>−</mo><mn>0.019</mn><mo>+</mo><mn>1.8</mn><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>m</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">]</mo><mo>⋅</mo><mi>$</mi><mn>50</mn><mo>,</mo><mn>000</mn></mrow><annotation encoding="application/x-tex">\mathbb{E}[r_p] \cdot \$\,\text{exposure} = \big[r_f + 0.023 + 1.8 (r_m - r_f) \big] \cdot \$50,000 - \big[r_f - 0.019 + 1.8 (r_m - r_f) \big] \cdot \$50,000</annotation></semantics></math>. This then simplifies to: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0.023</mn><mo>+</mo><mn>0.019</mn><mo stretchy="false" form="postfix">]</mo><mo>⋅</mo><mi>$</mi><mn>50</mn><mo>,</mo><mn>000</mn><mo>=</mo><mi>$</mi><mn>2100</mn></mrow><annotation encoding="application/x-tex">[0.023 + 0.019] \cdot \$50,000 = \$2100</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose the market portfolio has a Sharpe ratio of 0.77 and a volatility of 0.14. Fund A has a Sharpe ratio of 0.75.</p>
+<p>Report the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>M</mi><mn>2</mn></msup><annotation encoding="application/x-tex">M^2</annotation></semantics></math> for Fund A.
+Round your answer to three decimal places. For example, -0.031.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>0.003</mn></mrow><annotation encoding="application/x-tex">-0.003</annotation></semantics></math>.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>M</mi><mn>2</mn></msup><mo>=</mo><msub><mi>σ</mi><mi>m</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>S</mi><msub><mi>R</mi><mi>A</mi></msub><mo>−</mo><mi>S</mi><msub><mi>R</mi><mi>m</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">M^2 = \sigma_m (SR_A - SR_m)</annotation></semantics></math>.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>M</mi><mn>2</mn></msup><mo>=</mo><mn>0.14</mn><mo stretchy="false" form="prefix">(</mo><mn>0.75</mn><mo>−</mo><mn>0.77</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>0.003</mn></mrow><annotation encoding="application/x-tex">M^2 = 0.14 (0.75 - 0.77) = -0.003</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Fama and French break the U.S. stock population first into three groups based on B/M ratios: the bottom 30% (Low), the middle 40% (Medium), and the top 30% (High). Then, six portfolios are created based on the intersections of the size and B/M sorts: Small/Low, Small/Medium, Small/High, Big/Low, Big/Medium, and Big/High. </p>
+<p>The following returns on the six portfolios are given:</p>
+<table style="border-collapse: collapse; width: 29.6932%; height: 174px;" border="1">
+<tbody>
+<tr style="height: 29px;">
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+<img class="equation_image" title="R_{S/L}" src="https://canvas.vu.nl/equation_images/R_%257BS%252FL%257D?scale=1" alt="LaTeX: R_{S/L}" data-equation-content="R_{S/L}" data-ignore-a11y-check="" loading="lazy">
+</td>
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+0.09
+</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+<img class="equation_image" title="R_{S/M}" src="https://canvas.vu.nl/equation_images/R_%257BS%252FM%257D?scale=1" alt="LaTeX: R_{S/M}" data-equation-content="R_{S/M}" data-ignore-a11y-check="" loading="lazy">
+</td>
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+0.15
+</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+<img class="equation_image" title="R_{S/H}" src="https://canvas.vu.nl/equation_images/R_%257BS%252FH%257D?scale=1" alt="LaTeX: R_{S/H}" data-equation-content="R_{S/H}" data-ignore-a11y-check="" loading="lazy">
+</td>
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+0.19
+</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+<img class="equation_image" title="R_{B/L}" src="https://canvas.vu.nl/equation_images/R_%257BB%252FL%257D?scale=1" alt="LaTeX: R_{B/L}" data-equation-content="R_{B/L}" data-ignore-a11y-check="" loading="lazy">
+</td>
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+0.06
+</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+<img class="equation_image" title="R_{B/M}" src="https://canvas.vu.nl/equation_images/R_%257BB%252FM%257D?scale=1" alt="LaTeX: R_{B/M}" data-equation-content="R_{B/M}" data-ignore-a11y-check="" loading="lazy">
+</td>
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+0.11
+</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+<img class="equation_image" title="R_{B/H}" src="https://canvas.vu.nl/equation_images/R_%257BB%252FH%257D?scale=1" alt="LaTeX: R_{B/H}" data-equation-content="R_{B/H}" data-ignore-a11y-check="" loading="lazy">
+</td>
+<td style="width: 49.9462%; height: 29px; text-align: center;">
+0.14
+</td>
+</tr>
+</tbody>
+</table>
+<p>The returns on a <strong>value</strong> portfolio are calculated as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo minsize="180%" maxsize="180%" stretchy="true" form="prefix">(</mo><msub><mi>R</mi><mrow><mi>S</mi><mi>/</mi><mi>H</mi></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi>B</mi><mi>/</mi><mi>H</mi></mrow></msub><mo minsize="180%" maxsize="180%" stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\frac{1}{2}\Big(R_{S/H} + R_{B/H} \Big)</annotation></semantics></math>.</p>
+<p>The returns on a <strong>growth</strong> portfolio are calculated as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo minsize="180%" maxsize="180%" stretchy="true" form="prefix">(</mo><msub><mi>R</mi><mrow><mi>S</mi><mi>/</mi><mi>L</mi></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi>B</mi><mi>/</mi><mi>L</mi></mrow></msub><mo minsize="180%" maxsize="180%" stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\frac{1}{2}\Big(R_{S/L} + R_{B/L} \Big)</annotation></semantics></math>.</p>
+<p>What is the return on the zero-net investment factor HML (High Minus Low)?</p>
+<p>Round your answer to three decimals. For example, 0.029.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.09</mn><annotation encoding="application/x-tex">0.09</annotation></semantics></math>.</p>
+<p>The return on the HML portfolio is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>H</mi><mi>M</mi><mi>L</mi></mrow></msub><mo>=</mo><msub><mi>R</mi><mi>H</mi></msub><mo>−</mo><msub><mi>R</mi><mi>L</mi></msub></mrow><annotation encoding="application/x-tex">R_{HML} = R_H - R_L</annotation></semantics></math> = value minus growth. See also Ch. 13.3.</p>
+<p>Hence, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>H</mi><mi>M</mi><mi>L</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo minsize="180%" maxsize="180%" stretchy="true" form="prefix">(</mo><msub><mi>R</mi><mrow><mi>S</mi><mi>/</mi><mi>H</mi></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi>B</mi><mi>/</mi><mi>H</mi></mrow></msub><mo minsize="180%" maxsize="180%" stretchy="true" form="postfix">)</mo><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo minsize="180%" maxsize="180%" stretchy="true" form="prefix">(</mo><msub><mi>R</mi><mrow><mi>S</mi><mi>/</mi><mi>L</mi></mrow></msub><mo>+</mo><msub><mi>R</mi><mrow><mi>B</mi><mi>/</mi><mi>L</mi></mrow></msub><mo minsize="180%" maxsize="180%" stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">R_{HML} = \frac{1}{2}\Big(R_{S/H} + R_{B/H} \Big) - \frac{1}{2}\Big(R_{S/L} + R_{B/L} \Big)</annotation></semantics></math>.</p>
+<p>The return on the HML portfolio is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mn>0.19</mn><mo>+</mo><mn>0.14</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mn>0.09</mn><mo>+</mo><mn>0.06</mn><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mn>0.09</mn></mrow><annotation encoding="application/x-tex">\frac{1}{2}(0.19 + 0.14) - \frac{1}{2}(0.09 + 0.06) \approx 0.09</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider the two (excess return) index-model regressions for stocks <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>. The risk-free rate over the period was 0.03, and the market’s average return was 0.12. The estimations from the index-model regression are:</p>
+<table style="border-collapse: collapse; width: 50%;" border="1">
+<tbody>
+<tr style="height: 25px;">
+<th style="text-align: center; height: 25px; width: 39.0723%;" scope="col">
+ 
+</th>
+<th style="text-align: center; height: 25px; width: 32.3402%;" scope="col">
+Stock <em>A</em>
+</th>
+<th style="text-align: center; height: 25px; width: 28.3672%;" scope="col">
+Stock <em>B</em>
+</th>
+</tr>
+<tr style="height: 29px;">
+<th style="text-align: center; height: 29px; width: 39.0723%;" scope="row" width="320px">
+Index model regression estimates
+</th>
+<td style="text-align: center; height: 29px; width: 32.3402%;" width="165px">
+0.01 + 1.1<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>m</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(r_m - r_f)</annotation></semantics></math>
+</td>
+<td style="text-align: center; height: 29px; width: 28.3672%;" width="165px">
+0.02 + 2.2<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>m</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(r_m - r_f)</annotation></semantics></math>
+</td>
+</tr>
+<tr style="height: 29px;">
+<th style="text-align: center; height: 29px; width: 39.0723%;" scope="row">
+R-square
+</th>
+<td style="text-align: center; height: 29px; width: 32.3402%;">
+0.623
+</td>
+<td style="text-align: center; height: 29px; width: 28.3672%;">
+0.461
+</td>
+</tr>
+<tr style="height: 29px;">
+<th style="text-align: center; height: 29px; width: 39.0723%;" scope="row">
+Residual standard deviation
+</th>
+<td style="text-align: center; height: 29px; width: 32.3402%;">
+0.111
+</td>
+<td style="text-align: center; height: 29px; width: 28.3672%;">
+0.199
+</td>
+</tr>
+<tr style="height: 29px;">
+<th style="text-align: center; height: 29px; width: 39.0723%;" scope="row">
+Standard deviation of excess returns
+</th>
+<td style="text-align: center; height: 29px; width: 32.3402%;">
+0.224
+</td>
+<td style="text-align: center; height: 29px; width: 28.3672%;">
+0.265
+</td>
+</tr>
+</tbody>
+</table>
+<p>Report the Treynor measure of the best performing stock.</p>
+<p>Round your answer to three decimals. For example, 0.085.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.099</mn><annotation encoding="application/x-tex">0.099</annotation></semantics></math>.</p>
+<p>The Treynor measure (TM) is obtained as: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><msub><mi>r</mi><mi>i</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub></mrow><msub><mi>β</mi><mi>i</mi></msub></mfrac><annotation encoding="application/x-tex">\frac{r_i - r_f}{\beta_i}</annotation></semantics></math>, so we first need to obtain the excess expected return from the index model regression: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo>=</mo><msub><mi>α</mi><mi>i</mi></msub><mo>+</mo><msub><mi>β</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>m</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">r_i - r_f = \alpha_i + \beta_i (r_m - r_f)</annotation></semantics></math>.</p>
+<p>For Stock A: The excess return is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.01</mn><mo>+</mo><mn>1.1</mn><mo stretchy="false" form="prefix">(</mo><mn>0.12</mn><mo>−</mo><mn>0.03</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.109</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">0.01 + 1.1(0.12 - 0.03) = 0.109.</annotation></semantics></math> Then the TM is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>0.109</mn><mn>1.1</mn></mfrac><mo>≈</mo><mn>0.099</mn></mrow><annotation encoding="application/x-tex">\frac{0.109}{1.1} \approx 0.099</annotation></semantics></math>.</p>
+<p>For Stock B: The excess return is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.02</mn><mo>+</mo><mn>2.2</mn><mo stretchy="false" form="prefix">(</mo><mn>0.12</mn><mo>−</mo><mn>0.03</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.218</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">0.02 + 2.2(0.12 - 0.03) = 0.218.</annotation></semantics></math> Then the TM is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>0.218</mn><mn>2.2</mn></mfrac><mo>≈</mo><mn>0.099</mn></mrow><annotation encoding="application/x-tex">\frac{0.218}{2.2} \approx 0.099</annotation></semantics></math>.</p>
+<p>The TM of the best performing stock is 0.099.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>The following data are available relating to the performance of Fund ABC and the market portfolio:</p>
+<table style="border-collapse: collapse; font-family: Arial, sans-serif; margin-left: 0;">
+<thead>
+<tr>
+<th style="border: 1px solid black; padding: 6px;">
+</th>
+<th style="border: 1px solid black; padding: 6px;">
+<strong>Fund ABC</strong>
+</th>
+<th style="border: 1px solid black; padding: 6px;">
+<strong>Market Portfolio</strong>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid black; padding: 6px;">
+Average return
+</td>
+<td style="border: 1px solid black; padding: 6px;">
+0.23
+</td>
+<td style="border: 1px solid black; padding: 6px;">
+0.16
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding: 6px;">
+Standard deviation of returns
+</td>
+<td style="border: 1px solid black; padding: 6px;">
+0.27
+</td>
+<td style="border: 1px solid black; padding: 6px;">
+0.14
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding: 6px;">
+Beta
+</td>
+<td style="border: 1px solid black; padding: 6px;">
+1
+</td>
+<td style="border: 1px solid black; padding: 6px;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p>The risk-free return during the sample period was 0.04.</p>
+<p>If you wanted to build a portfolio with Fund ABC and T-bills that has the same systemic risk as the market, which share would you need to invest in <em>T-bills</em>?</p>
+<p>Round your answer to two decimal places. Example answer: 0.53.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>.</p>
+<p>Recall that the exposure is linear, such that we can write: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mi>m</mi></msub><mo>=</mo><msub><mi>w</mi><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></msub><mo>⋅</mo><msub><mi>β</mi><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>w</mi><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><msub><mi>β</mi><msub><mi>r</mi><mi>f</mi></msub></msub></mrow><annotation encoding="application/x-tex">\beta_m = w_{ABC} \cdot \beta_{ABC} + (1-w_{ABC}) \cdot \beta_{r_f}</annotation></semantics></math>.</p>
+<p>Filling in what we know gives: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>=</mo><msub><mi>w</mi><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></msub><mo>⋅</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>w</mi><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">1 = w_{ABC} \cdot 1 + (1-w_{ABC}) \cdot 0</annotation></semantics></math>. Solving for the weight gives <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>1</mn></mfrac></mrow><annotation encoding="application/x-tex">w_{ABC} = \frac{1}{1}</annotation></semantics></math>. Then the weight that needs to be invested in T-bills is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mfrac><mn>1</mn><mn>1</mn></mfrac><mo>=</mo><mn>1</mn><mo>−</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">1 - \frac{1}{1} = 1 - 1 = 0</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>The Jensen portfolio evaluation measure:</p>
+<br/>
+<ol type="a">
+<li>
+is a measure of return per unit of risk, as measured by standard deviation.
+</li>
+<li>
+is an absolute measure of return over and above that predicted by the CAPM.
+</li>
+<li>
+is an absolute measure based on total risk instead of systematic risk.
+</li>
+<li>
+is a measure of return per unit of risk, as measured by beta.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Fill in the blanks.</p>
+<p>Markets would be inefficient if irrational investors ___ and actions of arbitrageurs were ___.</p>
+<br/>
+<ol type="a">
+<li>
+existed, limited
+</li>
+<li>
+existed, unlimited
+</li>
+<li>
+did not exist, limited
+</li>
+<li>
+did not exist, unlimited
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Which of the following actually measures the positive result of market inefficiency?</p>
+<br/>
+<ol type="a">
+<li>
+Alpha
+</li>
+<li>
+Beta
+</li>
+<li>
+Cumulative abnormal return (CAR)
+</li>
+<li>
+Total volatility
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose two portfolios have the same average return and the same standard deviation of returns, but portfolio A has a higher beta than portfolio B. According to the Sharpe measure, the performance of portfolio A..</p>
+<br/>
+<ol type="a">
+<li>
+is better than the performance of portfolio B.
+</li>
+<li>
+is the same as the performance of portfolio B.
+</li>
+<li>
+is poorer than the performance of portfolio B.
+</li>
+<li>
+cannot be measured as there are no data on the alpha of the portfolio.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider a world in which the assumptions of the portfolio theory hold.</p>
+<p>Regarding the securities A and B, the following probability distributions, with the probabilities for three possible states of the world and the corresponding returns, is given:</p>
+<table style="border-collapse: collapse; width: 57.3425%;" border="1">
+<tbody>
+<tr>
+<td style="width: 33.2969%; text-align: center;">
+<strong>Probability</strong>
+</td>
+<td style="width: 33.2969%; text-align: center;">
+<strong>Return A</strong>
+</td>
+<td style="width: 33.2986%; text-align: center;">
+<strong>Return B</strong>
+</td>
+</tr>
+<tr>
+<td style="width: 33.2969%; text-align: center;">
+0.2
+</td>
+<td style="width: 33.2969%; text-align: center;">
+2%
+</td>
+<td style="width: 33.2986%; text-align: center;">
+8%
+</td>
+</tr>
+<tr>
+<td style="width: 33.2969%; text-align: center;">
+0.6
+</td>
+<td style="width: 33.2969%; text-align: center;">
+4%
+</td>
+<td style="width: 33.2986%; text-align: center;">
+6%
+</td>
+</tr>
+<tr>
+<td style="width: 33.2969%; text-align: center;">
+0.2
+</td>
+<td style="width: 33.2969%; text-align: center;">
+6%
+</td>
+<td style="width: 33.2986%; text-align: center;">
+4%
+</td>
+</tr>
+</tbody>
+</table>
+<p>Which of the following statements is true?</p>
+<br/>
+<ol type="a">
+<li>
+The correlation coefficient between the returns of A and B is zero.
+</li>
+<li>
+The variance of the return of A is negative.
+</li>
+<li>
+The risk of A (measured as the standard deviation of the return) is smaller than that of B.
+</li>
+<li>
+The covariance between the returns of A and B is negative.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Your opinion is that CSCO has an expected rate of return of 0.13. It has a beta of 1.3. The risk-free rate is 0.04 and the market expected rate of return is 0.115.</p>
+<p>According to the Capital Asset Pricing Model, this security is</p>
+<br/>
+<ol type="a">
+<li>
+underpriced.
+</li>
+<li>
+overpriced.
+</li>
+<li>
+fairly priced.
+</li>
+<li>
+Cannot be determined from data provided.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+</ol>
+
+</body>
+</html>

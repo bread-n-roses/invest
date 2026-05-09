@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>Quiz 5</title>
+<style type="text/css">
+body{font-family: Arial, Helvetica, Sans;}
+</style>
+<meta charset="utf-8" />
+</head>
+
+<body>
+<h2>Quiz 5</h2>
+
+<ol>
+<li>
+<h4>Question</h4>
+<p>Consider Stock ABC which has a current stock price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>37</mn></mrow><annotation encoding="application/x-tex">\$37</annotation></semantics></math>.</p>
+<p>We construct a two-period binomial tree, where the first period is in 6 months from now, and the second period is in one year from now. Every half year, we have that the stock can either go up with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><mn>1.02</mn></mrow><annotation encoding="application/x-tex">u = 1.02</annotation></semantics></math> or down with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>0.98</mn></mrow><annotation encoding="application/x-tex">d = 0.98</annotation></semantics></math>.</p>
+<p>After two periods (one year), you have constructed three possible stock prices. Report the middle one of the three stock prices, i.e. not the minimum and not the maximum. Round your answer to the nearest integer. For example, 36.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>37</mn><annotation encoding="application/x-tex">37</annotation></semantics></math>.</p>
+<p>After six months (one period), you have that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>1</mn><mi>u</mi></msubsup><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mo>⋅</mo><mi>u</mi><mo>=</mo><mi>$</mi><mn>37.74</mn></mrow><annotation encoding="application/x-tex">S_1^u = S_0 \cdot u = \$37.74</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>1</mn><mi>d</mi></msubsup><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mo>⋅</mo><mi>d</mi><mo>=</mo><mi>$</mi><mn>36.985</mn></mrow><annotation encoding="application/x-tex">S_1^d = S_0 \cdot d = \$36.985</annotation></semantics></math>.</p>
+<p>After one year (two periods), you have that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>1</mn><msup><mi>u</mi><mn>2</mn></msup></msubsup><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mo>⋅</mo><msup><mi>u</mi><mn>2</mn></msup><mo>=</mo><mi>$</mi><mn>38.495</mn></mrow><annotation encoding="application/x-tex">S_1^{u^2} = S_0 \cdot u^2 = \$38.495</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>1</mn><msup><mi>d</mi><mn>2</mn></msup></msubsup><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mo>⋅</mo><msup><mi>d</mi><mn>2</mn></msup><mo>=</mo><mi>$</mi><mn>35.5348</mn></mrow><annotation encoding="application/x-tex">S_1^{d^2} = S_0 \cdot d^2 = \$35.5348</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mn>1</mn><mrow><mi>u</mi><mi>d</mi></mrow></msubsup><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mo>⋅</mo><mi>u</mi><mo>⋅</mo><mi>d</mi><mo>≈</mo><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mi>$</mi><mn>37</mn></mrow><annotation encoding="application/x-tex">S^{ud}_1 = S_0 \cdot u \cdot d \approx S_0 = \$37</annotation></semantics></math>.</p>
+<p>The middle stock price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>37</mn></mrow><annotation encoding="application/x-tex">\$37</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider a 1-year option with strike price <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>46</mn></mrow><annotation encoding="application/x-tex">\$46</annotation></semantics></math>, on a stock with annual standard deviation <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.25</mn><annotation encoding="application/x-tex">0.25</annotation></semantics></math>. The T-bill rate is 3% per year.</p>
+<p>What is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">N(d_1)</annotation></semantics></math> in the Black-Scholes world when the current stock price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>48</mn></mrow><annotation encoding="application/x-tex">\$48</annotation></semantics></math>?</p>
+<p>Round your answer to four decimal places. For example, 0.5238.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.6628</mn><annotation encoding="application/x-tex">0.6628</annotation></semantics></math>.</p>
+<p>Recall that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mi>l</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>S</mi><mn>0</mn></msub><mi>/</mi><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mi>T</mi></mrow><mrow><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">d_1 = \frac{ln(S_0/X) + (r + \sigma^2/2) T}{\sigma\sqrt{T}}</annotation></semantics></math>.</p>
+<p>Filling in what we know, we obtain <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mi>l</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>48</mn><mi>/</mi><mn>46</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>0.03</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><msup><mn>0.25</mn><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>1</mn></mrow><mrow><mn>0.25</mn><msqrt><mn>1</mn></msqrt></mrow></mfrac><mo>≈</mo><mn>0.42</mn></mrow><annotation encoding="application/x-tex">d_1 = \frac{ln(48/46) + (0.03 + (0.25^2)/2) \cdot 1}{0.25\sqrt{1}} \approx 0.42</annotation></semantics></math>.</p>
+<p>Then, we have that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>N</mi><mo stretchy="false" form="prefix">(</mo><mn>0.42</mn><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mn>0.6628</mn></mrow><annotation encoding="application/x-tex">N(d_1) = N(0.42) \approx 0.6628</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You observe two European call options on the same underlying stock:</p>
+<table border="1" cellpadding="4" cellspacing="0">
+<thead>
+<tr>
+<th>
+Option
+</th>
+<th>
+Strike
+</th>
+<th>
+Price
+</th>
+<th>
+Delta
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+A
+</td>
+<td>
+90
+</td>
+<td>
+12.00
+</td>
+<td>
+0.65
+</td>
+</tr>
+<tr>
+<td>
+B
+</td>
+<td>
+100
+</td>
+<td>
+6.00
+</td>
+<td>
+0.25
+</td>
+</tr>
+</tbody>
+</table>
+<p>You believe call option B is overpriced relative to call option A. You decide to exploit this using a delta-neutral strategy, where you go long in call option A and short in call option B.</p>
+<p>If you buy 600 <strong>options</strong> of call A, how many <strong>options</strong> of call B do you need to short to make the portfolio delta-neutral?</p>
+<p>Round your answer to the nearest whole number. For example, 280.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1560</mn><annotation encoding="application/x-tex">1560</annotation></semantics></math>.</p>
+<p>The delta ratio is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.65</mn><mi>/</mi><mn>0.25</mn><mo>=</mo><mn>2.6</mn></mrow><annotation encoding="application/x-tex">0.65/0.25 = 2.6</annotation></semantics></math>.</p>
+<p>The number of B contracts to short is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>600</mn><mo>⋅</mo><mn>2.6</mn><mo>=</mo><mn>1560</mn><mo>≈</mo><mn>1560</mn></mrow><annotation encoding="application/x-tex">600 \cdot 2.6 = 1560 \approx 1560</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose that JPMorgan Chase <em>sells</em> call options on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>2.8</mn></mrow><annotation encoding="application/x-tex">\$2.8</annotation></semantics></math> million worth of a stock portfolio with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mn>1.8</mn></mrow><annotation encoding="application/x-tex">\beta = 1.8</annotation></semantics></math>. The call option delta is 0.62. JPMorgan Chase wishes to hedge its resultant exposure to a market increase by buying a market-index portfolio.</p>
+<p>How many dollars’ worth of the market-index portfolio should it purchase? For example, 4,126,500 becomes 4126500.</p>
+<p><em>Hint:</em> start by assuming that the market index increases by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">1\%</annotation></semantics></math>.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3124800</mn><annotation encoding="application/x-tex">3124800</annotation></semantics></math>.</p>
+<p>First, to calculate the hedge ratio, suppose that the market index increases by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">1\%</annotation></semantics></math>.</p>
+<p>The stock portfolio beta is 1.8 and the stock portfolio is worth 2.8 million. The stock portfolio would then be expected to increase by: 1% <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⋅</mi><annotation encoding="application/x-tex">\cdot</annotation></semantics></math> 1.8 = 1.8% or 0.018 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⋅</mi><annotation encoding="application/x-tex">\cdot</annotation></semantics></math> 2800000 = 50400.</p>
+<p>The call option delta is 0.62. Since JPMorgan is short the options, its liability increases by 50400 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⋅</mi><annotation encoding="application/x-tex">\cdot</annotation></semantics></math> 0.62 = 31248.</p>
+<p>In other words, JP Morgan Chase’s liability from writing (selling) these call options would increase by 31248.</p>
+<p>Therefore, JP Morgan wants to hedge its position so that a 1% change in the market index would result in a 31248 change in the value of the market index portfolio. If 1% is 31248, then 100% must be 31248 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>⋅</mi><mn>100</mn></mrow><annotation encoding="application/x-tex">\cdot 100</annotation></semantics></math> = 3124800.</p>
+<p>Hence, JP Morgan should purchase 3124800 worth of the market index portfolio.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>A one-year call option with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>$</mi><mn>134</mn></mrow><annotation encoding="application/x-tex">X = \$134</annotation></semantics></math> on a stock priced at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mi>$</mi><mn>130</mn></mrow><annotation encoding="application/x-tex">S_0 = \$130</annotation></semantics></math> sells for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>10.31</mn></mrow><annotation encoding="application/x-tex">\$10.31</annotation></semantics></math> in the market.</p>
+<p>Based on historical data, you estimate a volatility of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>0.4</mn></mrow><annotation encoding="application/x-tex">\sigma = 0.4</annotation></semantics></math>. You find that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5494</mn></mrow><annotation encoding="application/x-tex">N(d_1) = 0.5494</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.3914</mn></mrow><annotation encoding="application/x-tex">N(d_2) = 0.3914</annotation></semantics></math>. The risk-free interest rate is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">0\%</annotation></semantics></math>.</p>
+<p>What is the difference between the Black-Scholes call price and the price of the call in the market? In other words, by how much is the call <em>underpriced</em> in the market?</p>
+<p>Round your answer to two decimals. For example, $12.839 becomes 12.84.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8.66</mn><annotation encoding="application/x-tex">8.66</annotation></semantics></math>.</p>
+<p>According to the Black-Scholes model, the call should be priced at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>0</mn></msub><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>X</mi><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>f</mi></msub><mo>⋅</mo><mi>T</mi></mrow></msup><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">C_0 = S_0 N(d_1) - X e^{-r_f \cdot T}N(d_2)</annotation></semantics></math>.</p>
+<p>The current stock price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>130</mn></mrow><annotation encoding="application/x-tex">\$130</annotation></semantics></math>, the strike price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>134</mn></mrow><annotation encoding="application/x-tex">\$134</annotation></semantics></math>, and the call option premium in the market is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>10.31</mn></mrow><annotation encoding="application/x-tex">\$10.31</annotation></semantics></math>. Since the risk-free rate is 0, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>f</mi></msub><mo>⋅</mo><mi>T</mi></mrow></msup><annotation encoding="application/x-tex">e^{-r_f \cdot T}</annotation></semantics></math> becomes 1.</p>
+<p>According to Black-Scholes, the call should be worth: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>0</mn></msub><mo>=</mo><mi>$</mi><mn>130</mn><mo>⋅</mo><mn>0.5494</mn><mo>−</mo><mi>$</mi><mn>134</mn><mo>⋅</mo><mn>1</mn><mo>⋅</mo><mn>0.3914</mn><mo>≈</mo><mi>$</mi><mn>18.97</mn></mrow><annotation encoding="application/x-tex">C_0 = \$130 \cdot 0.5494 - \$134 \cdot 1 \cdot 0.3914 \approx \$18.97</annotation></semantics></math>.</p>
+<p>The difference is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>18.97</mn><mo>−</mo><mi>$</mi><mn>10.31</mn><mo>=</mo><mi>$</mi><mn>8.66</mn></mrow><annotation encoding="application/x-tex">\$18.97 - \$10.31 = \$8.66</annotation></semantics></math>. The call option is underpriced by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>8.66</mn></mrow><annotation encoding="application/x-tex">\$8.66</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider a 3-month call option on Stock ABC with a strike price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>89</mn></mrow><annotation encoding="application/x-tex">\$89</annotation></semantics></math>. Stock ABC is currently worth <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>89</mn></mrow><annotation encoding="application/x-tex">\$89</annotation></semantics></math> and the call premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>4.84</mn></mrow><annotation encoding="application/x-tex">\$4.84</annotation></semantics></math>. The hedge ratio of the call option is 0.74.</p>
+<p>Calculate the elasticity of the call option. Round your answer to two decimals. For example, 8.31.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>13.61</mn><annotation encoding="application/x-tex">13.61</annotation></semantics></math>.</p>
+<p>We work with a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">\$1</annotation></semantics></math> increase in the stock price of Stock ABC to quantify elasticity.</p>
+<p>The stock increases from <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>89</mn></mrow><annotation encoding="application/x-tex">\$89</annotation></semantics></math> to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>90</mn></mrow><annotation encoding="application/x-tex">\$90</annotation></semantics></math>, which is an increase of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>$</mi><mn>90</mn><mo>−</mo><mi>$</mi><mn>89</mn></mrow><mrow><mi>$</mi><mn>89</mn></mrow></mfrac><mo>=</mo><mn>0.0112</mn><mo>=</mo><mn>1.12</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\frac{\$90-\$89}{\$89} = 0.0112 = 1.12\%</annotation></semantics></math>.</p>
+<p>The call HR is 0.74 and the call premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>4.84</mn></mrow><annotation encoding="application/x-tex">\$4.84</annotation></semantics></math>. The call increases by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>1</mn><mo>⋅</mo><mi>H</mi><mi>R</mi><mo>=</mo><mi>$</mi><mn>1</mn><mo>⋅</mo><mn>0.74</mn><mo>=</mo><mi>$</mi><mn>0.74</mn></mrow><annotation encoding="application/x-tex">\$1 \cdot HR = \$1 \cdot 0.74 = \$0.74</annotation></semantics></math>. This represents a relative change of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>0.74</mn><mi>/</mi><mi>$</mi><mn>4.84</mn><mo>≈</mo><mn>0.1529</mn><mo>≈</mo><mn>15.29</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\$0.74/\$4.84 \approx 0.1529 \approx 15.29\%</annotation></semantics></math>.</p>
+<p>The elasticity of the call option is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1529</mn><mi>/</mi><mn>0.0112</mn><mo>≈</mo><mn>13.61</mn></mrow><annotation encoding="application/x-tex">0.1529/0.0112 \approx 13.61</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose you own 17 shares of Microsoft stock as well as 30 six-month put options on Microsoft stock. The put options have a hedge ratio of -0.28.</p>
+<p>What is the effective number of shares in your portfolio? Round your answer to two decimal places. For example, 2.64.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8.6</mn><annotation encoding="application/x-tex">8.6</annotation></semantics></math>.</p>
+<p>The effective number of shares in your portfolio is the actual number of shares minus the effective number of shares from owning the put options.</p>
+<p>You own 17 shares of stock and 30 put options. The hedge ratio is 0.28. The effective number of shares in your portfolio is then: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>17</mn><mo>−</mo><mn>0.28</mn><mo>⋅</mo><mn>30</mn><mo>≈</mo><mn>8.6</mn></mrow><annotation encoding="application/x-tex">17 - 0.28 \cdot 30 \approx 8.6</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You buy one Loews June 60 call and one June 60 put. The call premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>4.93</mn></mrow><annotation encoding="application/x-tex">\$4.93</annotation></semantics></math> and the put premium is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>3.55</mn></mrow><annotation encoding="application/x-tex">\$3.55</annotation></semantics></math>.</p>
+<p>At expiration, there are two potential stock prices at which you would break even. Report the lowest of the two stock prices at which you would break even.</p>
+<p>Round your answer to two decimal places, for example: $54.32.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>51.52</mn><annotation encoding="application/x-tex">51.52</annotation></semantics></math>.</p>
+<p>Break-even = Strike − total premiums.</p>
+<p>Call: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>60</mn><mo>+</mo><mi>$</mi><mn>4.93</mn><mo>+</mo><mi>$</mi><mn>3.55</mn><mo>=</mo><mi>$</mi><mn>68.48</mn></mrow><annotation encoding="application/x-tex">\$60 + \$4.93 + \$3.55 = \$68.48</annotation></semantics></math> (break-even)</p>
+<p>Put: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>$</mi><mn>3.55</mn><mo>+</mo><mi>$</mi><mn>60</mn><mo>+</mo><mi>−</mi><mi>$</mi><mn>4.93</mn><mo>=</mo><mi>$</mi><mn>51.52</mn></mrow><annotation encoding="application/x-tex">−\$3.55 + \$60 + −\$4.93 = \$51.52</annotation></semantics></math> (break-even).</p>
+<p>Thus, if the price increases above <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>68.48</mn></mrow><annotation encoding="application/x-tex">\$68.48</annotation></semantics></math> or decreases below <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>51.52</mn></mrow><annotation encoding="application/x-tex">\$51.52</annotation></semantics></math>, a profit is realized. The lowest stock price at which you break even is 51.52.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose the current price on a non-dividend paying stock is $28. The annualized risk-free rate in the market is 0.05. Consider a put option on this stock with a strike price of $42 and a time to expiration of three months.</p>
+<p>Use the Black-Scholes formula to find the price of the put option.</p>
+<p>Use <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.0055</mn></mrow><annotation encoding="application/x-tex">N(d_1) = 0.0055</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.0035</mn></mrow><annotation encoding="application/x-tex">N(d_2) = 0.0035</annotation></semantics></math> to simplify your calculations.</p>
+<p>Round your answer to two decimals. For example, 5.28.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>13.49</mn><annotation encoding="application/x-tex">13.49</annotation></semantics></math>.</p>
+<p>The Black-Scholes put price is given by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mn>0</mn></msub><mo>=</mo><mi>X</mi><mrow><mi mathvariant="normal">exp</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>r</mi><mi>f</mi><mo>⋅</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>S</mi><mn>0</mn></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>N</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P_0 = X\exp(-rf \cdot T) (1- N(d_2)) - S_0 (1-N(d_1))</annotation></semantics></math>.</p>
+<p>The current stock price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>28</mn></mrow><annotation encoding="application/x-tex">\$28</annotation></semantics></math>, the risk-free rate is 0.05 and the strike price is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>42</mn></mrow><annotation encoding="application/x-tex">\$42</annotation></semantics></math>, so the put option price is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>42</mn><mo>⋅</mo><mrow><mi mathvariant="normal">exp</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>0.05</mn><mo>⋅</mo><mn>0.25</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.0035</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>28</mn><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.0055</mn><mo stretchy="false" form="postfix">)</mo><mo>≈</mo><mi>$</mi><mn>13.4870937</mn><mo>≈</mo><mi>$</mi><mn>13.49</mn></mrow><annotation encoding="application/x-tex">42 \cdot \exp(-0.05 \cdot 0.25) \cdot (1-0.0035) - 28 \cdot (1-0.0055) \approx \$13.4870937 \approx \$13.49</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>A call option trading on a non-dividend paying stock has a market price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>6.9</mn></mrow><annotation encoding="application/x-tex">\$6.9</annotation></semantics></math>. However, you estimate the annualized volatility to be <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.26</mn><annotation encoding="application/x-tex">0.26</annotation></semantics></math> and use the Black-Scholes model to calculate the option’s theoretical price, which comes out to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>5.2</mn></mrow><annotation encoding="application/x-tex">\$5.2</annotation></semantics></math>.</p>
+<p>Assuming that a 5 percentage point increase in volatility raises the Black-Scholes price by approximately <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>0.50</mn></mrow><annotation encoding="application/x-tex">\$0.50</annotation></semantics></math>, estimate the market-implied volatility that would justify the observed option price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>6.9</mn></mrow><annotation encoding="application/x-tex">\$6.9</annotation></semantics></math>.</p>
+<p>Round your answer to two decimals. For example, 0.285 becomes 0.29.</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct answer is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.43</mn><annotation encoding="application/x-tex">0.43</annotation></semantics></math>.</p>
+<p>We compute the difference between the market price and the theoretical price: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>6.9</mn><mo>−</mo><mi>$</mi><mn>5.2</mn><mo>=</mo><mi>$</mi><mn>1.7</mn></mrow><annotation encoding="application/x-tex">\$6.9 - \$5.2 = \$1.7</annotation></semantics></math>.</p>
+<p>We are told that each 5% increase in volatility raises the option price by approximately <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>$</mi><mn>0.50</mn></mrow><annotation encoding="application/x-tex">\$0.50</annotation></semantics></math>, hence we have that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1.7</mn><mn>0.50</mn></mfrac><mo>=</mo><mn>3.4</mn></mrow><annotation encoding="application/x-tex">\frac{1.7}{0.50} = 3.4</annotation></semantics></math>.</p>
+<p>Hence, the implied volatility must be higher with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3.4</mn><mo>⋅</mo><mn>0.05</mn><mo>=</mo><mn>0.17</mn></mrow><annotation encoding="application/x-tex">3.4 \cdot 0.05 = 0.17</annotation></semantics></math> or 17 percentage points.</p>
+<p>The implied volatility that explains the observed market price is approximately <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.17</mn><mo>+</mo><mn>0.26</mn><mo>=</mo><mn>0.43</mn></mrow><annotation encoding="application/x-tex">0.17 + 0.26 = 0.43</annotation></semantics></math>.</p>
+<br/>
+</li>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>Quiz 1</title>
+<style type="text/css">
+body{font-family: Arial, Helvetica, Sans;}
+</style>
+<meta charset="utf-8" />
+</head>
+
+<body>
+<h2>Quiz 1</h2>
+
+<ol>
+<li>
+<h4>Question</h4>
+<p>Consider a risky asset that has an expected return of 12.1% and a standard deviation of 19.8%.<br />
+The risk-free rate is 4%.</p>
+<p>Suppose Elena is a utility-maximizing investor with utility function:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>p</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>A</mi><msubsup><mi>σ</mi><mi>p</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">U = \mathbb{E}(r_p) - \frac{1}{2} A \sigma^2_p</annotation></semantics></math></p>
+<p>where<br />
+- <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mi>p</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}(r_p)</annotation></semantics></math> is the expected return of the portfolio,<br />
+- <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>σ</mi><mi>p</mi><mn>2</mn></msubsup><annotation encoding="application/x-tex">\sigma^2_p</annotation></semantics></math> is the variance of the portfolio,<br />
+- <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> is Elena’s risk aversion coefficient.</p>
+<p>Elena creates a portfolio by investing a proportion <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math> in the risky asset and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1 - w)</annotation></semantics></math> in the risk-free asset.</p>
+<p>If she finds it optimal to invest <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>w</mi><mo>*</mo></msup><annotation encoding="application/x-tex">w^{*}</annotation></semantics></math> = 52% in the risky asset, what is her level of risk aversion <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>?</p>
+<p>Round your answer to one decimal place.</p>
+<br/>
+<h4>Solution</h4>
+<p>The optimal weight in the risky asset is:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mo>*</mo></msup><mo>=</mo><mfrac><mrow><mi>μ</mi><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub></mrow><mrow><mi>A</mi><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac><mo>⇒</mo><mi>A</mi><mo>=</mo><mfrac><mrow><mi>μ</mi><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub></mrow><mrow><msup><mi>w</mi><mo>*</mo></msup><mo>⋅</mo><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">w^* = \frac{\mu - r_f}{A \sigma^2} \Rightarrow A = \frac{\mu - r_f}{w^* \cdot \sigma^2}</annotation></semantics></math></p>
+<p>(See Lecture 1 for a derivation).</p>
+<p>With:<br />
+- <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>0.121</mn></mrow><annotation encoding="application/x-tex">\mu = 0.121</annotation></semantics></math>,<br />
+- <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>f</mi></msub><mo>=</mo><mn>0.04</mn></mrow><annotation encoding="application/x-tex">r_f = 0.04</annotation></semantics></math>,<br />
+- <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mo>*</mo></msup><mo>=</mo><mn>0.52</mn></mrow><annotation encoding="application/x-tex">w^* = 0.52</annotation></semantics></math>,<br />
+- <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0.198</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>0.0392</mn></mrow><annotation encoding="application/x-tex">\sigma^2 = (0.198)^2 = 0.0392</annotation></semantics></math></p>
+<p>Plugging in, we get:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mfrac><mn>0.081</mn><mrow><mn>0.52</mn><mo>⋅</mo><mn>0.0392</mn></mrow></mfrac><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">A = \frac{0.081}{0.52 \cdot 0.0392} = 4</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider a dividend-paying stock DEF. The stock currently trades at $120 per share.</p>
+<p>After two weeks, the stock pays a dividend of 3.</p>
+<p>After a month, three possible market states could occur, with the following probabilities and outcomes:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+State
+</th>
+<th style="text-align:center;">
+Probability
+</th>
+<th style="text-align:center;">
+Ending Price
+</th>
+<th style="text-align:center;">
+Dividend
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Growth
+</td>
+<td style="text-align:center;">
+45%
+</td>
+<td style="text-align:center;">
+$130
+</td>
+<td style="text-align:center;">
+$3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Neutral
+</td>
+<td style="text-align:center;">
+20%
+</td>
+<td style="text-align:center;">
+$120
+</td>
+<td style="text-align:center;">
+$3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Decline
+</td>
+<td style="text-align:center;">
+35%
+</td>
+<td style="text-align:center;">
+$114
+</td>
+<td style="text-align:center;">
+$3
+</td>
+</tr>
+</tbody>
+</table>
+<p>What is the expected holding period return (HPR) of stock DEF?</p>
+<p>Give your answer rounded to three decimal places (e.g., 0.064 for 6.4%).</p>
+<br/>
+<h4>Solution</h4>
+<p>We compute the HPR for each state:</p>
+<ul>
+<li>Growth: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mi>P</mi><msub><mi>R</mi><mi>G</mi></msub><mo>=</mo><mfrac><mrow><mn>130</mn><mo>+</mo><mn>3</mn><mo>−</mo><mn>120</mn></mrow><mn>120</mn></mfrac><mo>=</mo><mn>0.108</mn></mrow><annotation encoding="application/x-tex">HPR_G = \frac{130 + 3 - 120}{120} = 0.108</annotation></semantics></math>
+<br><br></li>
+<li>Neutral: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mi>P</mi><msub><mi>R</mi><mi>N</mi></msub><mo>=</mo><mfrac><mrow><mn>120</mn><mo>+</mo><mn>3</mn><mo>−</mo><mn>120</mn></mrow><mn>120</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>120</mn></mfrac><mo>=</mo><mn>0.025</mn></mrow><annotation encoding="application/x-tex">HPR_N = \frac{120 + 3 - 120}{120} = \frac{3}{120} = 0.025</annotation></semantics></math>
+<br><br></li>
+<li>Decline: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mi>P</mi><msub><mi>R</mi><mi>D</mi></msub><mo>=</mo><mfrac><mrow><mn>114</mn><mo>+</mo><mn>3</mn><mo>−</mo><mn>120</mn></mrow><mn>120</mn></mfrac><mo>=</mo><mi>−</mi><mn>0.025</mn></mrow><annotation encoding="application/x-tex">HPR_D = \frac{114 + 3 - 120}{120} = -0.025</annotation></semantics></math>
+<br><br></li>
+</ul>
+<p>Then:
+HPR = <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.45</mn><mo>⋅</mo><mn>0.108</mn><mo>+</mo><mn>0.2</mn><mo>⋅</mo><mn>0.025</mn><mo>+</mo><mn>0.35</mn><mo>⋅</mo><mi>−</mi><mn>0.025</mn><mo>=</mo><mn>0.045</mn></mrow><annotation encoding="application/x-tex">0.45 \cdot 0.108 + 0.2 \cdot 0.025 + 0.35 \cdot -0.025 = 0.045</annotation></semantics></math></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Chris would like to assess the performance of portfolio A versus portfolio B using the Sharpe ratio. The following information is given:</p>
+<p><strong>Portfolio A:</strong> Expected portfolio return of 15.3% and portfolio standard deviation of 10%.</p>
+<p><strong>Portfolio B:</strong> Expected portfolio return of 21.5% and portfolio standard deviation of 16.8%.</p>
+<p>The risk-free rate is 3%.<br><br></p>
+<p>What is the difference in Sharpe ratios between portfolios A and B, i.e., what is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>R</mi><mi>A</mi></msub><mo>−</mo><mi>S</mi><msub><mi>R</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">SR_A - SR_B</annotation></semantics></math>?</p>
+<p>Round your answer to two decimal places.</p>
+<br/>
+<h4>Solution</h4>
+<p>For Portfolio A: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>R</mi><mi>A</mi></msub><mo>=</mo><mfrac><mrow><mn>15.3</mn><mo>−</mo><mn>3</mn></mrow><mn>10</mn></mfrac><mo>=</mo><mfrac><mn>12.3</mn><mn>10</mn></mfrac></mrow><annotation encoding="application/x-tex">SR_A = \frac{15.3 - 3}{10} = \frac{12.3}{10}</annotation></semantics></math></p>
+<p>For Portfolio B: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msub><mi>R</mi><mi>B</mi></msub><mo>=</mo><mfrac><mrow><mn>21.5</mn><mo>−</mo><mn>3</mn></mrow><mn>16.8</mn></mfrac></mrow><annotation encoding="application/x-tex">SR_B = \frac{21.5 - 3}{16.8}</annotation></semantics></math></p>
+<p>Thus, the difference is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>12.3</mn><mn>10</mn></mfrac><mo>−</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mn>21.5</mn><mo>−</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>16.8</mn></mfrac><mo>=</mo><mn>1.23</mn><mo>−</mo><mn>1.1012</mn><mo>=</mo><mn>0.13</mn></mrow><annotation encoding="application/x-tex">\frac{12.3}{10} - \frac{(21.5 - 3)}{16.8} = 1.23 - 1.1012 = 0.13</annotation></semantics></math></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose that you own a portfolio that yields the following weekly returns over a month:</p>
+<ul>
+<li>Week 1: 3.1%<br />
+</li>
+<li>Week 2: -1.8%<br />
+</li>
+<li>Week 3: -0.7%<br />
+</li>
+<li>Week 4: 1.9%</li>
+</ul>
+<p>Based on the geometric average, what is your average weekly return?</p>
+<p>Round your answer to four decimal places. For example, 1.4872% or 0.014872 becomes 0.0149.</p>
+<br/>
+<h4>Solution</h4>
+<p>The average weekly (geometric) return is:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mn>3.1</mn><mi>/</mi><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>1.8</mn><mi>/</mi><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.7</mn><mi>/</mi><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mn>1.9</mn><mi>/</mi><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mn>1</mn><mi>/</mi><mn>4</mn></mrow></msup><mo>−</mo><mn>1</mn><mo>=</mo><mn>0.0061</mn></mrow><annotation encoding="application/x-tex">\left((1 + 3.1/100) \cdot (1 - 1.8/100) \cdot (1 - 0.7/100) \cdot (1 + 1.9/100)\right)^{1/4} - 1 = 0.0061</annotation></semantics></math></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Consider two perfectly negatively correlated risky securities, A and B.</p>
+<ul>
+<li>Security A has an expected return of 10.9% and a standard deviation of 24%.</li>
+<li>Security B has an expected return of 11.2% and a standard deviation of 17.3%.</li>
+</ul>
+<p>If you wish to obtain the global minimum variance portfolio, how much weight <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mi>A</mi></msub><annotation encoding="application/x-tex">w_A</annotation></semantics></math> should you allocate to security A?</p>
+<p>Give your answer as a decimal number, rounded to two decimal places. For example: 0.58.</p>
+<br/>
+<h4>Solution</h4>
+<p>Note that the minimum variance you can obtain is zero, as the two assets are perfectly negatively correlated.</p>
+<p>As in the tutorial, we then solve for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>w</mi><mi>A</mi></msub><msub><mi>σ</mi><mi>A</mi></msub><mo>−</mo><msub><mi>w</mi><mi>B</mi></msub><msub><mi>σ</mi><mi>B</mi></msub><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(w_A \sigma_A - w_B \sigma_B)^2 = 0</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>w</mi><mi>A</mi></msub><msub><mi>σ</mi><mi>A</mi></msub><mo>−</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>w</mi><mi>a</mi></msub><mo stretchy="false" form="postfix">)</mo><msub><mi>σ</mi><mi>B</mi></msub><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(w_A \sigma_A - (1-w_a)\sigma_B)^2 = 0</annotation></semantics></math>.</p>
+<p>The solution is equal to:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>A</mi></msub><mo>=</mo><mfrac><msub><mi>σ</mi><mi>B</mi></msub><mrow><msub><mi>σ</mi><mi>A</mi></msub><mo>+</mo><msub><mi>σ</mi><mi>B</mi></msub></mrow></mfrac><mo>=</mo><mfrac><mn>17.3</mn><mrow><mn>24</mn><mo>+</mo><mn>17.3</mn></mrow></mfrac><mo>=</mo><mn>0.42</mn></mrow><annotation encoding="application/x-tex">w_A = \frac{\sigma_B}{\sigma_A + \sigma_B} = \frac{17.3}{24 + 17.3} = 0.42</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have constructed 15 portfolios out of four stocks and are planning to plot these portfolios in a risk-return space. Now your task is to find the <em>optimal risky portfolio</em> out of these 15 portfolios.</p>
+<p>This table reports the portfolio excess returns, standard deviations, and Sharpe ratios.</p>
+<table border="1" style="border-collapse: collapse; text-align: center; width: 40%;">
+<thead>
+<tr>
+<th>
+Portfolio
+</th>
+<th>
+Excess Return
+</th>
+<th>
+Standard Deviation
+</th>
+<th>
+Sharpe Ratio
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+0.13
+</td>
+<td>
+0.286
+</td>
+<td>
+0.45
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+0.03
+</td>
+<td>
+0.172
+</td>
+<td>
+0.17
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+0.09
+</td>
+<td>
+0.136
+</td>
+<td>
+0.66
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+0.07
+</td>
+<td>
+0.143
+</td>
+<td>
+0.49
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+0.08
+</td>
+<td>
+0.119
+</td>
+<td>
+0.67
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+0.06
+</td>
+<td>
+0.250
+</td>
+<td>
+0.24
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+0.10
+</td>
+<td>
+0.264
+</td>
+<td>
+0.38
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+0.09
+</td>
+<td>
+0.177
+</td>
+<td>
+0.51
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+0.08
+</td>
+<td>
+0.136
+</td>
+<td>
+0.59
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+0.08
+</td>
+<td>
+0.230
+</td>
+<td>
+0.35
+</td>
+</tr>
+<tr>
+<td>
+11
+</td>
+<td>
+0.05
+</td>
+<td>
+0.104
+</td>
+<td>
+0.48
+</td>
+</tr>
+<tr>
+<td>
+12
+</td>
+<td>
+0.03
+</td>
+<td>
+0.131
+</td>
+<td>
+0.23
+</td>
+</tr>
+<tr>
+<td>
+13
+</td>
+<td>
+0.03
+</td>
+<td>
+0.164
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td>
+14
+</td>
+<td>
+0.10
+</td>
+<td>
+0.158
+</td>
+<td>
+0.63
+</td>
+</tr>
+<tr>
+<td>
+15
+</td>
+<td>
+0.14
+</td>
+<td>
+0.109
+</td>
+<td>
+1.28
+</td>
+</tr>
+</tbody>
+</table>
+<p>Report the <strong>riskiness</strong> (in terms of standard deviation) of the <em>optimal risky portfolio</em>.</p>
+<p>State your answer with three decimal places. For example, 0.081.</p>
+<br/>
+<h4>Solution</h4>
+<p>The <em>optimal risky portfolio</em> is the portfolio with the highest Sharpe ratio. This portfolio has a Sharpe ratio of 1.28 and a standard deviation of 0.109. Hence, the answer is 0.109.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose you have 100 observations of daily returns on a $70000 portfolio. The five biggest losses (negative returns) are: 7.2%, 6.7%, 5.5%, 4.6%, 4.4% (so the fifth biggest loss was a return of -4.4%).</p>
+<p>Given this data, what is the historical VaR(1 day, 95%)?</p>
+<p>Give your answer in monetary terms. Round your answer to the nearest integer, and remember to skip the minus sign. Example: If your calculated VaR is -$5322.43, enter your solution as 5322.</p>
+<br/>
+<h4>Solution</h4>
+<p>The Value-at-Risk (VaR) is the cut-off at which the tail of the worst outcomes starts, so it is the best return out of the worst 5% of returns. It is the smallest loss (in percentages) multiplied by the dollar value of the portfolio.</p>
+<p>The smallest loss is 4.4% and the portfolio value is $70000, so the VaR is 4.4% x $70000 = $3080.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Security X has an expected rate of return of 11% and a standard deviation of 15%.<br />
+Security Z has an expected rate of return of 7% and a standard deviation of 8%.<br />
+The securities have a correlation coefficient of 0.59.</p>
+<p>You construct a portfolio by investing 68% in X and the rest in Z.</p>
+<p>What is the variance of the portfolio?<br />
+Round your answer to four decimal places. For example, 0.02579 (or 2.579%) becomes 0.0258.</p>
+<br/>
+<h4>Solution</h4>
+<p>We use the formula:<br />
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Var</mtext><mo stretchy="false" form="prefix">(</mo><msub><mi>R</mi><mi>p</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msubsup><mi>w</mi><mi>X</mi><mn>2</mn></msubsup><msubsup><mi>σ</mi><mi>X</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>w</mi><mi>Z</mi><mn>2</mn></msubsup><msubsup><mi>σ</mi><mi>Z</mi><mn>2</mn></msubsup><mo>+</mo><mn>2</mn><msub><mi>w</mi><mi>X</mi></msub><msub><mi>w</mi><mi>Z</mi></msub><msub><mi>σ</mi><mi>X</mi></msub><msub><mi>σ</mi><mi>Z</mi></msub><msub><mi>ρ</mi><mrow><mi>X</mi><mo>,</mo><mi>Z</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\text{Var}(R_p) = w_X^2 \sigma_X^2 + w_Z^2 \sigma_Z^2 + 2 w_X w_Z \sigma_X \sigma_Z \rho_{X,Z}</annotation></semantics></math></p>
+<p>With <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>X</mi></msub><mo>=</mo><mn>68</mn><mi>/</mi><mn>100</mn></mrow><annotation encoding="application/x-tex">w_X = 68/100</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>Z</mi></msub><mo>=</mo><mn>1</mn><mo>−</mo><mn>68</mn><mi>/</mi><mn>100</mn></mrow><annotation encoding="application/x-tex">w_Z = 1-68/100</annotation></semantics></math>, and the standard deviations in decimals, we compute:<br />
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Var</mtext><mo stretchy="false" form="prefix">(</mo><msub><mi>R</mi><mi>p</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>68</mn><mi>/</mi><mn>100</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>15</mn><mi>/</mi><mn>100</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>68</mn><mi>/</mi><mn>100</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>8</mn><mi>/</mi><mn>100</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><mn>2</mn><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>68</mn><mi>/</mi><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>68</mn><mi>/</mi><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>15</mn><mi>/</mi><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mo stretchy="false" form="prefix">(</mo><mn>8</mn><mi>/</mi><mn>100</mn><mo stretchy="false" form="postfix">)</mo><mo>⋅</mo><mn>0.59</mn><mo>=</mo><mn>0.0141</mn></mrow><annotation encoding="application/x-tex">\text{Var}(R_p) = (68/100)^2 \cdot (15/100)^2 + (1-68/100)^2 \cdot  (8/100)^2 + 2 \cdot  (68/100) \cdot  (1-68/100) \cdot  (15/100) \cdot  (8/100) \cdot  0.59 = 0.0141</annotation></semantics></math></p>
+<p>Note that the standard deviation needs to be a fraction in this equation, so a standard deviation of 14%, for example, becomes 0.14.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>When comparing portfolios A and B, note their respective Sharpe ratios (SR).</p>
+<ul>
+<li>Portfolio A has a SR of 0.19, based on monthly observations.</li>
+<li>Portfolio B has a SR of 0.35, based on quarterly observations.</li>
+</ul>
+<p>Calculate and report the SR, on a quarterly basis, for the portfolio with the lower performance.</p>
+<p>Enter your answer as decimals, rounded to two digits to the right of the decimal point. For example, 1.234 becomes 1.23.</p>
+<br/>
+<h4>Solution</h4>
+<p>To compare the SFR of portfolio A (monthly) and portfolio B (quarterly), we need to first adjust the monthly SR of portfolio A to quarters (3 months).</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mtext mathvariant="normal">SR</mtext><mi>A</mi><mtext mathvariant="normal">q</mtext></msubsup><mo>=</mo><msubsup><mtext mathvariant="normal">SR</mtext><mi>A</mi><mtext mathvariant="normal">m</mtext></msubsup><mo>×</mo><msqrt><mn>3</mn></msqrt><mo>=</mo><mn>0.19</mn><mo>×</mo><mo>√</mo><mn>3</mn><mo>=</mo><mn>0.33</mn></mrow><annotation encoding="application/x-tex">\text{SR}_A^{\text{q}} = \text{SR}_A^{\text{m}} \times \sqrt{3} = 0.19 × √3 = 0.33</annotation></semantics></math>.</p>
+<p>Now compare:</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msubsup><mi>R</mi><mi>A</mi><mi>q</mi></msubsup><mo>=</mo><mn>0.33</mn></mrow><annotation encoding="application/x-tex">SR_A^{q} = 0.33</annotation></semantics></math><br />
+</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msubsup><mi>R</mi><mi>B</mi><mi>q</mi></msubsup><mo>=</mo><mn>0.35</mn></mrow><annotation encoding="application/x-tex">SR_B^{q} = 0.35</annotation></semantics></math></li>
+</ul>
+<p>Thus, the <strong>lower</strong> quarterly Sharpe ratio is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mn>0.33</mn></menclose><annotation encoding="application/x-tex">\boxed{0.33}</annotation></semantics></math>.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Suppose you are a fund manager who manages the risky portfolio ABC. Portfolio ABC has an expected return of 14% and a standard deviation of 28%.<br />
+The risk-free rate is 2%.
+<br><br></p>
+<p>Your client decides to split their money between your risky portfolio ABC and T-bills, in proportion <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1 - w)</annotation></semantics></math>, respectively. They want their overall portfolio to have a standard deviation of at most 16%.
+<br><br></p>
+<p>What is the expected total return on your client’s overall portfolio?</p>
+<p>State your answer as a percentage and round to two decimal places. For example, 16.879% becomes 16.88.</p>
+<br/>
+<h4>Solution</h4>
+<p>To find the desired weight <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math> to invest in the risky portfolio ABC, we need to first realize that the T-bills have a standard deviation of 0%.
+<br><br></p>
+<p>The desired weight in risky portfolio ABC is then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><msub><mi>σ</mi><mtext mathvariant="normal">target</mtext></msub><mi>/</mi><msub><mi>σ</mi><mrow><mi>A</mi><mi>B</mi><mi>C</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>16</mn><mi>%</mi></mrow><mrow><mn>28</mn><mi>%</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">w = \sigma_{\text{target}}/\sigma_{ABC} = \frac{16\%}{28\%}</annotation></semantics></math>.
+<br><br></p>
+<p>The expected total return of such a portfolio is: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Expected Return</mtext><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mn>16</mn><mi>%</mi></mrow><mrow><mn>28</mn><mi>%</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mn>14</mn><mi>%</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mfrac><mrow><mn>16</mn><mi>%</mi></mrow><mrow><mn>28</mn><mi>%</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mn>2</mn><mi>%</mi><mo>=</mo><mn>8.86</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\text{Expected Return} = \left( \frac{16\%}{28\%} \right) \cdot 14\% + \left(1 - \frac{16\%}{28\%} \right) \cdot 2\% = 8.86\%</annotation></semantics></math>.</p>
+<br/>
+</li>
+</ol>
+
+</body>
+</html>
