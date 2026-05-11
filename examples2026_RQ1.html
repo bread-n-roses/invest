@@ -1,0 +1,1196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>Exam 1</title>
+<style type="text/css">
+body{font-family: Arial, Helvetica, Sans;}
+</style>
+<meta charset="utf-8" />
+</head>
+
+<body>
+<h2>Exam 1</h2>
+
+<ol>
+<li>
+<h4>Question</h4>
+<p>Assume you have a data file, named <strong>df</strong>, with two columns (2 variables) and 120 monthly observations (120 rows). Column <strong>re</strong> contains monthly total stock returns and Column <strong>tb</strong> monthly returns of the 4-week T-bill.</p>
+<p>Then you run the R code below:</p>
+<pre><code>df = df |&gt;<br>  mutate(<br>    RA = mean(re, na.rm = TRUE),<br>    RS = sd(re, na.rm = TRUE),<br>    S = ifelse(re &lt; RA-RS, re, NA_real_)) |&gt;<br>  summarize(N = n(), NS = sum(!is.na(S))) |&gt;<br>  mutate(<br>    PS = NS / N,<br>    PE = pnorm(-1, mean=0, sd=1, lower.tail=T),<br>    sol = PS / PE)</code></pre>
+<p>Which type of measure did you compute with the variable <strong>sol</strong>?</p>
+<br/>
+<ol type="a">
+<li>
+Expected Shortfall
+</li>
+<li>
+Negative Sigma Ratio
+</li>
+<li>
+Value at Risk
+</li>
+<li>
+None of these measures
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True. The code computes a Negative 1-Sigma Ratio with the probability of <strong>re</strong> being smaller than 1 sd below the mean (RA-RS). This probability is computed as PS=NS/N, and then put in relation to the corresponding probability for the normal distribution, stored in PE.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Assume you have a data file <strong>df</strong> with the following structure (5 variables, 120 observations):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;background-color: white !important;">
+Date
+</th>
+<th style="text-align:right;background-color: white !important;">
+AAPL
+</th>
+<th style="text-align:right;background-color: white !important;">
+MCD
+</th>
+<th style="text-align:right;background-color: white !important;">
+MSFT
+</th>
+<th style="text-align:right;background-color: white !important;">
+AMZN
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2015-01
+</td>
+<td style="text-align:right;">
+0.0178
+</td>
+<td style="text-align:right;">
+-0.0591
+</td>
+<td style="text-align:right;">
+0.0963
+</td>
+<td style="text-align:right;">
+-0.0091
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-02
+</td>
+<td style="text-align:right;">
+0.0208
+</td>
+<td style="text-align:right;">
+-0.0274
+</td>
+<td style="text-align:right;">
+0.0504
+</td>
+<td style="text-align:right;">
+0.0252
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-03
+</td>
+<td style="text-align:right;">
+0.0348
+</td>
+<td style="text-align:right;">
+-0.0363
+</td>
+<td style="text-align:right;">
+0.0322
+</td>
+<td style="text-align:right;">
+-0.0958
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2024-11
+</td>
+<td style="text-align:right;">
+-0.0668
+</td>
+<td style="text-align:right;">
+-0.0183
+</td>
+<td style="text-align:right;">
+0.0135
+</td>
+<td style="text-align:right;">
+0.0315
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2024-12
+</td>
+<td style="text-align:right;">
+-0.0302
+</td>
+<td style="text-align:right;">
+-0.1317
+</td>
+<td style="text-align:right;">
+0.0196
+</td>
+<td style="text-align:right;">
+-0.0037
+</td>
+</tr>
+</tbody>
+</table>
+<p>The first column contains calendar months. All other columns contain monthly excess stock returns of the tickers <strong>AAPL</strong>, <strong>MCD</strong>, <strong>MSFT</strong>, and <strong>AMZN</strong>. The stocks are part of a portfolio with the following weights (in the order of the tickers): 0.1, 0.2, 0.3, 0.4</p>
+<p>Consider the following R code chunks:</p>
+<p>CODE CHUNK A:</p>
+<pre><code>pweights = c(0.1, 0.2, 0.3, 0.4)<br>rx_stocks = df |&gt; select(-date)<br>Matrix = rx_stocks |&gt; cov(use = 'pairwise.complete.obs')<br>port_std = sqrt(t(pweights) %*% t(Matrix) %*% pweights)</code></pre>
+<p>CODE CHUNK B:</p>
+<pre><code>pweights = c(0.1, 0.2, 0.3, 0.4)<br>rx_stocks = df |&gt; select(-date)<br>Matrix = rx_stocks |&gt; cov(use = 'pairwise.complete.obs')<br>port_std = sqrt(t(pweights) %*% Matrix %*% pweights)</code></pre>
+<p>CODE CHUNK C:</p>
+<pre><code>pweights = c(0.1, 0.2, 0.3, 0.4)<br>rx_stocks = df |&gt; select(-date)<br>Matrix = rx_stocks |&gt; sd(use = 'pairwise.complete.obs')<br>port_std = sqrt(t(pweights) %*% Matrix %*% pweights)</code></pre>
+<p>Which of the code chunks correctly computes the standard deviation of the weighted portfolio over the whole sample period?</p>
+<br/>
+<ol type="a">
+<li>
+Only Code Chunk A is correct.
+</li>
+<li>
+Only Code Chunk B is correct.
+</li>
+<li>
+Only Code Chunk C is correct.
+</li>
+<li>
+None of the code chunks are correct.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False. 4th line wrong: t(Matrix), should not be transposed.
+</li>
+<li>
+True.
+</li>
+<li>
+False. 3rd line wrong: sd() should be cov()
+</li>
+<li>
+False. Code Chunk B is correct
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have the following variance-covariance matrix of <strong>AMZN</strong> and <strong>MCD</strong> returns, saved in matrix format as <strong>COV_MAT</strong> in R:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;background-color: white !important;">
+</th>
+<th style="text-align:right;background-color: white !important;">
+AMZN
+</th>
+<th style="text-align:right;background-color: white !important;">
+MCD
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AMZN
+</td>
+<td style="text-align:right;">
+0.7
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MCD
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+</tbody>
+</table>
+<p>What is the value of <code>SOL</code> in the code below?</p>
+<pre><code>PWEIGHTS = c(0.6, 0.4)<br>PVAR = t(PWEIGHTS) %*% COV_MAT %*% PWEIGHTS<br>SOL = round(PVAR, digits=2)</code></pre>
+<p><em>Note: Enter your answer as decimals (no percentages), rounded to two (2) digits to the right of the decimal point. Use periods for decimal points, not commas. Example: If your solution is 53.367, enter your answer as 53.37. (Enter negative numbers with a leading minus sign.)</em></p>
+<br/>
+<h4>Solution</h4>
+<p>The solution is 0.72.</p>
+<p>Transpose the weights for the matrix multiplication:</p>
+<p>0.6x0.7 + 0.4x0.8 = 0.74</p>
+<p>0.6x0.8 + 0.4x0.5 = 0.68</p>
+<p>Then multiply the resulting vector with the (non-transposed) weights again:</p>
+<p>0.6x0.74 + 0.4x0.68 = 0.72</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Assume you have a data file <strong>df</strong> with the following structure (6 variables, 1259 observations):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;background-color: white !important;">
+date
+</th>
+<th style="text-align:right;background-color: white !important;">
+year
+</th>
+<th style="text-align:right;background-color: white !important;">
+rx
+</th>
+<th style="text-align:right;background-color: white !important;">
+MKB
+</th>
+<th style="text-align:right;background-color: white !important;">
+SMB
+</th>
+<th style="text-align:right;background-color: white !important;">
+HML
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2018-01-02
+</td>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+-0.005
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+<td style="text-align:right;">
+-0.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-01-03
+</td>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+-0.006
+</td>
+<td style="text-align:right;">
+0.59
+</td>
+<td style="text-align:right;">
+-0.39
+</td>
+<td style="text-align:right;">
+-0.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-12-29
+</td>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:right;">
+0.003
+</td>
+<td style="text-align:right;">
+1.87
+</td>
+<td style="text-align:right;">
+1.27
+</td>
+<td style="text-align:right;">
+-1.07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-12-30
+</td>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:right;">
+-0.021
+</td>
+<td style="text-align:right;">
+-0.22
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+-0.03
+</td>
+</tr>
+</tbody>
+</table>
+<p>The file contains calendar <strong>date</strong> and <strong>year</strong>, daily excess returns <strong>rx</strong> for a specific stock, and the daily excess returns of the three Fama-French (FF) Factors “Market” <strong>MKT</strong>, “Small minus Big” <strong>SMB</strong>, and “High minus Low” <strong>HML</strong>.</p>
+<p>The code below uses all observations in the sample to estimate a FF3-factor model. One argument is missing (marked with ___):</p>
+<pre><code>FF3 = ___(rx ~ MKT + SMB + HML, data = df)</code></pre>
+<p>What R expression should go into ___ (one argument, no spaces, small caps)?</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct argument is: <strong>lm</strong></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>In R you have a dataframe <strong>df1</strong> with monthly total returns of a single stock, referred to as <strong>r</strong>. The code below computes the geometric mean of this stock return series, <strong>r_geo</strong>, over the whole sample period. One argument is missing (marked with ___):</p>
+<pre><code>df2 = df1 |&gt; summarize(x = n(), r_geo  = ___(1+r, na.rm=T)^(1/x) - 1)</code></pre>
+<p>What R expression should go into ___ (one argument, no spaces, small caps)?</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct argument is: <strong>prod</strong></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Assume you have a data file <strong>df</strong> with the following structure (6 variables, 1259 observations):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;background-color: white !important;">
+date
+</th>
+<th style="text-align:right;background-color: white !important;">
+year
+</th>
+<th style="text-align:right;background-color: white !important;">
+rx
+</th>
+<th style="text-align:right;background-color: white !important;">
+MKT
+</th>
+<th style="text-align:right;background-color: white !important;">
+SMB
+</th>
+<th style="text-align:right;background-color: white !important;">
+HML
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2018-01-02
+</td>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+-0.005
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+<td style="text-align:right;">
+-0.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-01-03
+</td>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+-0.006
+</td>
+<td style="text-align:right;">
+0.59
+</td>
+<td style="text-align:right;">
+-0.39
+</td>
+<td style="text-align:right;">
+-0.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-12-29
+</td>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:right;">
+0.003
+</td>
+<td style="text-align:right;">
+1.87
+</td>
+<td style="text-align:right;">
+1.27
+</td>
+<td style="text-align:right;">
+-1.07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-12-30
+</td>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:right;">
+-0.021
+</td>
+<td style="text-align:right;">
+-0.22
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+-0.03
+</td>
+</tr>
+</tbody>
+</table>
+<p>The file contains calendar <strong>date</strong> and <strong>year</strong>, daily excess returns <strong>rx</strong> for a specific stock, and the daily excess returns of the three Fama-French (FF) Factors “Market” <strong>MKT</strong>, “Small minus Big” <strong>SMB</strong>, and “High minus Low” <strong>HML</strong>.</p>
+<p>Consider the two R code chunks below:</p>
+<p>CODE CHUNK A:</p>
+<pre><code>FF3 = lm(rx ~ MKT + SMB + HML, data = df)<br>df$rx = predict(FF3, newdata = df)<br>df = df |&gt; mutate(ra = rx - rx_p)</code></pre>
+<p>CODE CHUNK B:</p>
+<pre><code>FF3 = lm(rx ~ MKT + SMB + HML, data = df)<br>df$FF3 = predict(rx_p, newdata = df)<br>df = df |&gt; mutate(ra = rx - rx_p)</code></pre>
+<p>Which code chunk correctly does the following: estimate a FF3-factor model with all observations in the sample, and then, using these estimates, compute all <strong>daily abnormal returns</strong> for the stock (saved as Variable <strong>ra</strong>)?</p>
+<br/>
+<ol type="a">
+<li>
+Only Code Chunk A is correct.
+</li>
+<li>
+Only Code Chunk B is correct.
+</li>
+<li>
+Both code chunks are correct.
+</li>
+<li>
+None of the code chunks are correct.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+True. Both codes are incorrect in Line 2. The correct line is: df$rx_p = predict(FF3, newdata = df)
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have the following dataframe in R, referred to as <strong>df</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;background-color: white !important;">
+DATE
+</th>
+<th style="text-align:right;background-color: white !important;">
+TBILL
+</th>
+<th style="text-align:right;background-color: white !important;">
+RE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2015-01
+</td>
+<td style="text-align:right;">
+0.007
+</td>
+<td style="text-align:right;">
+-0.017
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-02
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.064
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-03
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+<td style="text-align:right;">
+-0.084
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-04
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+</tr>
+</tbody>
+</table>
+<p>The first column contains calendar months. The 2nd and 3rd column contain monthly returns of the T-bill (TBILL) and a stock (RE).</p>
+<p>What is the value of <strong>sol</strong> in the code below?</p>
+<pre><code>df = df |&gt;<br>  mutate(X = ifelse(RE &lt; TBILL, RE, NA_real_)) |&gt;<br>  summarize(sol = sum(X, na.rm=T))</code></pre>
+<p><em>Note: Enter your answer as decimals (no percentages), rounded to two (2) digits to the right of the decimal point. Use periods for decimal points, not commas. Example: If your solution is 53.367, enter your answer as 53.37. (Enter negative numbers with a leading minus sign.)</em></p>
+<br/>
+<h4>Solution</h4>
+<p>The solution is -0.1.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have the following dataframe in R, referred to as <strong>df</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;background-color: white !important;">
+DATE
+</th>
+<th style="text-align:right;background-color: white !important;">
+TBILL
+</th>
+<th style="text-align:right;background-color: white !important;">
+RE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2015-01
+</td>
+<td style="text-align:right;">
+0.007
+</td>
+<td style="text-align:right;">
+-0.017
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-02
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.064
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-03
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+<td style="text-align:right;">
+-0.084
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-04
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+</tr>
+</tbody>
+</table>
+<p>The first column contains calendar months. The 2nd and 3rd column contain monthly returns of the T-bill (TBILL) and a stock (RE).</p>
+<p>What is the value of <strong>sol</strong> in the code below?</p>
+<pre><code>df = df |&gt;<br>mutate(X = ifelse(RE &lt; TBILL, RE, NA_real_)) |&gt;<br>    summarize(<br>    Y = n(),<br>    Z = sum(!is.na(X)),<br>    S = sum(X, na.rm=T)) |&gt;<br>  mutate(sol = round(Z/S*Y, digits=2))</code></pre>
+<p><em>Note: Enter your answer as decimals (no percentages), rounded to two (2) digits to the right of the decimal point. Use periods for decimal points, not commas. Example: If your solution is 53.367, enter your answer as 53.37. (Enter negative numbers with a leading minus sign.)</em></p>
+<br/>
+<h4>Solution</h4>
+<p>The solution is -79.21 with Y=4, Z=2, and S=-0.101.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have a dataframe <strong>df</strong> with abnormal returns around an event for many firms:</p>
+<ul>
+<li><strong>FIRM</strong>: firm identifier</li>
+<li><strong>EVTDAY</strong>: event day (0 = event day, negative = before, positive = after)</li>
+<li><strong>RA</strong>: abnormal return on that day</li>
+</ul>
+<p>Your goal is:</p>
+<p>Compute the average 3-day CAR (from day −1 to +1) across all firms.</p>
+<p>You consider the following two R code chunks (assume tidyverse is loaded):</p>
+<pre><code># Chunk A<br>sol = df |&gt;<br>  filter(EVTDAY &gt;= -1, EVTDAY &lt;= 1) |&gt;<br>  group_by(FIRM) |&gt;<br>  summarize(CAR = sum(RA)) |&gt;<br>  ungroup() |&gt;<br>  summarize(sol = mean(CAR))</code></pre>
+<pre><code># Chunk B<br>sol = df |&gt;<br>  filter(EVTDAY &gt;= -1, EVTDAY &lt;= 1) |&gt;<br>  summarize(CAR = sum(RA)) |&gt;<br>  ungroup() |&gt;<br>  summarize(sol = mean(CAR))</code></pre>
+<p>Question: Which chunk correctly implements the goal described above?</p>
+<br/>
+<ol type="a">
+<li>
+Chunk A correct
+</li>
+<li>
+Chunk B correct
+</li>
+<li>
+Both chunks correct
+</li>
+<li>
+None of the chunks is correct
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have a dataframe <strong>df</strong> with monthly returns for several stocks:</p>
+<ul>
+<li><strong>ticker</strong>: stock identifier</li>
+<li><strong>RE</strong>: stock return</li>
+<li><strong>RF</strong>: risk‑free rate</li>
+</ul>
+<p>Your goal is:</p>
+<ol style="list-style-type: decimal">
+<li>For each stock, compute its average monthly excess return.</li>
+<li>Then compute one single number <strong>sol</strong> equal to the simple average of these stock‑level averages across all stocks.</li>
+</ol>
+<p>You consider these two tidyverse code chunks (assume tidyverse is loaded):</p>
+<pre><code># Chunk A<br>sol = df |&gt;<br>  group_by(ticker) |&gt;<br>  mutate(EXC = RE - RF) |&gt;<br>  summarize(avg_exc = mean(EXC))</code></pre>
+<pre><code># Chunk B<br>sol = df |&gt;<br>  mutate(EXC = RE - RF) |&gt;<br>  group_by(ticker) |&gt;<br>  summarize(avg_exc = mean(EXC)) |&gt;<br>  ungroup() |&gt;<br>  summarize(sol = mean(avg_exc))</code></pre>
+<p>Question: Which chunk correctly implements the goal above?</p>
+<br/>
+<ol type="a">
+<li>
+Chunk A correct
+</li>
+<li>
+Chunk B correct
+</li>
+<li>
+Both chunks correct
+</li>
+<li>
+None of the chunks is correct
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have this small dataframe <strong>df</strong> with monthly returns for two stocks over two years and a constant risk-free rate:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;background-color: white !important;">
+year
+</th>
+<th style="text-align:left;background-color: white !important;">
+ticker
+</th>
+<th style="text-align:right;background-color: white !important;">
+RE
+</th>
+<th style="text-align:right;background-color: white !important;">
+RF
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now you run this R code (assume tidyverse is loaded):</p>
+<pre><code>sol = df |&gt;<br>  mutate(EXC = RE - RF) |&gt;<br>  group_by(year, ticker) |&gt;<br>  summarize(avg_exc = mean(EXC)) |&gt;<br>  ungroup() |&gt;<br>  summarize(sol = max(avg_exc) - min(avg_exc))</code></pre>
+<p>What is the numeric value of <strong>sol</strong>, rounded to three decimal places?</p>
+<p><em>Note: Enter your answer as decimals (no percentages), rounded to three (3) digits to the right of the decimal point. Use periods for decimal points, not commas. Example: If your solution is 53.3674, enter your answer as 53.367. (Enter negative numbers with a leading minus sign.)</em></p>
+<br/>
+<h4>Solution</h4>
+<p>The solution is 0.025.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have this small dataframe <strong>df</strong> with monthly excess returns for three stocks A, B, C:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;background-color: white !important;">
+year
+</th>
+<th style="text-align:left;background-color: white !important;">
+ticker
+</th>
+<th style="text-align:right;background-color: white !important;">
+EXC
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+-0.020
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+0.015
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+0.030
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+-0.010
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+0.020
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+-0.020
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+</tr>
+</tbody>
+</table>
+<p>You run the following R code (assume tidyverse is loaded):</p>
+<pre><code>sol = df |&gt;<br>  filter(year == 2021, EXC &gt;= 0) |&gt;<br>  group_by(ticker) |&gt;<br>  summarize(avg_exc = mean(EXC)) |&gt;<br>  ungroup() |&gt;<br>  summarize(sol = mean(avg_exc))</code></pre>
+<p>What is the numeric value of <strong>sol</strong>, rounded to three decimal places?</p>
+<p><em>Note: Enter your answer as decimals (no percentages), rounded to three (3) digits to the right of the decimal point. Use periods for decimal points, not commas. Example: If your solution is 53.3674, enter your answer as 53.367. (Enter negative numbers with a leading minus sign.)</em></p>
+<br/>
+<h4>Solution</h4>
+<p>The solution is 0.017.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have a dataframe <strong>df</strong> with monthly returns for several mutual funds:</p>
+<ul>
+<li><strong>fund</strong>: fund identifier</li>
+<li><strong>RE</strong>: fund return</li>
+<li><strong>RF</strong>: risk-free rate</li>
+</ul>
+<p>Your goal:</p>
+<p>For each fund, compute its Sharpe ratio based on monthly data:</p>
+<ol style="list-style-type: decimal">
+<li>First compute monthly excess returns <strong>EXC = RE - RF</strong>.</li>
+<li>For each fund, compute:
+<ul>
+<li><strong>mean_exc</strong> = average of <strong>EXC</strong></li>
+<li><strong>sd_exc</strong> = standard deviation of <strong>EXC</strong></li>
+</ul></li>
+<li>Compute <strong>Sharpe = mean_exc / sd_exc</strong>.</li>
+<li>Produce a dataframe <strong>dfSharpe</strong> with only two columns:
+<ul>
+<li><strong>fund</strong></li>
+<li><strong>Sharpe</strong></li>
+</ul></li>
+</ol>
+<p>The result should be sorted from highest to lowest <strong>Sharpe</strong>.</p>
+<p>You use this tidyverse pipeline (assume tidyverse is loaded):</p>
+<pre><code>dfSharpe = df |&gt;<br>  mutate(EXC = RE - RF) |&gt;<br>  group_by(fund) |&gt;<br>  summarize(<br>    mean_exc = mean(EXC),<br>    sd_exc   = sd(EXC)<br>  ) |&gt;<br>  mutate(Sharpe = mean_exc / sd_exc) |&gt;<br>  ___(desc(Sharpe)) |&gt;<br>  select(fund, Sharpe)</code></pre>
+<p>What R expression should go into ___ (one word, no spaces, lowercase)?</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct expression is: <strong>arrange</strong></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have a dataframe <strong>df</strong> with daily excess returns of a fund:</p>
+<ul>
+<li><strong>excess</strong>: daily excess return of the fund</li>
+</ul>
+<p>Your goal:</p>
+<p>Create a single-row dataframe <strong>df_perf</strong> with:</p>
+<ul>
+<li><strong>avg_exc</strong>: the average of <strong>excess</strong></li>
+<li><strong>var_exc</strong>: the variance of <strong>excess</strong></li>
+</ul>
+<p>Complete the code:</p>
+<pre><code>df_perf = df |&gt;<br>  summarize(<br>    avg_exc = mean(excess),<br>    var_exc = ___(excess)<br>  )</code></pre>
+<p>What R expression should go into ___ (one word, no spaces, lowercase)?</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct expression is: <strong>var</strong></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have a dataframe <strong>df</strong> with daily returns around an event:</p>
+<ul>
+<li><strong>ticker</strong>: firm ID</li>
+<li><strong>evtday</strong>: event day (0 = event day, -10…+10)</li>
+<li><strong>ra</strong>: abnormal return on that day</li>
+</ul>
+<p>Your goal:</p>
+<p>Compute the average 3-day CAR (-1, 0, +1) across all firms and store it in an object <strong>sol</strong>.</p>
+<p>Complete the code:</p>
+<pre><code>dfCAR = df |&gt;<br>  filter(evtday &gt;= -1, evtday &lt;= 1) |&gt;<br>  group_by(___) |&gt;<br>  summarize(CAR = sum(ra))<br><br>sol = mean(dfCAR$CAR)</code></pre>
+<p>What R expression should go into ___ (one word, no spaces, lowercase)?</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct expression is: <strong>ticker</strong></p>
+<br/>
+</li>
+</ol>
+
+</body>
+</html>
