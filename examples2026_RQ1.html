@@ -1190,6 +1190,359 @@ C
 <p>The correct expression is: <strong>ticker</strong></p>
 <br/>
 </li>
+<li>
+<h4>Question</h4>
+<p>You have a dataframe <strong>df</strong> with monthly excess returns:</p>
+<ul>
+<li><strong>rx</strong>: stock excess return</li>
+<li><strong>mkt_ex</strong>: market excess return</li>
+</ul>
+<p>Your goal:</p>
+<p>Compute a single-row dataframe <strong>df_beta</strong> with:</p>
+<ul>
+<li><strong>cov_rm</strong>: covariance between <strong>rx</strong> and <strong>mkt_ex</strong></li>
+<li><strong>beta</strong>: CAPM beta of the stock</li>
+</ul>
+<p>Complete the code:</p>
+<pre><code>df_beta = df |&gt;<br>  summarize(<br>    crm = ___(rx, mkt_ex),<br>    beta   = crm / var(mkt_ex)<br>  )</code></pre>
+<p>What R expression should go into ___ (one word, no spaces, lowercase)?</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct expression is: <strong>cov</strong></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have a dataframe <strong>df</strong> with daily returns around an event:</p>
+<ul>
+<li><strong>ticker</strong>: firm ID</li>
+<li><strong>evtday</strong>: event day (0 = event day, -10…+10)</li>
+<li><strong>ra</strong>: abnormal return on that day</li>
+</ul>
+<p>Your goal:</p>
+<p>Compute the average 3-day CAR (-1, 0, +1) across all firms and store it in an object <strong>sol</strong>.</p>
+<p>Complete the code:</p>
+<pre><code>dfCAR = df |&gt;<br>  ___(evtday &gt;= -1, evtday &lt;= 1) |&gt;<br>  group_by(ticker) |&gt;<br>  summarize(CAR = sum(ra))<br><br>sol = mean(dfCAR$CAR)</code></pre>
+<p>What R expression should go into ___ (one word, no spaces, lowercase)?</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct expression is: <strong>filter</strong></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>You have a dataframe <strong>df</strong> with daily excess returns of a fund:</p>
+<ul>
+<li><strong>excess</strong>: daily excess return of the fund</li>
+</ul>
+<p>Your goal:</p>
+<p>Create a single-row dataframe <strong>df_perf</strong> with:</p>
+<ul>
+<li><strong>avg_exc</strong>: the average of <strong>excess</strong></li>
+<li><strong>var_exc</strong>: the variance of <strong>excess</strong></li>
+</ul>
+<p>Complete the code:</p>
+<pre><code>df_perf = df |&gt;<br>  summarize(<br>    avg_exc = ___(excess),<br>    var_exc = var(excess)<br>  )</code></pre>
+<p>What R expression should go into ___ (one word, no spaces, lowercase)?</p>
+<br/>
+<h4>Solution</h4>
+<p>The correct expression is: <strong>mean</strong></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Assume you have a data file <strong>df</strong> with the following structure (6 variables, 1259 observations):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;background-color: white !important;">
+date
+</th>
+<th style="text-align:right;background-color: white !important;">
+year
+</th>
+<th style="text-align:right;background-color: white !important;">
+rx
+</th>
+<th style="text-align:right;background-color: white !important;">
+MKT
+</th>
+<th style="text-align:right;background-color: white !important;">
+SMB
+</th>
+<th style="text-align:right;background-color: white !important;">
+HML
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2018-01-02
+</td>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+-0.005
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+<td style="text-align:right;">
+-0.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-01-03
+</td>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+-0.006
+</td>
+<td style="text-align:right;">
+0.59
+</td>
+<td style="text-align:right;">
+-0.39
+</td>
+<td style="text-align:right;">
+-0.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-12-29
+</td>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:right;">
+0.003
+</td>
+<td style="text-align:right;">
+1.87
+</td>
+<td style="text-align:right;">
+1.27
+</td>
+<td style="text-align:right;">
+-1.07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-12-30
+</td>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:right;">
+-0.021
+</td>
+<td style="text-align:right;">
+-0.22
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+-0.03
+</td>
+</tr>
+</tbody>
+</table>
+<p>The file contains calendar <strong>date</strong> and <strong>year</strong>, daily excess returns <strong>rx</strong> for a specific stock, and the daily excess returns of the three Fama-French (FF) Factors “Market” <strong>MKT</strong>, “Small minus Big” <strong>SMB</strong>, and “High minus Low” <strong>HML</strong>.</p>
+<p>The code below uses all observations in <strong>2021</strong> to estimate a FF3-factor model. One argument is missing (marked with ___):</p>
+<pre><code>FF3 = lm(rx ~ MKT + SMB + HML, data = df, ___ = (year == 2021))</code></pre>
+<p>What is the correct argument?</p>
+<br/>
+<ol type="a">
+<li>
+filter
+</li>
+<li>
+predict
+</li>
+<li>
+subset
+</li>
+<li>
+select
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Assume you have a data file <strong>df</strong> with the following structure (3 variables, 120 observations):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;background-color: white !important;">
+Date
+</th>
+<th style="text-align:right;background-color: white !important;">
+rx
+</th>
+<th style="text-align:right;background-color: white !important;">
+rm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2015-01
+</td>
+<td style="text-align:right;">
+0.0728
+</td>
+<td style="text-align:right;">
+0.0767
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-02
+</td>
+<td style="text-align:right;">
+0.0328
+</td>
+<td style="text-align:right;">
+0.0279
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-03
+</td>
+<td style="text-align:right;">
+0.0013
+</td>
+<td style="text-align:right;">
+0.0159
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2024-11
+</td>
+<td style="text-align:right;">
+0.0293
+</td>
+<td style="text-align:right;">
+0.0371
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2024-12
+</td>
+<td style="text-align:right;">
+-0.0949
+</td>
+<td style="text-align:right;">
+-0.0677
+</td>
+</tr>
+</tbody>
+</table>
+<p>The data file contains monthly excess returns <strong>rx</strong> of a Vanguard Exchange Traded Fund (ETF), and monthly market excess returns <strong>rm</strong>.</p>
+<p>Consider the following R code chunks:</p>
+<p>CODE CHUNK A:</p>
+<pre><code>model = lm(rx ~ rm, data=df)<br>alpha = coef(model)["(Intercept)"]<br>x = sd(df$rx)<br>IR = alpha/x</code></pre>
+<p>CODE CHUNK B:</p>
+<pre><code>model = lm(rx ~ rm, data=df)<br>alpha = coef(model)["(Intercept)"]<br>x = coef(model)["rm"]<br>IR = alpha/x</code></pre>
+<p>CODE CHUNK C:</p>
+<pre><code>model = lm(rx ~ rm, data=df)<br>alpha = coef(model)["(Intercept)"]<br>x = sd(residuals(model))<br>IR = alpha/x</code></pre>
+<p>Using all observations and the CAPM, which code chunk correctly computes the information ratio of the Vanguard ETF (stored as variable <strong>IR</strong>)?</p>
+<br/>
+<ol type="a">
+<li>
+Only Code Chunk A is correct.
+</li>
+<li>
+Only Code Chunk B is correct.
+</li>
+<li>
+Only Code Chunk C is correct.
+</li>
+<li>
+None of the code chunks are correct.
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<ol type="a">
+<li>
+False.
+</li>
+<li>
+False.
+</li>
+<li>
+True.
+</li>
+<li>
+False.
+</li>
+</ol>
+<br/>
+</li>
 </ol>
 
 </body>
